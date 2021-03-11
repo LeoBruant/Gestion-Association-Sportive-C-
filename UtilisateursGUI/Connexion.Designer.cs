@@ -37,7 +37,6 @@
             this.erreurMotDePasse = new System.Windows.Forms.Label();
             this.erreurIdentification = new System.Windows.Forms.Label();
             this.quitter = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nomUtilisateur
@@ -127,21 +126,11 @@
             this.quitter.UseVisualStyleBackColor = true;
             this.quitter.Click += new System.EventHandler(this.quitter_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(520, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 29);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "label2";
-            // 
             // Connexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 388);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.quitter);
             this.Controls.Add(this.erreurIdentification);
             this.Controls.Add(this.erreurMotDePasse);
@@ -175,7 +164,6 @@
         private System.Windows.Forms.Label erreurMotDePasse;
         private System.Windows.Forms.Label erreurIdentification;
         private System.Windows.Forms.Button quitter;
-        private System.Windows.Forms.Label label2;
     }
 }
 
