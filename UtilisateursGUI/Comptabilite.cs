@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UtilisateursBLL;
 
 namespace UtilisateursGUI
 {
@@ -15,6 +16,11 @@ namespace UtilisateursGUI
         public Comptabilite()
         {
             InitializeComponent();
+            float budgetEPS = GestionUtilisateurs.GetBudgetEPS();
+            float budgetAS = GestionUtilisateurs.GetBudgetAS();
+
+            EPSLabel.Text = budgetEPS.ToString() + '€';
+            ASLabel.Text = budgetAS.ToString() + '€';
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -73,6 +79,52 @@ namespace UtilisateursGUI
         private void label19_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void modifEPS_Click(object sender, EventArgs e)
+        {
+            if (Int32.TryParse(EPSChamp.Text, out int number))
+            {
+                GestionUtilisateurs.ModifBudgetEPS(float.Parse(EPSChamp.Text));
+                float budgetEPS = GestionUtilisateurs.GetBudgetEPS();
+                EPSLabel.Text = budgetEPS.ToString() + '€';
+
+                EPSError.Visible = false;
+                EPSChamp.Text = "";
+            }
+
+            else
+            {
+                EPSError.Visible = true;
+                EPSChamp.Text = "";
+            }
+        }
+
+        private void modifAS_Click(object sender, EventArgs e)
+        {
+            if (Int32.TryParse(ASChamp.Text, out int number))
+            {
+                GestionUtilisateurs.ModifBudgetAS(float.Parse(ASChamp.Text));
+                float budgetEPS = GestionUtilisateurs.GetBudgetAS();
+                ASLabel.Text = budgetEPS.ToString() + '€';
+
+                ASError.Visible = false;
+                ASChamp.Text = "";
+            }
+
+            else
+            {
+                ASError.Visible = true;
+                ASChamp.Text = "";
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ChoixAdmin choixAdmin = new ChoixAdmin();
+            choixAdmin.Show();
+
+            this.Close();
         }
     }
 }

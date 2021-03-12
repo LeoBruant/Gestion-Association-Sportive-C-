@@ -314,5 +314,95 @@ namespace UtilisateursDAL
 
             return true;
         }
+
+        // Méthode qui retourne le montant du budget EPS
+        public static float GetBudgetEPS()
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT Montantinitial_budget FROM BUDGET WHERE Libelle_budget = 'EPS'";
+
+            // Lecture des données
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                return float.Parse(monReader["Montantinitial_budget"].ToString());
+            }
+
+            monReader.Close();
+            maConnexion.Close();
+
+            return 0;
+        }
+
+        // Méthode qui retourne le montant du budget EPS
+        public static float GetBudgetAS()
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT Montantinitial_budget FROM BUDGET WHERE Libelle_budget = 'AS'";
+
+            // Lecture des données
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                return Convert.ToInt32(monReader["Montantinitial_budget"]);
+            }
+
+            monReader.Close();
+            maConnexion.Close();
+
+            return 0;
+        }
+
+        // Méthode qui modifie le budget EPS dans la base de données
+        public static void ModifBudgetEPS(float valeur)
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "UPDATE BUDGET SET Montantinitial_budget = @valeur WHERE Libelle_budget = 'EPS'";
+
+            // Ajout des paramètres
+            cmd.Parameters.AddWithValue("@valeur", valeur);
+
+            // Execution de la requete
+            cmd.ExecuteNonQuery();
+
+            maConnexion.Close();
+        }
+
+        // Méthode qui modifie le budget AS dans la base de données
+        public static void ModifBudgetAS(float valeur)
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "UPDATE BUDGET SET Montantinitial_budget = @valeur WHERE Libelle_budget = 'AS'";
+
+            // Ajout des paramètres
+            cmd.Parameters.AddWithValue("@valeur", valeur);
+
+            // Execution de la requete
+            cmd.ExecuteNonQuery();
+
+            maConnexion.Close();
+        }
     }
 }
