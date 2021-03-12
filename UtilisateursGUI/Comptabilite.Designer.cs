@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
-            this.ajoutLoginChamp = new System.Windows.Forms.TextBox();
+            this.EPSChamp = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.modifEPS = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.EPSLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ASChamp = new System.Windows.Forms.TextBox();
+            this.modifAS = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.ASLabel = new System.Windows.Forms.Label();
+            this.retour = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -59,6 +59,8 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -85,8 +87,8 @@
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label19 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EPSError = new System.Windows.Forms.Label();
+            this.ASError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -104,14 +106,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // ajoutLoginChamp
+            // EPSChamp
             // 
-            this.ajoutLoginChamp.Font = new System.Drawing.Font("Calibri Light", 10.2F);
-            this.ajoutLoginChamp.Location = new System.Drawing.Point(213, 51);
-            this.ajoutLoginChamp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ajoutLoginChamp.Name = "ajoutLoginChamp";
-            this.ajoutLoginChamp.Size = new System.Drawing.Size(157, 28);
-            this.ajoutLoginChamp.TabIndex = 14;
+            this.EPSChamp.Font = new System.Drawing.Font("Calibri Light", 10.2F);
+            this.EPSChamp.Location = new System.Drawing.Point(213, 51);
+            this.EPSChamp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.EPSChamp.Name = "EPSChamp";
+            this.EPSChamp.Size = new System.Drawing.Size(157, 28);
+            this.EPSChamp.TabIndex = 14;
             // 
             // label1
             // 
@@ -125,15 +127,16 @@
             this.label1.Text = "Budjet Annuel EPS : ";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button2
+            // modifEPS
             // 
-            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(393, 51);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 31);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "enregistrer";
-            this.button2.UseVisualStyleBackColor = true;
+            this.modifEPS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifEPS.Location = new System.Drawing.Point(393, 51);
+            this.modifEPS.Name = "modifEPS";
+            this.modifEPS.Size = new System.Drawing.Size(130, 31);
+            this.modifEPS.TabIndex = 16;
+            this.modifEPS.Text = "enregistrer";
+            this.modifEPS.UseVisualStyleBackColor = true;
+            this.modifEPS.Click += new System.EventHandler(this.modifEPS_Click);
             // 
             // label2
             // 
@@ -146,16 +149,16 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "Budjet Annuel EPS : ";
             // 
-            // label3
+            // EPSLabel
             // 
-            this.label3.AccessibleName = "";
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(734, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 24);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "XXXX€";
+            this.EPSLabel.AccessibleName = "";
+            this.EPSLabel.AutoSize = true;
+            this.EPSLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EPSLabel.Location = new System.Drawing.Point(734, 52);
+            this.EPSLabel.Name = "EPSLabel";
+            this.EPSLabel.Size = new System.Drawing.Size(60, 24);
+            this.EPSLabel.TabIndex = 18;
+            this.EPSLabel.Text = "XXXX€";
             // 
             // label4
             // 
@@ -164,29 +167,30 @@
             this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(12, 116);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(214, 30);
+            this.label4.Size = new System.Drawing.Size(171, 24);
             this.label4.TabIndex = 19;
             this.label4.Text = "Budjet Annuel AS : ";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // textBox1
+            // ASChamp
             // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri Light", 10.2F);
-            this.textBox1.Location = new System.Drawing.Point(213, 116);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(157, 28);
-            this.textBox1.TabIndex = 20;
+            this.ASChamp.Font = new System.Drawing.Font("Calibri Light", 10.2F);
+            this.ASChamp.Location = new System.Drawing.Point(213, 116);
+            this.ASChamp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ASChamp.Name = "ASChamp";
+            this.ASChamp.Size = new System.Drawing.Size(157, 28);
+            this.ASChamp.TabIndex = 20;
             // 
-            // button3
+            // modifAS
             // 
-            this.button3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(393, 116);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(130, 31);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "enregistrer";
-            this.button3.UseVisualStyleBackColor = true;
+            this.modifAS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifAS.Location = new System.Drawing.Point(393, 116);
+            this.modifAS.Name = "modifAS";
+            this.modifAS.Size = new System.Drawing.Size(130, 31);
+            this.modifAS.TabIndex = 21;
+            this.modifAS.Text = "enregistrer";
+            this.modifAS.UseVisualStyleBackColor = true;
+            this.modifAS.Click += new System.EventHandler(this.modifAS_Click);
             // 
             // label5
             // 
@@ -195,31 +199,32 @@
             this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(549, 119);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(214, 30);
+            this.label5.Size = new System.Drawing.Size(171, 24);
             this.label5.TabIndex = 22;
             this.label5.Text = "Budjet Annuel AS : ";
             // 
-            // label6
+            // ASLabel
             // 
-            this.label6.AccessibleName = "";
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(734, 119);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 24);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "XXXX€";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.ASLabel.AccessibleName = "";
+            this.ASLabel.AutoSize = true;
+            this.ASLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ASLabel.Location = new System.Drawing.Point(734, 119);
+            this.ASLabel.Name = "ASLabel";
+            this.ASLabel.Size = new System.Drawing.Size(60, 24);
+            this.ASLabel.TabIndex = 23;
+            this.ASLabel.Text = "XXXX€";
+            this.ASLabel.Click += new System.EventHandler(this.label6_Click);
             // 
-            // button4
+            // retour
             // 
-            this.button4.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(1017, 16);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(170, 63);
-            this.button4.TabIndex = 24;
-            this.button4.Text = "Retour";
-            this.button4.UseVisualStyleBackColor = true;
+            this.retour.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.retour.Location = new System.Drawing.Point(1017, 16);
+            this.retour.Name = "retour";
+            this.retour.Size = new System.Drawing.Size(170, 63);
+            this.retour.TabIndex = 24;
+            this.retour.Text = "Retour";
+            this.retour.UseVisualStyleBackColor = true;
+            this.retour.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -380,6 +385,25 @@
             this.dataGridView3.Size = new System.Drawing.Size(303, 208);
             this.dataGridView3.TabIndex = 36;
             // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Nom";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Prénom";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 125;
+            // 
             // label7
             // 
             this.label7.AccessibleName = "";
@@ -513,7 +537,7 @@
             this.label13.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(11, 459);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(148, 30);
+            this.label13.Size = new System.Drawing.Size(118, 24);
             this.label13.TabIndex = 50;
             this.label13.Text = "Informations";
             // 
@@ -523,7 +547,7 @@
             this.login.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login.Location = new System.Drawing.Point(12, 502);
             this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(74, 30);
+            this.login.Size = new System.Drawing.Size(59, 24);
             this.login.TabIndex = 51;
             this.login.Text = "Nom :";
             // 
@@ -533,7 +557,7 @@
             this.label14.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(11, 532);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(104, 30);
+            this.label14.Size = new System.Drawing.Size(83, 24);
             this.label14.TabIndex = 52;
             this.label14.Text = "Prénom :";
             this.label14.Click += new System.EventHandler(this.label14_Click);
@@ -544,7 +568,7 @@
             this.label15.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(11, 561);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(88, 30);
+            this.label15.Size = new System.Drawing.Size(70, 24);
             this.label15.TabIndex = 53;
             this.label15.Text = "Classe :";
             // 
@@ -554,7 +578,7 @@
             this.label16.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(11, 628);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(130, 30);
+            this.label16.Size = new System.Drawing.Size(104, 24);
             this.label16.TabIndex = 54;
             this.label16.Text = "Sweet pris :";
             // 
@@ -564,7 +588,7 @@
             this.label17.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(12, 658);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(248, 30);
+            this.label17.Size = new System.Drawing.Size(198, 24);
             this.label17.TabIndex = 55;
             this.label17.Text = "Montant prélèvement :";
             // 
@@ -574,7 +598,7 @@
             this.label18.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(11, 594);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(241, 30);
+            this.label18.Size = new System.Drawing.Size(193, 24);
             this.label18.TabIndex = 56;
             this.label18.Text = "Prélèvement autorisé :";
             // 
@@ -636,35 +660,40 @@
             this.label19.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(344, 459);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(116, 30);
+            this.label19.Size = new System.Drawing.Size(93, 24);
             this.label19.TabIndex = 58;
             this.label19.Text = "Flux élève";
             this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
-            // dataGridViewTextBoxColumn5
+            // EPSError
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Nom";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 125;
+            this.EPSError.AutoSize = true;
+            this.EPSError.ForeColor = System.Drawing.Color.Red;
+            this.EPSError.Location = new System.Drawing.Point(211, 16);
+            this.EPSError.Name = "EPSError";
+            this.EPSError.Size = new System.Drawing.Size(207, 17);
+            this.EPSError.TabIndex = 59;
+            this.EPSError.Text = "Veuillez saisir un nombre valide";
+            this.EPSError.Visible = false;
             // 
-            // dataGridViewTextBoxColumn6
+            // ASError
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Prénom";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 125;
+            this.ASError.AutoSize = true;
+            this.ASError.ForeColor = System.Drawing.Color.Red;
+            this.ASError.Location = new System.Drawing.Point(211, 85);
+            this.ASError.Name = "ASError";
+            this.ASError.Size = new System.Drawing.Size(207, 17);
+            this.ASError.TabIndex = 60;
+            this.ASError.Text = "Veuillez saisir un nombre valide";
+            this.ASError.Visible = false;
             // 
             // Comptabilite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1755, 712);
+            this.Controls.Add(this.ASError);
+            this.Controls.Add(this.EPSError);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.dataGridView4);
             this.Controls.Add(this.label18);
@@ -695,17 +724,17 @@
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.retour);
+            this.Controls.Add(this.ASLabel);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.modifAS);
+            this.Controls.Add(this.ASChamp);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.EPSLabel);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.modifEPS);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.ajoutLoginChamp);
+            this.Controls.Add(this.EPSChamp);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
@@ -723,17 +752,17 @@
 
         #endregion
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox ajoutLoginChamp;
+        private System.Windows.Forms.TextBox EPSChamp;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button modifEPS;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label EPSLabel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox ASChamp;
+        private System.Windows.Forms.Button modifAS;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label ASLabel;
+        private System.Windows.Forms.Button retour;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
@@ -779,5 +808,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.Label EPSError;
+        private System.Windows.Forms.Label ASError;
     }
 }

@@ -92,5 +92,29 @@ namespace UtilisateursBLL
         {
             return UtilisateurDAO.ExisteAdherent(login);
         }
+
+        // Méthode qui retourne le montant du budget EPS
+        public static float GetBudgetEPS()
+        {
+            return UtilisateurDAO.GetBudgetEPS();
+        }
+
+        // Méthode qui retourne le montant du budget EPS
+        public static float GetBudgetAS()
+        {
+            return UtilisateurDAO.GetBudgetAS();
+        }
+
+        // Méthode qui met à jour le montant du budget EPS
+        public static void ModifBudgetEPS(float valeur)
+        {
+            UtilisateurDAO.ModifBudgetEPS(valeur);
+        }
+
+        // Méthode qui met à jour le montant du budget AS
+        public static void ModifBudgetAS(float valeur)
+        {
+            UtilisateurDAO.ModifBudgetAS(valeur);
+        }
     }
 }
