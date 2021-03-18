@@ -116,5 +116,10 @@ namespace UtilisateursBLL
         {
             UtilisateurDAO.ModifBudgetAS(valeur);
         }
+        // Méthode qui ajoute un flux dans la base de données
+        public static void AddFlux(Flux flux)
+        {
+            UtilisateurDAO.AddFlux(flux);
+        }
     }
 }

@@ -404,5 +404,32 @@ namespace UtilisateursDAL
 
             maConnexion.Close();
         }
+
+        // Méthode qui ajoute un Flux dans la base de données
+        public static void AddFlux(Flux flux)
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "INSERT INTO FLUX (Libelle_flux, Date_flux, Montant_flux, Prelevemment_eff_flux, Id_adherent, Id_type_flux, Id_evenement, Id_budget)";
+
+            // Ajout des paramètres
+            cmd.Parameters.AddWithValue("@Libelle_flux", flux.Libelle);
+            cmd.Parameters.AddWithValue("@Date_flux", flux.DateFlux);
+            cmd.Parameters.AddWithValue("@Montant_flux", flux.MontantFlux);
+            cmd.Parameters.AddWithValue("@Prelevemment_eff_flux", flux.PrelevementEff);
+            cmd.Parameters.AddWithValue("@Id_adherent", flux.IdAdherent);
+            cmd.Parameters.AddWithValue("@Id_type_flux", flux.IdTypeFlux);
+            cmd.Parameters.AddWithValue("@Id_evenement", flux.IdEvenement);
+            cmd.Parameters.AddWithValue("@Id_budget", flux.IdBudget);
+
+            // Execution de la requete
+            cmd.ExecuteNonQuery();
+
+            maConnexion.Close();
+        }
     }
 }
