@@ -38,6 +38,10 @@ namespace UtilisateursGUI {
         
         private UTILISATEURDataTable tableUTILISATEUR;
         
+        private global::System.Data.DataRelation relationId_classe_adherent;
+        
+        private global::System.Data.DataRelation relationId_utilisateur_adherent;
+        
         private global::System.Data.DataRelation relationId_adherent_flux;
         
         private global::System.Data.DataRelation relationId_evenement_flux;
@@ -344,6 +348,8 @@ namespace UtilisateursGUI {
                     this.tableUTILISATEUR.InitVars();
                 }
             }
+            this.relationId_classe_adherent = this.Relations["Id_classe_adherent"];
+            this.relationId_utilisateur_adherent = this.Relations["Id_utilisateur_adherent"];
             this.relationId_adherent_flux = this.Relations["Id_adherent_flux"];
             this.relationId_evenement_flux = this.Relations["Id_evenement_flux"];
             this.relationId_typeflux_flux = this.Relations["Id_typeflux_flux"];
@@ -371,6 +377,14 @@ namespace UtilisateursGUI {
             base.Tables.Add(this.tableTYPE_FLUX);
             this.tableUTILISATEUR = new UTILISATEURDataTable();
             base.Tables.Add(this.tableUTILISATEUR);
+            this.relationId_classe_adherent = new global::System.Data.DataRelation("Id_classe_adherent", new global::System.Data.DataColumn[] {
+                        this.tableCLASSE.Id_classeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableADHERENT.@__Id_classeColumn}, false);
+            this.Relations.Add(this.relationId_classe_adherent);
+            this.relationId_utilisateur_adherent = new global::System.Data.DataRelation("Id_utilisateur_adherent", new global::System.Data.DataColumn[] {
+                        this.tableUTILISATEUR.Id_utilisateurColumn}, new global::System.Data.DataColumn[] {
+                        this.tableADHERENT.@__Id_utilisateurColumn}, false);
+            this.Relations.Add(this.relationId_utilisateur_adherent);
             this.relationId_adherent_flux = new global::System.Data.DataRelation("Id_adherent_flux", new global::System.Data.DataColumn[] {
                         this.tableADHERENT.Id_adherentColumn}, new global::System.Data.DataColumn[] {
                         this.tableFLUX.@__Id_adherentColumn}, false);
@@ -534,7 +548,9 @@ namespace UtilisateursGUI {
             
             private global::System.Data.DataColumn columnDatemaj_adherent;
             
-            private global::System.Data.DataColumn columnArchive_adherent;
+            private global::System.Data.DataColumn columnarchive_adherent;
+            
+            private global::System.Data.DataColumn _column_Id_utilisateur;
             
             private global::System.Data.DataColumn _column_Id_classe;
             
@@ -669,9 +685,17 @@ namespace UtilisateursGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Archive_adherentColumn {
+            public global::System.Data.DataColumn archive_adherentColumn {
                 get {
-                    return this.columnArchive_adherent;
+                    return this.columnarchive_adherent;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn @__Id_utilisateurColumn {
+                get {
+                    return this._column_Id_utilisateur;
                 }
             }
             
@@ -720,7 +744,7 @@ namespace UtilisateursGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ADHERENTRow AddADHERENTRow(string Nom_adherent, string Prenom_adherent, System.DateTime Ddn_adherent, string Numtel_adherent, string Email_adherent, string Numparent_adherent, byte Autprelev_adherent, string Sexe_adherent, string Login_adherent, string Mdp_adherent, System.DateTime Datemaj_adherent, byte Archive_adherent, int @__Id_classe) {
+            public ADHERENTRow AddADHERENTRow(string Nom_adherent, string Prenom_adherent, System.DateTime Ddn_adherent, string Numtel_adherent, string Email_adherent, string Numparent_adherent, System.DateTime Autprelev_adherent, string Sexe_adherent, string Login_adherent, string Mdp_adherent, System.DateTime Datemaj_adherent, byte archive_adherent, UTILISATEURRow parentUTILISATEURRowById_utilisateur_adherent, CLASSERow parentCLASSERowById_classe_adherent) {
                 ADHERENTRow rowADHERENTRow = ((ADHERENTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -735,8 +759,15 @@ namespace UtilisateursGUI {
                         Login_adherent,
                         Mdp_adherent,
                         Datemaj_adherent,
-                        Archive_adherent,
-                        @__Id_classe};
+                        archive_adherent,
+                        null,
+                        null};
+                if ((parentUTILISATEURRowById_utilisateur_adherent != null)) {
+                    columnValuesArray[13] = parentUTILISATEURRowById_utilisateur_adherent[0];
+                }
+                if ((parentCLASSERowById_classe_adherent != null)) {
+                    columnValuesArray[14] = parentCLASSERowById_classe_adherent[0];
+                }
                 rowADHERENTRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowADHERENTRow);
                 return rowADHERENTRow;
@@ -778,7 +809,8 @@ namespace UtilisateursGUI {
                 this.columnLogin_adherent = base.Columns["Login_adherent"];
                 this.columnMdp_adherent = base.Columns["Mdp_adherent"];
                 this.columnDatemaj_adherent = base.Columns["Datemaj_adherent"];
-                this.columnArchive_adherent = base.Columns["Archive_adherent"];
+                this.columnarchive_adherent = base.Columns["archive_adherent"];
+                this._column_Id_utilisateur = base.Columns["#Id_utilisateur"];
                 this._column_Id_classe = base.Columns["#Id_classe"];
             }
             
@@ -799,7 +831,7 @@ namespace UtilisateursGUI {
                 base.Columns.Add(this.columnEmail_adherent);
                 this.columnNumparent_adherent = new global::System.Data.DataColumn("Numparent_adherent", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNumparent_adherent);
-                this.columnAutprelev_adherent = new global::System.Data.DataColumn("Autprelev_adherent", typeof(byte), null, global::System.Data.MappingType.Element);
+                this.columnAutprelev_adherent = new global::System.Data.DataColumn("Autprelev_adherent", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAutprelev_adherent);
                 this.columnSexe_adherent = new global::System.Data.DataColumn("Sexe_adherent", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSexe_adherent);
@@ -809,8 +841,12 @@ namespace UtilisateursGUI {
                 base.Columns.Add(this.columnMdp_adherent);
                 this.columnDatemaj_adherent = new global::System.Data.DataColumn("Datemaj_adherent", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDatemaj_adherent);
-                this.columnArchive_adherent = new global::System.Data.DataColumn("Archive_adherent", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArchive_adherent);
+                this.columnarchive_adherent = new global::System.Data.DataColumn("archive_adherent", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnarchive_adherent);
+                this._column_Id_utilisateur = new global::System.Data.DataColumn("#Id_utilisateur", typeof(int), null, global::System.Data.MappingType.Element);
+                this._column_Id_utilisateur.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column_Id_utilisateur");
+                this._column_Id_utilisateur.ExtendedProperties.Add("Generator_UserColumnName", "#Id_utilisateur");
+                base.Columns.Add(this._column_Id_utilisateur);
                 this._column_Id_classe = new global::System.Data.DataColumn("#Id_classe", typeof(int), null, global::System.Data.MappingType.Element);
                 this._column_Id_classe.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column_Id_classe");
                 this._column_Id_classe.ExtendedProperties.Add("Generator_UserColumnName", "#Id_classe");
@@ -840,7 +876,9 @@ namespace UtilisateursGUI {
                 this.columnLogin_adherent.MaxLength = 255;
                 this.columnMdp_adherent.AllowDBNull = false;
                 this.columnMdp_adherent.MaxLength = 255;
-                this.columnArchive_adherent.AllowDBNull = false;
+                this.columnDatemaj_adherent.AllowDBNull = false;
+                this.columnarchive_adherent.AllowDBNull = false;
+                this._column_Id_utilisateur.AllowDBNull = false;
                 this._column_Id_classe.AllowDBNull = false;
             }
             
@@ -2927,9 +2965,9 @@ namespace UtilisateursGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public byte Autprelev_adherent {
+            public System.DateTime Autprelev_adherent {
                 get {
-                    return ((byte)(this[this.tableADHERENT.Autprelev_adherentColumn]));
+                    return ((global::System.DateTime)(this[this.tableADHERENT.Autprelev_adherentColumn]));
                 }
                 set {
                     this[this.tableADHERENT.Autprelev_adherentColumn] = value;
@@ -2973,13 +3011,7 @@ namespace UtilisateursGUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime Datemaj_adherent {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableADHERENT.Datemaj_adherentColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Datemaj_adherent\' dans la table \'ADHERENT\' est DBNull." +
-                                "", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableADHERENT.Datemaj_adherentColumn]));
                 }
                 set {
                     this[this.tableADHERENT.Datemaj_adherentColumn] = value;
@@ -2988,12 +3020,23 @@ namespace UtilisateursGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public byte Archive_adherent {
+            public byte archive_adherent {
                 get {
-                    return ((byte)(this[this.tableADHERENT.Archive_adherentColumn]));
+                    return ((byte)(this[this.tableADHERENT.archive_adherentColumn]));
                 }
                 set {
-                    this[this.tableADHERENT.Archive_adherentColumn] = value;
+                    this[this.tableADHERENT.archive_adherentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int @__Id_utilisateur {
+                get {
+                    return ((int)(this[this.tableADHERENT.@__Id_utilisateurColumn]));
+                }
+                set {
+                    this[this.tableADHERENT.@__Id_utilisateurColumn] = value;
                 }
             }
             
@@ -3010,6 +3053,28 @@ namespace UtilisateursGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CLASSERow CLASSERow {
+                get {
+                    return ((CLASSERow)(this.GetParentRow(this.Table.ParentRelations["Id_classe_adherent"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Id_classe_adherent"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public UTILISATEURRow UTILISATEURRow {
+                get {
+                    return ((UTILISATEURRow)(this.GetParentRow(this.Table.ParentRelations["Id_utilisateur_adherent"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Id_utilisateur_adherent"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsNumparent_adherentNull() {
                 return this.IsNull(this.tableADHERENT.Numparent_adherentColumn);
             }
@@ -3018,18 +3083,6 @@ namespace UtilisateursGUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetNumparent_adherentNull() {
                 this[this.tableADHERENT.Numparent_adherentColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDatemaj_adherentNull() {
-                return this.IsNull(this.tableADHERENT.Datemaj_adherentColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDatemaj_adherentNull() {
-                this[this.tableADHERENT.Datemaj_adherentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3125,6 +3178,17 @@ namespace UtilisateursGUI {
                 }
                 set {
                     this[this.tableCLASSE.Libelle_classeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ADHERENTRow[] GetADHERENTRows() {
+                if ((this.Table.ChildRelations["Id_classe_adherent"] == null)) {
+                    return new ADHERENTRow[0];
+                }
+                else {
+                    return ((ADHERENTRow[])(base.GetChildRows(this.Table.ChildRelations["Id_classe_adherent"])));
                 }
             }
         }
@@ -3466,6 +3530,17 @@ namespace UtilisateursGUI {
                 }
                 set {
                     this[this.tableUTILISATEUR.Droit_utilisateurColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ADHERENTRow[] GetADHERENTRows() {
+                if ((this.Table.ChildRelations["Id_utilisateur_adherent"] == null)) {
+                    return new ADHERENTRow[0];
+                }
+                else {
+                    return ((ADHERENTRow[])(base.GetChildRows(this.Table.ChildRelations["Id_utilisateur_adherent"])));
                 }
             }
         }
@@ -3845,46 +3920,48 @@ namespace UtilisateursGUI.GestionAssociationSportiveDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Login_adherent", "Login_adherent");
             tableMapping.ColumnMappings.Add("Mdp_adherent", "Mdp_adherent");
             tableMapping.ColumnMappings.Add("Datemaj_adherent", "Datemaj_adherent");
-            tableMapping.ColumnMappings.Add("Archive_adherent", "Archive_adherent");
+            tableMapping.ColumnMappings.Add("archive_adherent", "archive_adherent");
+            tableMapping.ColumnMappings.Add("#Id_utilisateur", "#Id_utilisateur");
             tableMapping.ColumnMappings.Add("#Id_classe", "#Id_classe");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ADHERENT] WHERE (([Id_adherent] = @Original_Id_adherent) AND ([Nom_adherent] = @Original_Nom_adherent) AND ([Prenom_adherent] = @Original_Prenom_adherent) AND ([Ddn_adherent] = @Original_Ddn_adherent) AND ([Numtel_adherent] = @Original_Numtel_adherent) AND ([Email_adherent] = @Original_Email_adherent) AND ((@IsNull_Numparent_adherent = 1 AND [Numparent_adherent] IS NULL) OR ([Numparent_adherent] = @Original_Numparent_adherent)) AND ([Autprelev_adherent] = @Original_Autprelev_adherent) AND ([Sexe_adherent] = @Original_Sexe_adherent) AND ([Login_adherent] = @Original_Login_adherent) AND ([Mdp_adherent] = @Original_Mdp_adherent) AND ((@IsNull_Datemaj_adherent = 1 AND [Datemaj_adherent] IS NULL) OR ([Datemaj_adherent] = @Original_Datemaj_adherent)) AND ([Archive_adherent] = @Original_Archive_adherent) AND ([#Id_classe] = @Original_#Id_classe))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ADHERENT] WHERE (([Id_adherent] = @Original_Id_adherent) AND ([Nom_adherent] = @Original_Nom_adherent) AND ([Prenom_adherent] = @Original_Prenom_adherent) AND ([Ddn_adherent] = @Original_Ddn_adherent) AND ([Numtel_adherent] = @Original_Numtel_adherent) AND ([Email_adherent] = @Original_Email_adherent) AND ((@IsNull_Numparent_adherent = 1 AND [Numparent_adherent] IS NULL) OR ([Numparent_adherent] = @Original_Numparent_adherent)) AND ([Autprelev_adherent] = @Original_Autprelev_adherent) AND ([Sexe_adherent] = @Original_Sexe_adherent) AND ([Login_adherent] = @Original_Login_adherent) AND ([Mdp_adherent] = @Original_Mdp_adherent) AND ([Datemaj_adherent] = @Original_Datemaj_adherent) AND ([archive_adherent] = @Original_archive_adherent) AND ([#Id_utilisateur] = @Original_#Id_utilisateur) AND ([#Id_classe] = @Original_#Id_classe))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id_adherent", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nom_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nom_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Prenom_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Prenom_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ddn_adherent", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ddn_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ddn_adherent", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ddn_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Numtel_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numtel_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Numparent_adherent", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numparent_adherent", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Numparent_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numparent_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Autprelev_adherent", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Autprelev_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Autprelev_adherent", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Autprelev_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sexe_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sexe_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Login_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Login_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Mdp_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Mdp_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Datemaj_adherent", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Datemaj_adherent", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Datemaj_adherent", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Datemaj_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Archive_adherent", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Archive_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Datemaj_adherent", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Datemaj_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_archive_adherent", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "archive_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Id_utilisateur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_utilisateur", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Id_classe", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_classe", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ADHERENT] ([Nom_adherent], [Prenom_adherent], [Ddn_adherent], [Numtel_adherent], [Email_adherent], [Numparent_adherent], [Autprelev_adherent], [Sexe_adherent], [Login_adherent], [Mdp_adherent], [Datemaj_adherent], [Archive_adherent], [#Id_classe]) VALUES (@Nom_adherent, @Prenom_adherent, @Ddn_adherent, @Numtel_adherent, @Email_adherent, @Numparent_adherent, @Autprelev_adherent, @Sexe_adherent, @Login_adherent, @Mdp_adherent, @Datemaj_adherent, @Archive_adherent, @#Id_classe);
-SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent, Email_adherent, Numparent_adherent, Autprelev_adherent, Sexe_adherent, Login_adherent, Mdp_adherent, Datemaj_adherent, Archive_adherent, [#Id_classe] FROM ADHERENT WHERE (Id_adherent = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ADHERENT] ([Nom_adherent], [Prenom_adherent], [Ddn_adherent], [Numtel_adherent], [Email_adherent], [Numparent_adherent], [Autprelev_adherent], [Sexe_adherent], [Login_adherent], [Mdp_adherent], [Datemaj_adherent], [archive_adherent], [#Id_utilisateur], [#Id_classe]) VALUES (@Nom_adherent, @Prenom_adherent, @Ddn_adherent, @Numtel_adherent, @Email_adherent, @Numparent_adherent, @Autprelev_adherent, @Sexe_adherent, @Login_adherent, @Mdp_adherent, @Datemaj_adherent, @archive_adherent, @#Id_utilisateur, @#Id_classe);
+SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent, Email_adherent, Numparent_adherent, Autprelev_adherent, Sexe_adherent, Login_adherent, Mdp_adherent, Datemaj_adherent, archive_adherent, [#Id_utilisateur], [#Id_classe] FROM ADHERENT WHERE (Id_adherent = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nom_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nom_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Prenom_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Prenom_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ddn_adherent", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ddn_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ddn_adherent", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ddn_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numtel_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numtel_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numparent_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numparent_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Autprelev_adherent", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Autprelev_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Autprelev_adherent", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Autprelev_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sexe_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sexe_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Login_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Login_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Mdp_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Mdp_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Datemaj_adherent", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Datemaj_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Archive_adherent", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Archive_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Datemaj_adherent", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Datemaj_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@archive_adherent", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "archive_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Id_utilisateur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_utilisateur", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Id_classe", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_classe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
@@ -3893,51 +3970,52 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
                 "erent, [Email_adherent] = @Email_adherent, [Numparent_adherent] = @Numparent_adh" +
                 "erent, [Autprelev_adherent] = @Autprelev_adherent, [Sexe_adherent] = @Sexe_adher" +
                 "ent, [Login_adherent] = @Login_adherent, [Mdp_adherent] = @Mdp_adherent, [Datema" +
-                "j_adherent] = @Datemaj_adherent, [Archive_adherent] = @Archive_adherent, [#Id_cl" +
-                "asse] = @#Id_classe WHERE (([Id_adherent] = @Original_Id_adherent) AND ([Nom_adh" +
-                "erent] = @Original_Nom_adherent) AND ([Prenom_adherent] = @Original_Prenom_adher" +
-                "ent) AND ([Ddn_adherent] = @Original_Ddn_adherent) AND ([Numtel_adherent] = @Ori" +
-                "ginal_Numtel_adherent) AND ([Email_adherent] = @Original_Email_adherent) AND ((@" +
-                "IsNull_Numparent_adherent = 1 AND [Numparent_adherent] IS NULL) OR ([Numparent_a" +
-                "dherent] = @Original_Numparent_adherent)) AND ([Autprelev_adherent] = @Original_" +
-                "Autprelev_adherent) AND ([Sexe_adherent] = @Original_Sexe_adherent) AND ([Login_" +
-                "adherent] = @Original_Login_adherent) AND ([Mdp_adherent] = @Original_Mdp_adhere" +
-                "nt) AND ((@IsNull_Datemaj_adherent = 1 AND [Datemaj_adherent] IS NULL) OR ([Date" +
-                "maj_adherent] = @Original_Datemaj_adherent)) AND ([Archive_adherent] = @Original" +
-                "_Archive_adherent) AND ([#Id_classe] = @Original_#Id_classe));\r\nSELECT Id_adhere" +
-                "nt, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent, Email_adherent" +
-                ", Numparent_adherent, Autprelev_adherent, Sexe_adherent, Login_adherent, Mdp_adh" +
-                "erent, Datemaj_adherent, Archive_adherent, [#Id_classe] FROM ADHERENT WHERE (Id_" +
-                "adherent = @Id_adherent)";
+                "j_adherent] = @Datemaj_adherent, [archive_adherent] = @archive_adherent, [#Id_ut" +
+                "ilisateur] = @#Id_utilisateur, [#Id_classe] = @#Id_classe WHERE (([Id_adherent] " +
+                "= @Original_Id_adherent) AND ([Nom_adherent] = @Original_Nom_adherent) AND ([Pre" +
+                "nom_adherent] = @Original_Prenom_adherent) AND ([Ddn_adherent] = @Original_Ddn_a" +
+                "dherent) AND ([Numtel_adherent] = @Original_Numtel_adherent) AND ([Email_adheren" +
+                "t] = @Original_Email_adherent) AND ((@IsNull_Numparent_adherent = 1 AND [Numpare" +
+                "nt_adherent] IS NULL) OR ([Numparent_adherent] = @Original_Numparent_adherent)) " +
+                "AND ([Autprelev_adherent] = @Original_Autprelev_adherent) AND ([Sexe_adherent] =" +
+                " @Original_Sexe_adherent) AND ([Login_adherent] = @Original_Login_adherent) AND " +
+                "([Mdp_adherent] = @Original_Mdp_adherent) AND ([Datemaj_adherent] = @Original_Da" +
+                "temaj_adherent) AND ([archive_adherent] = @Original_archive_adherent) AND ([#Id_" +
+                "utilisateur] = @Original_#Id_utilisateur) AND ([#Id_classe] = @Original_#Id_clas" +
+                "se));\r\nSELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_a" +
+                "dherent, Email_adherent, Numparent_adherent, Autprelev_adherent, Sexe_adherent, " +
+                "Login_adherent, Mdp_adherent, Datemaj_adherent, archive_adherent, [#Id_utilisate" +
+                "ur], [#Id_classe] FROM ADHERENT WHERE (Id_adherent = @Id_adherent)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nom_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nom_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Prenom_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Prenom_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ddn_adherent", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ddn_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ddn_adherent", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ddn_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numtel_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numtel_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numparent_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numparent_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Autprelev_adherent", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Autprelev_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Autprelev_adherent", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Autprelev_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sexe_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sexe_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Login_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Login_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Mdp_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Mdp_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Datemaj_adherent", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Datemaj_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Archive_adherent", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Archive_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Datemaj_adherent", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Datemaj_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@archive_adherent", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "archive_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Id_utilisateur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_utilisateur", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Id_classe", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_classe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id_adherent", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nom_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nom_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Prenom_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Prenom_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ddn_adherent", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ddn_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ddn_adherent", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ddn_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Numtel_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numtel_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Numparent_adherent", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numparent_adherent", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Numparent_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numparent_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Autprelev_adherent", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Autprelev_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Autprelev_adherent", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Autprelev_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sexe_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sexe_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Login_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Login_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Mdp_adherent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Mdp_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Datemaj_adherent", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Datemaj_adherent", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Datemaj_adherent", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Datemaj_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Archive_adherent", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Archive_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Datemaj_adherent", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Datemaj_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_archive_adherent", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "archive_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Id_utilisateur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_utilisateur", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Id_classe", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_classe", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_adherent", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -3946,7 +4024,7 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString;
+            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3955,10 +4033,7 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent," +
-                " Email_adherent, Numparent_adherent, Autprelev_adherent, Sexe_adherent, Login_ad" +
-                "herent, Mdp_adherent, Datemaj_adherent, Archive_adherent, [#Id_classe] FROM dbo." +
-                "ADHERENT";
+            this._commandCollection[0].CommandText = @"SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent, Email_adherent, Numparent_adherent, Autprelev_adherent, Sexe_adherent, Login_adherent, Mdp_adherent, Datemaj_adherent, archive_adherent, [#Id_utilisateur], [#Id_classe] FROM dbo.ADHERENT";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4019,7 +4094,7 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id_adherent, string Original_Nom_adherent, string Original_Prenom_adherent, System.DateTime Original_Ddn_adherent, string Original_Numtel_adherent, string Original_Email_adherent, string Original_Numparent_adherent, byte Original_Autprelev_adherent, string Original_Sexe_adherent, string Original_Login_adherent, string Original_Mdp_adherent, global::System.Nullable<global::System.DateTime> Original_Datemaj_adherent, byte Original_Archive_adherent, int _Original__Id_classe) {
+        public virtual int Delete(int Original_Id_adherent, string Original_Nom_adherent, string Original_Prenom_adherent, System.DateTime Original_Ddn_adherent, string Original_Numtel_adherent, string Original_Email_adherent, string Original_Numparent_adherent, System.DateTime Original_Autprelev_adherent, string Original_Sexe_adherent, string Original_Login_adherent, string Original_Mdp_adherent, System.DateTime Original_Datemaj_adherent, byte Original_archive_adherent, int _Original__Id_utilisateur, int _Original__Id_classe) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id_adherent));
             if ((Original_Nom_adherent == null)) {
                 throw new global::System.ArgumentNullException("Original_Nom_adherent");
@@ -4054,7 +4129,7 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Numparent_adherent));
             }
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((byte)(Original_Autprelev_adherent));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_Autprelev_adherent));
             if ((Original_Sexe_adherent == null)) {
                 throw new global::System.ArgumentNullException("Original_Sexe_adherent");
             }
@@ -4073,15 +4148,9 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Mdp_adherent));
             }
-            if ((Original_Datemaj_adherent.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((System.DateTime)(Original_Datemaj_adherent.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.DeleteCommand.Parameters[14].Value = ((byte)(Original_Archive_adherent));
+            this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_Datemaj_adherent));
+            this.Adapter.DeleteCommand.Parameters[13].Value = ((byte)(Original_archive_adherent));
+            this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(_Original__Id_utilisateur));
             this.Adapter.DeleteCommand.Parameters[15].Value = ((int)(_Original__Id_classe));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4103,7 +4172,7 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Nom_adherent, string Prenom_adherent, System.DateTime Ddn_adherent, string Numtel_adherent, string Email_adherent, string Numparent_adherent, byte Autprelev_adherent, string Sexe_adherent, string Login_adherent, string Mdp_adherent, global::System.Nullable<global::System.DateTime> Datemaj_adherent, byte Archive_adherent, int @__Id_classe) {
+        public virtual int Insert(string Nom_adherent, string Prenom_adherent, System.DateTime Ddn_adherent, string Numtel_adherent, string Email_adherent, string Numparent_adherent, System.DateTime Autprelev_adherent, string Sexe_adherent, string Login_adherent, string Mdp_adherent, System.DateTime Datemaj_adherent, byte archive_adherent, int @__Id_utilisateur, int @__Id_classe) {
             if ((Nom_adherent == null)) {
                 throw new global::System.ArgumentNullException("Nom_adherent");
             }
@@ -4135,7 +4204,7 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Numparent_adherent));
             }
-            this.Adapter.InsertCommand.Parameters[6].Value = ((byte)(Autprelev_adherent));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(Autprelev_adherent));
             if ((Sexe_adherent == null)) {
                 throw new global::System.ArgumentNullException("Sexe_adherent");
             }
@@ -4154,14 +4223,10 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Mdp_adherent));
             }
-            if ((Datemaj_adherent.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((System.DateTime)(Datemaj_adherent.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.InsertCommand.Parameters[11].Value = ((byte)(Archive_adherent));
-            this.Adapter.InsertCommand.Parameters[12].Value = ((int)(@__Id_classe));
+            this.Adapter.InsertCommand.Parameters[10].Value = ((System.DateTime)(Datemaj_adherent));
+            this.Adapter.InsertCommand.Parameters[11].Value = ((byte)(archive_adherent));
+            this.Adapter.InsertCommand.Parameters[12].Value = ((int)(@__Id_utilisateur));
+            this.Adapter.InsertCommand.Parameters[13].Value = ((int)(@__Id_classe));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4189,12 +4254,13 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
                     string Numtel_adherent, 
                     string Email_adherent, 
                     string Numparent_adherent, 
-                    byte Autprelev_adherent, 
+                    System.DateTime Autprelev_adherent, 
                     string Sexe_adherent, 
                     string Login_adherent, 
                     string Mdp_adherent, 
-                    global::System.Nullable<global::System.DateTime> Datemaj_adherent, 
-                    byte Archive_adherent, 
+                    System.DateTime Datemaj_adherent, 
+                    byte archive_adherent, 
+                    int @__Id_utilisateur, 
                     int @__Id_classe, 
                     int Original_Id_adherent, 
                     string Original_Nom_adherent, 
@@ -4203,12 +4269,13 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
                     string Original_Numtel_adherent, 
                     string Original_Email_adherent, 
                     string Original_Numparent_adherent, 
-                    byte Original_Autprelev_adherent, 
+                    System.DateTime Original_Autprelev_adherent, 
                     string Original_Sexe_adherent, 
                     string Original_Login_adherent, 
                     string Original_Mdp_adherent, 
-                    global::System.Nullable<global::System.DateTime> Original_Datemaj_adherent, 
-                    byte Original_Archive_adherent, 
+                    System.DateTime Original_Datemaj_adherent, 
+                    byte Original_archive_adherent, 
+                    int _Original__Id_utilisateur, 
                     int _Original__Id_classe, 
                     int Id_adherent) {
             if ((Nom_adherent == null)) {
@@ -4242,7 +4309,7 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Numparent_adherent));
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((byte)(Autprelev_adherent));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Autprelev_adherent));
             if ((Sexe_adherent == null)) {
                 throw new global::System.ArgumentNullException("Sexe_adherent");
             }
@@ -4261,78 +4328,68 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Mdp_adherent));
             }
-            if ((Datemaj_adherent.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Datemaj_adherent.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((byte)(Archive_adherent));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(@__Id_classe));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_Id_adherent));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Datemaj_adherent));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((byte)(archive_adherent));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(@__Id_utilisateur));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(@__Id_classe));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_Id_adherent));
             if ((Original_Nom_adherent == null)) {
                 throw new global::System.ArgumentNullException("Original_Nom_adherent");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Nom_adherent));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Nom_adherent));
             }
             if ((Original_Prenom_adherent == null)) {
                 throw new global::System.ArgumentNullException("Original_Prenom_adherent");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Prenom_adherent));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Prenom_adherent));
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_Ddn_adherent));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_Ddn_adherent));
             if ((Original_Numtel_adherent == null)) {
                 throw new global::System.ArgumentNullException("Original_Numtel_adherent");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Numtel_adherent));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Numtel_adherent));
             }
             if ((Original_Email_adherent == null)) {
                 throw new global::System.ArgumentNullException("Original_Email_adherent");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Email_adherent));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Email_adherent));
             }
             if ((Original_Numparent_adherent == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Numparent_adherent));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Numparent_adherent));
             }
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((byte)(Original_Autprelev_adherent));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_Autprelev_adherent));
             if ((Original_Sexe_adherent == null)) {
                 throw new global::System.ArgumentNullException("Original_Sexe_adherent");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Sexe_adherent));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Sexe_adherent));
             }
             if ((Original_Login_adherent == null)) {
                 throw new global::System.ArgumentNullException("Original_Login_adherent");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Login_adherent));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Login_adherent));
             }
             if ((Original_Mdp_adherent == null)) {
                 throw new global::System.ArgumentNullException("Original_Mdp_adherent");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Mdp_adherent));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Mdp_adherent));
             }
-            if ((Original_Datemaj_adherent.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((System.DateTime)(Original_Datemaj_adherent.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[27].Value = ((byte)(Original_Archive_adherent));
-            this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(_Original__Id_classe));
-            this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Id_adherent));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((System.DateTime)(Original_Datemaj_adherent));
+            this.Adapter.UpdateCommand.Parameters[27].Value = ((byte)(Original_archive_adherent));
+            this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(_Original__Id_utilisateur));
+            this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(_Original__Id_classe));
+            this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Id_adherent));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4360,12 +4417,13 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
                     string Numtel_adherent, 
                     string Email_adherent, 
                     string Numparent_adherent, 
-                    byte Autprelev_adherent, 
+                    System.DateTime Autprelev_adherent, 
                     string Sexe_adherent, 
                     string Login_adherent, 
                     string Mdp_adherent, 
-                    global::System.Nullable<global::System.DateTime> Datemaj_adherent, 
-                    byte Archive_adherent, 
+                    System.DateTime Datemaj_adherent, 
+                    byte archive_adherent, 
+                    int @__Id_utilisateur, 
                     int @__Id_classe, 
                     int Original_Id_adherent, 
                     string Original_Nom_adherent, 
@@ -4374,14 +4432,15 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
                     string Original_Numtel_adherent, 
                     string Original_Email_adherent, 
                     string Original_Numparent_adherent, 
-                    byte Original_Autprelev_adherent, 
+                    System.DateTime Original_Autprelev_adherent, 
                     string Original_Sexe_adherent, 
                     string Original_Login_adherent, 
                     string Original_Mdp_adherent, 
-                    global::System.Nullable<global::System.DateTime> Original_Datemaj_adherent, 
-                    byte Original_Archive_adherent, 
+                    System.DateTime Original_Datemaj_adherent, 
+                    byte Original_archive_adherent, 
+                    int _Original__Id_utilisateur, 
                     int _Original__Id_classe) {
-            return this.Update(Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent, Email_adherent, Numparent_adherent, Autprelev_adherent, Sexe_adherent, Login_adherent, Mdp_adherent, Datemaj_adherent, Archive_adherent, @__Id_classe, Original_Id_adherent, Original_Nom_adherent, Original_Prenom_adherent, Original_Ddn_adherent, Original_Numtel_adherent, Original_Email_adherent, Original_Numparent_adherent, Original_Autprelev_adherent, Original_Sexe_adherent, Original_Login_adherent, Original_Mdp_adherent, Original_Datemaj_adherent, Original_Archive_adherent, _Original__Id_classe, Original_Id_adherent);
+            return this.Update(Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent, Email_adherent, Numparent_adherent, Autprelev_adherent, Sexe_adherent, Login_adherent, Mdp_adherent, Datemaj_adherent, archive_adherent, @__Id_utilisateur, @__Id_classe, Original_Id_adherent, Original_Nom_adherent, Original_Prenom_adherent, Original_Ddn_adherent, Original_Numtel_adherent, Original_Email_adherent, Original_Numparent_adherent, Original_Autprelev_adherent, Original_Sexe_adherent, Original_Login_adherent, Original_Mdp_adherent, Original_Datemaj_adherent, Original_archive_adherent, _Original__Id_utilisateur, _Original__Id_classe, Original_Id_adherent);
         }
     }
     
@@ -4544,7 +4603,7 @@ SELECT Id_budget, Libelle_budget, Montantinitial_budget FROM BUDGET WHERE (Id_bu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString;
+            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4866,7 +4925,7 @@ SELECT Id_budget, Libelle_budget, Montantinitial_budget FROM BUDGET WHERE (Id_bu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString;
+            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5198,7 +5257,7 @@ SELECT Id_evenement, Libelle_evenement, Date_evenement, Lieu_evenement, Cout_eve
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString;
+            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5580,7 +5639,7 @@ SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString;
+            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5963,7 +6022,7 @@ SELECT Id_typeflux, Libelle_typeflux FROM TYPE_FLUX WHERE (Id_typeflux = @Id_typ
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString;
+            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6292,7 +6351,7 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString;
+            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6717,6 +6776,24 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(GestionAssociationSportiveDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._cLASSETableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CLASSE.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cLASSETableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._uTILISATEURTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.UTILISATEUR.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._uTILISATEURTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._aDHERENTTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.ADHERENT.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -6753,30 +6830,12 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._cLASSETableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CLASSE.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._cLASSETableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._fLUXTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.FLUX.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._fLUXTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._uTILISATEURTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.UTILISATEUR.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._uTILISATEURTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6790,6 +6849,22 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(GestionAssociationSportiveDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._cLASSETableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CLASSE.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cLASSETableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._uTILISATEURTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.UTILISATEUR.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._uTILISATEURTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._aDHERENTTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ADHERENT.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -6822,27 +6897,11 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._cLASSETableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CLASSE.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._cLASSETableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._fLUXTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.FLUX.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._fLUXTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._uTILISATEURTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.UTILISATEUR.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._uTILISATEURTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6856,27 +6915,11 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(GestionAssociationSportiveDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._uTILISATEURTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.UTILISATEUR.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._uTILISATEURTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._fLUXTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.FLUX.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._fLUXTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._cLASSETableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CLASSE.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._cLASSETableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6909,6 +6952,22 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._aDHERENTTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._uTILISATEURTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.UTILISATEUR.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._uTILISATEURTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._cLASSETableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.CLASSE.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._cLASSETableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

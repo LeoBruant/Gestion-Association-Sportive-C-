@@ -44,5 +44,16 @@ namespace UtilisateursGUI.Properties {
                 return ((string)(this["GestionAssociationSportiveConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-33218AES;Initial Catalog=GestionAssociationSportive;Integrated" +
+            " Security=True")]
+        public string GestionAssociationSportiveConnectionString1 {
+            get {
+                return ((string)(this["GestionAssociationSportiveConnectionString1"]));
+            }
+        }
     }
 }
