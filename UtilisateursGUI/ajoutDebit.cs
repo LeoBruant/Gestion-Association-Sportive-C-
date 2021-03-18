@@ -12,11 +12,11 @@ using UtilisateursBO;
 
 namespace UtilisateursGUI
 {
-    public partial class ajoutDebit : Form
+    public partial class AjoutDebit : Form
     {
         private string prelevementEffectueOuiNon = "null";
         private int typeFlux = 1;
-        public ajoutDebit()
+        public AjoutDebit()
         {
             InitializeComponent();
         }

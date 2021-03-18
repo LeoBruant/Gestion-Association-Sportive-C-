@@ -53,11 +53,11 @@
     <Compile Include="Administration.Designer.cs">
       <DependentUpon>Administration.cs</DependentUpon>
     </Compile>
-    <Compile Include="ajoutDebit.cs">
+    <Compile Include="AjoutDebit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ajoutDebit.Designer.cs">
-      <DependentUpon>ajoutDebit.cs</DependentUpon>
+    <Compile Include="AjoutDebit.Designer.cs">
+      <DependentUpon>AjoutDebit.cs</DependentUpon>
     </Compile>
     <Compile Include="AjoutEleve.cs">
       <SubType>Form</SubType>
@@ -99,8 +99,8 @@
     <EmbeddedResource Include="Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ajoutDebit.resx">
-      <DependentUpon>ajoutDebit.cs</DependentUpon>
+    <EmbeddedResource Include="AjoutDebit.resx">
+      <DependentUpon>AjoutDebit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AjoutEleve.resx">
       <DependentUpon>AjoutEleve.cs</DependentUpon>

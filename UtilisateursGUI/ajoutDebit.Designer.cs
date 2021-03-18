@@ -1,6 +1,6 @@
 ﻿namespace UtilisateursGUI
 {
-    partial class ajoutDebit
+    partial class AjoutDebit
     {
         /// <summary>
         /// Required designer variable.

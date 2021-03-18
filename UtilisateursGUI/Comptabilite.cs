@@ -131,5 +131,13 @@ namespace UtilisateursGUI
         {
 
         }
+
+        private void ajoutDebit_Click(object sender, EventArgs e)
+        {
+            AjoutDebit ajoutDebit = new AjoutDebit();
+            ajoutDebit.Show();
+
+            this.Close();
+        }
     }
 }
