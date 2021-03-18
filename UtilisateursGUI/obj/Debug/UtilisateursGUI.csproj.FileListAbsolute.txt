@@ -74,3 +74,4 @@ C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\Utili
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.exe
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.pdb
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.ajoutDebit.resources
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.ajoutDebit.resources
