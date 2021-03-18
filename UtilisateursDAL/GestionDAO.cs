@@ -8,16 +8,16 @@ using UtilisateursBO;
 
 namespace UtilisateursDAL
 {
-    public class UtilisateurDAO
+    public class GestionDAO
     {
-        private static UtilisateurDAO unUtilisateurDAO;
+        private static GestionDAO unUtilisateurDAO;
 
         // Accesseur en lecture, renvoi une instance
-        public static UtilisateurDAO GetunUtilisateurDAO()
+        public static GestionDAO GetunUtilisateurDAO()
         {
             if (unUtilisateurDAO == null)
             {
-                unUtilisateurDAO = new UtilisateurDAO();
+                unUtilisateurDAO = new GestionDAO();
             }
 
             return unUtilisateurDAO;

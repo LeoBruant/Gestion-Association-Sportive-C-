@@ -18,7 +18,7 @@ namespace UtilisateursGUI
         {
             InitializeComponent();
 
-            GestionUtilisateurs.SetchaineConnexion(ConfigurationManager.ConnectionStrings["Utilisateur"]);
+            Gestion.SetchaineConnexion(ConfigurationManager.ConnectionStrings["Utilisateur"]);
         }
 
         private void boutonConnexion_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace UtilisateursGUI
 
             // vérification des informations de connexion
 
-            if (!GestionUtilisateurs.EstConnecte(nomUtilisateurChamp.Text, motDePasseChamp.Text))
+            if (!Gestion.EstConnecte(nomUtilisateurChamp.Text, motDePasseChamp.Text))
             {
                 if(vide)
                 {
@@ -67,7 +67,7 @@ namespace UtilisateursGUI
             {
                 if(vide != true)
                 {
-                    if (GestionUtilisateurs.EstAdmin(nomUtilisateurChamp.Text))
+                    if (Gestion.EstAdmin(nomUtilisateurChamp.Text))
                     {
                         ChoixAdmin choixAdmin = new ChoixAdmin();
                         choixAdmin.Show();

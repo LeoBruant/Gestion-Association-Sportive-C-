@@ -23,13 +23,8 @@ namespace UtilisateursGUI
 
         private void ajoutDebit_Load(object sender, EventArgs e)
         {
-            // TODO: cette ligne de code charge les données dans la table 'gestionAssociationSportiveDataSet.BUDGET'. Vous pouvez la déplacer ou la supprimer selon les besoins.
-            this.bUDGETTableAdapter.Fill(this.gestionAssociationSportiveDataSet.BUDGET);
-            // TODO: cette ligne de code charge les données dans la table 'gestionAssociationSportiveDataSet.EVENEMENT'. Vous pouvez la déplacer ou la supprimer selon les besoins.
-            this.eVENEMENTTableAdapter.Fill(this.gestionAssociationSportiveDataSet.EVENEMENT);
             // TODO: cette ligne de code charge les données dans la table 'gestionAssociationSportiveDataSet.ADHERENT'. Vous pouvez la déplacer ou la supprimer selon les besoins.
             this.aDHERENTTableAdapter.Fill(this.gestionAssociationSportiveDataSet.ADHERENT);
-
         }
         private void oui_CheckedChanged(object sender, EventArgs e)
         {
@@ -54,7 +49,7 @@ namespace UtilisateursGUI
 
                 Flux flux = new Flux(ajoutNomDebitChamp.Text, Convert.ToDateTime(ajoutDateDebitChamp.Text),float.Parse(ajoutMontantDebitChamp.Text), Convert.ToInt32(prelevementEffectueOuiNon), Convert.ToInt32(ajoutIdAdherentChamp.Text), typeFlux ,Convert.ToInt32(ajoutIdEvenementChamp.Text), Convert.ToInt32(ajoutBudgetChamp.Text));
 
-                GestionUtilisateurs.AddFlux(flux);
+                Gestion.AddFlux(flux);
 
                 success.Visible = true;
             }

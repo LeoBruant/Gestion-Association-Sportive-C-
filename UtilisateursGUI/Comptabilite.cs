@@ -16,8 +16,8 @@ namespace UtilisateursGUI
         public Comptabilite()
         {
             InitializeComponent();
-            float budgetEPS = GestionUtilisateurs.GetBudgetEPS();
-            float budgetAS = GestionUtilisateurs.GetBudgetAS();
+            float budgetEPS = Gestion.GetBudgetEPS();
+            float budgetAS = Gestion.GetBudgetAS();
 
             EPSLabel.Text = budgetEPS.ToString() + '€';
             ASLabel.Text = budgetAS.ToString() + '€';
@@ -85,8 +85,8 @@ namespace UtilisateursGUI
         {
             if (Int32.TryParse(EPSChamp.Text, out int number))
             {
-                GestionUtilisateurs.ModifBudgetEPS(float.Parse(EPSChamp.Text));
-                float budgetEPS = GestionUtilisateurs.GetBudgetEPS();
+                Gestion.ModifBudgetEPS(float.Parse(EPSChamp.Text));
+                float budgetEPS = Gestion.GetBudgetEPS();
                 EPSLabel.Text = budgetEPS.ToString() + '€';
 
                 EPSError.Visible = false;
@@ -104,8 +104,8 @@ namespace UtilisateursGUI
         {
             if (Int32.TryParse(ASChamp.Text, out int number))
             {
-                GestionUtilisateurs.ModifBudgetAS(float.Parse(ASChamp.Text));
-                float budgetEPS = GestionUtilisateurs.GetBudgetAS();
+                Gestion.ModifBudgetAS(float.Parse(ASChamp.Text));
+                float budgetEPS = Gestion.GetBudgetAS();
                 ASLabel.Text = budgetEPS.ToString() + '€';
 
                 ASError.Visible = false;

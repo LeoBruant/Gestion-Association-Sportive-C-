@@ -40,7 +40,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.ASLabel = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.ajoutDebit = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -226,16 +226,16 @@
             this.button5.Text = "Supprimer";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // ajoutDebit
             // 
-            this.button6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(1057, 228);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(130, 31);
-            this.button6.TabIndex = 26;
-            this.button6.Text = "Ajouter";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.ajoutDebit_Click);
+            this.ajoutDebit.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ajoutDebit.Location = new System.Drawing.Point(1057, 228);
+            this.ajoutDebit.Name = "ajoutDebit";
+            this.ajoutDebit.Size = new System.Drawing.Size(130, 31);
+            this.ajoutDebit.TabIndex = 26;
+            this.ajoutDebit.Text = "Ajouter";
+            this.ajoutDebit.UseVisualStyleBackColor = true;
+            this.ajoutDebit.Click += new System.EventHandler(this.ajoutDebit_Click);
             // 
             // button7
             // 
@@ -773,7 +773,7 @@
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.ajoutDebit);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.retour);
             this.Controls.Add(this.ASLabel);
@@ -814,7 +814,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label ASLabel;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button ajoutDebit;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;

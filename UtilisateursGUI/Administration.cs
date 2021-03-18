@@ -51,7 +51,7 @@ namespace UtilisateursGUI
 
             var lesAdherents = new List<Adherent>();
 
-            lesAdherents = GestionUtilisateurs.GetAdherents();
+            lesAdherents = Gestion.GetAdherents();
 
             adherents.DataSource = lesAdherents;
         }
@@ -90,7 +90,7 @@ namespace UtilisateursGUI
 
                 if (result == DialogResult.Yes)
                 {
-                    GestionUtilisateurs.SupprimeAdherent(rowId);
+                    Gestion.SupprimeAdherent(rowId);
 
                     Administration administration = new Administration();
                     administration.success.Visible = true;
@@ -152,7 +152,7 @@ namespace UtilisateursGUI
 
             rowId = id;
 
-            Adherent adherent = GestionUtilisateurs.GetUnAdherent(id);
+            Adherent adherent = Gestion.GetUnAdherent(id);
 
             dt_id.Text = adherent.Id.ToString();
             dt_id.Visible = true;
@@ -204,7 +204,7 @@ namespace UtilisateursGUI
             }
             dt_aut_prelev.Visible = true;
 
-            dt_classe.Text = GestionUtilisateurs.GetLibelleClasseAdherent(adherent.Classe);
+            dt_classe.Text = Gestion.GetLibelleClasseAdherent(adherent.Classe);
             dt_classe.Visible = true;
         }
     }

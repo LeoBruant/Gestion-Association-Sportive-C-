@@ -30,7 +30,7 @@ namespace UtilisateursGUI
 
         private void modifier_Click(object sender, EventArgs e)
         {
-            Adherent adherent = GestionUtilisateurs.GetUnAdherent(Convert.ToInt32(id.Text));
+            Adherent adherent = Gestion.GetUnAdherent(Convert.ToInt32(id.Text));
 
             if (modificationLoginChamp.Text != "")
             {
@@ -79,7 +79,7 @@ namespace UtilisateursGUI
 
             if (modificationClasseChamp.Text != "")
             {
-                adherent.Classe = GestionUtilisateurs.GetIdClasseAdherent(modificationClasseChamp.Text);
+                adherent.Classe = Gestion.GetIdClasseAdherent(modificationClasseChamp.Text);
             }
 
             if (estArchive != "null")
@@ -87,9 +87,9 @@ namespace UtilisateursGUI
                 adherent.EstArchive = Convert.ToInt32(estArchive);
             }
 
-            GestionUtilisateurs.ModifAdherent(adherent);
+            Gestion.ModifAdherent(adherent);
 
-            string LibelleClasse = GestionUtilisateurs.GetLibelleClasseAdherent(adherent.Classe);
+            string LibelleClasse = Gestion.GetLibelleClasseAdherent(adherent.Classe);
 
             dt_id.Text = adherent.Id.ToString();
             dt_login.Text = adherent.Login;
@@ -151,9 +151,9 @@ namespace UtilisateursGUI
             // TODO: cette ligne de code charge les données dans la table 'gestionAssociationSportiveDataSet.CLASSE'. Vous pouvez la déplacer ou la supprimer selon les besoins.
             this.cLASSETableAdapter.Fill(this.gestionAssociationSportiveDataSet.CLASSE);
 
-            Adherent adherent = GestionUtilisateurs.GetUnAdherent(Convert.ToInt32(id.Text));
+            Adherent adherent = Gestion.GetUnAdherent(Convert.ToInt32(id.Text));
 
-            string LibelleClasse = GestionUtilisateurs.GetLibelleClasseAdherent(adherent.Classe);
+            string LibelleClasse = Gestion.GetLibelleClasseAdherent(adherent.Classe);
 
             dt_id.Text = adherent.Id.ToString();
             dt_login.Text = adherent.Login;
