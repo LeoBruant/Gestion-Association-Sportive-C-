@@ -414,15 +414,15 @@ namespace UtilisateursDAL
             // Requette sql
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO FLUX (Libelle_flux, Date_flux, Montant_flux, Prelevemment_eff_flux, Id_adherent, Id_type_flux, Id_evenement, Id_budget)";
+            cmd.CommandText = "INSERT INTO FLUX (Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, #Id_adherent, #Id_typeflux, #Id_evenement, #Id_budget)VALUES ( @Libelle_flux, @Date_flux, @Montant_flux, @Prelevementeff_flux, @Id_adherent, @Id_typeflux, @Id_evenement, @Id_budget)";
 
             // Ajout des paramètres
             cmd.Parameters.AddWithValue("@Libelle_flux", flux.Libelle);
             cmd.Parameters.AddWithValue("@Date_flux", flux.DateFlux);
             cmd.Parameters.AddWithValue("@Montant_flux", flux.MontantFlux);
-            cmd.Parameters.AddWithValue("@Prelevemment_eff_flux", flux.PrelevementEff);
+            cmd.Parameters.AddWithValue("@Prelevementeff_flux", flux.PrelevementEff);
             cmd.Parameters.AddWithValue("@Id_adherent", flux.IdAdherent);
-            cmd.Parameters.AddWithValue("@Id_type_flux", flux.IdTypeFlux);
+            cmd.Parameters.AddWithValue("@Id_typeflux", flux.IdTypeFlux);
             cmd.Parameters.AddWithValue("@Id_evenement", flux.IdEvenement);
             cmd.Parameters.AddWithValue("@Id_budget", flux.IdBudget);
 
@@ -457,6 +457,61 @@ namespace UtilisateursDAL
             maConnexion.Close();
 
             return lesDebits;
+        }
+        //Methode qui retourne un Flux
+        public static Flux GetUnFlux(int id)
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT * FROM FLUX WHERE Id_flux = @id";
+
+            // Ajout des paramètres
+            cmd.Parameters.AddWithValue("@id", id);
+
+            // Lecture des données
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                Flux flux = new Flux(Convert.ToInt32(monReader["Id_flux"]), monReader["Libelle_flux"].ToString(), Convert.ToDateTime(monReader["Date_flux"]), float.Parse( monReader["Montant_flux"].ToString()),Convert.ToInt32(monReader["Prelevementeff_flux"]), Convert.ToInt32(monReader["#Id_adherent"]),Convert.ToInt32(monReader["#Id_typeflux"]), Convert.ToInt32(monReader["#Id_evenement"]),Convert.ToInt32( monReader["#Id_budget"]));
+
+                return flux;
+            }
+
+            monReader.Close();
+            maConnexion.Close();
+
+            return null;
+        }
+        public static void ModifFlux(Flux flux)
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "UPDATE FLUX SET Libelle_flux = @Libelle_flux, Date_flux = @Date_flux, Montant_flux = @Montant_flux, Prelevementeff_flux = @Prelevementeff_flux, #Id_adherent = @Id_adherent, #Id_typeflux = @Id_typeflux, #Id_evenement = @Id_evenement, #Id_budget = @Id_budget WHERE Id_flux = @id";
+
+            // Ajout des paramètres
+            cmd.Parameters.AddWithValue("@id", Convert.ToInt32(flux.Id));
+            cmd.Parameters.AddWithValue("@Libelle_flux", flux.Libelle);
+            cmd.Parameters.AddWithValue("@Date_flux", flux.DateFlux);
+            cmd.Parameters.AddWithValue("@Montant_flux", flux.MontantFlux);
+            cmd.Parameters.AddWithValue("@Prelevementeff_flux", flux.PrelevementEff);
+            cmd.Parameters.AddWithValue("@Id_Adherent", flux.IdAdherent);
+            cmd.Parameters.AddWithValue("@Id_typeflux", flux.IdTypeFlux);
+            cmd.Parameters.AddWithValue("@Id_evenement", flux.IdEvenement);
+            cmd.Parameters.AddWithValue("@Id_budget", flux.IdBudget);
+
+            // Execution de la requete
+            cmd.ExecuteNonQuery();
+
+            maConnexion.Close();
         }
     }
 }

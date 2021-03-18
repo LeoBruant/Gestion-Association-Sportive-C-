@@ -53,6 +53,12 @@
     <Compile Include="Administration.Designer.cs">
       <DependentUpon>Administration.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjoutCredit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjoutCredit.Designer.cs">
+      <DependentUpon>AjoutCredit.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjoutDebit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GestionAssociationSportiveDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ModificationCredit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificationCredit.Designer.cs">
+      <DependentUpon>ModificationCredit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificationDebit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificationDebit.Designer.cs">
+      <DependentUpon>ModificationDebit.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModificationEleve.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +116,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjoutCredit.resx">
+      <DependentUpon>AjoutCredit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AjoutDebit.resx">
       <DependentUpon>AjoutDebit.cs</DependentUpon>
@@ -113,6 +134,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificationCredit.resx">
+      <DependentUpon>ModificationCredit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificationDebit.resx">
+      <DependentUpon>ModificationDebit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificationEleve.resx">
       <DependentUpon>ModificationEleve.cs</DependentUpon>

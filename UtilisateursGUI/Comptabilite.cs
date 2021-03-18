@@ -14,6 +14,7 @@ namespace UtilisateursGUI
 {
     public partial class Comptabilite : Form
     {
+        private static int rowId;
         public Comptabilite()
         {
             InitializeComponent();
@@ -176,11 +177,6 @@ namespace UtilisateursGUI
             this.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void ajoutDebit_Click(object sender, EventArgs e)
         {
             AjoutDebit ajoutDebit = new AjoutDebit();
@@ -192,6 +188,46 @@ namespace UtilisateursGUI
         private void label25_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void boutonModifierDebit_Click(object sender, EventArgs e)
+        {
+            if (rowId != 0)
+            {
+                ModificationDebit modifierDebit = new ModificationDebit();
+
+                modifierDebit.id.Text = rowId.ToString();
+
+                modifierDebit.Show();
+
+                this.Close();
+            }
+
+            else
+            {
+                erreurDebit.Visible = true;
+            }
+        }
+
+        private void debits_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            erreurDebit.Visible = false;
+            successDebit.Visible = false;
+
+            int id = Convert.ToInt32(debits.Rows[e.RowIndex].Cells[0].Value);
+
+            rowId = id;
+
+            Flux flux = Gestion.GetUnFlux(id);
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            AjoutCredit ajoutCredit = new AjoutCredit();
+            ajoutCredit.Show();
+
+            this.Close();
         }
     }
 }

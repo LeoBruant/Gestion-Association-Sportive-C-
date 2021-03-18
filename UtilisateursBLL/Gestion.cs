@@ -125,5 +125,15 @@ namespace UtilisateursBLL
         {
             return(GestionDAO.GetDebits());
         }
+        // Méthode qui retourne une liste contenant un flux
+        public static Flux GetUnFlux(int id)
+        {
+            return GestionDAO.GetUnFlux(id);
+        }
+        // Méthode qui modifie un adhérent dans la base de données
+        public static void ModifFlux(Flux flux)
+        {
+            GestionDAO.ModifFlux(flux);
+        }
     }
 }
