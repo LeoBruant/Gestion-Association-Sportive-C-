@@ -1,0 +1,29 @@
+MLDR PPE C# Gestion AS
+
+UTILISATEUR (Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur)
+Clé primaire = Id_utilisateur
+
+CLASSE (Id_classe, Libelle_classe)
+Clé primaire = Id_classe
+
+ADHERENT (Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, numtel_adherent, email_adherent, numparent_adherent, autprelev_adherent, sexe_adherent, login_adherent, mdp_adherent, datemaj_adherent, archive_adherent, #Id_utilisateur, #Id_classe)
+Clé primaire = Id_adherent
+Clé étrangère = #Id_utilisateur en référence à Id_utilisateur de la table UTILISATEUR
+Clé étrangère = #Id_classe en référence à Id_classe de la table CLASSE
+
+BUDGET (Id_budget, Libelle_budget, Montantinitial_budget)
+Clé primaire = Id_budget
+
+TYPE_FLUX (Id_typeflux, Libelle_typeflux)
+Clé primaire = Id_typeflux
+
+FLUX (Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, #Id_adherent, #Id_typeflux, #Id_evenement)
+Clé primaire = Id_flux
+Clé étrangère = #Id_adherent en référence à Id_adherent de la table ADHERENT
+Clé étrangère = #Id_typeflux en référence à Id_typeflux de la table TYPE_FLUX
+Clé étrangère = #Id_evenement en référence à Id_evenement de la table EVENEMENT
+
+EVENEMENT (Id_evenement, Libelle_evenement, Date_evenement, Lieu_evenement, Cout_evenement)
+Clé primaire = Id_evenement
+
+

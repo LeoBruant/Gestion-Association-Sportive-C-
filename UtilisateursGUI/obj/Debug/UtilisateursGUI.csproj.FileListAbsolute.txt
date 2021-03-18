@@ -75,3 +75,26 @@ C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\Utili
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.pdb
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.ajoutDebit.resources
 C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.ajoutDebit.resources
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\bin\Debug\UtilisateursGUI.exe.config
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\bin\Debug\UtilisateursGUI.exe
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\bin\Debug\UtilisateursGUI.pdb
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\bin\Debug\UtilisateursBLL.dll
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\bin\Debug\UtilisateursBO.dll
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\bin\Debug\UtilisateursDAL.dll
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\bin\Debug\UtilisateursBLL.pdb
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\bin\Debug\UtilisateursBO.pdb
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\bin\Debug\UtilisateursDAL.pdb
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\obj\Debug\UtilisateursGUI.csprojAssemblyReference.cache
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\obj\Debug\UtilisateursGUI.Administration.resources
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\obj\Debug\UtilisateursGUI.AjoutDebit.resources
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\obj\Debug\UtilisateursGUI.AjoutEleve.resources
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\obj\Debug\UtilisateursGUI.ChoixAdmin.resources
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\obj\Debug\UtilisateursGUI.Comptabilite.resources
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\obj\Debug\UtilisateursGUI.Connexion.resources
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\obj\Debug\UtilisateursGUI.ModificationEleve.resources
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\obj\Debug\UtilisateursGUI.Properties.Resources.resources
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\obj\Debug\UtilisateursGUI.csproj.GenerateResource.cache
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\obj\Debug\UtilisateursGUI.csproj.CoreCompileInputs.cache
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\obj\Debug\UtilisateursGUI.csproj.CopyComplete
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\obj\Debug\UtilisateursGUI.exe
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\obj\Debug\UtilisateursGUI.pdb

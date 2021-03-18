@@ -20,3 +20,9 @@ C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\Utili
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursBO\obj\Debug\UtilisateursBO.dll
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursBO\obj\Debug\UtilisateursBO.pdb
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursBO\obj\Debug\UtilisateursBO.csprojAssemblyReference.cache
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursBO\bin\Debug\UtilisateursBO.dll
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursBO\bin\Debug\UtilisateursBO.pdb
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursBO\obj\Debug\UtilisateursBO.csprojAssemblyReference.cache
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursBO\obj\Debug\UtilisateursBO.csproj.CoreCompileInputs.cache
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursBO\obj\Debug\UtilisateursBO.dll
+C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursBO\obj\Debug\UtilisateursBO.pdb
