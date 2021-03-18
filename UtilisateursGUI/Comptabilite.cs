@@ -119,12 +119,17 @@ namespace UtilisateursGUI
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void retour_Click(object sender, EventArgs e)
         {
             ChoixAdmin choixAdmin = new ChoixAdmin();
             choixAdmin.Show();
 
             this.Close();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
