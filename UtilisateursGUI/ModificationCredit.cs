@@ -79,5 +79,16 @@ namespace UtilisateursGUI
 
             success.Visible = true;
         }
+
+        private void ModificationCredit_Load(object sender, EventArgs e)
+        {
+            // TODO: cette ligne de code charge les données dans la table 'gestionAssociationSportiveDataSet.BUDGET'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.bUDGETTableAdapter.Fill(this.gestionAssociationSportiveDataSet.BUDGET);
+            // TODO: cette ligne de code charge les données dans la table 'gestionAssociationSportiveDataSet.EVENEMENT'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.eVENEMENTTableAdapter.Fill(this.gestionAssociationSportiveDataSet.EVENEMENT);
+            // TODO: cette ligne de code charge les données dans la table 'gestionAssociationSportiveDataSet.ADHERENT'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.aDHERENTTableAdapter.Fill(this.gestionAssociationSportiveDataSet.ADHERENT);
+
+        }
     }
 }

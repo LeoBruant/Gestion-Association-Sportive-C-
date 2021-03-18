@@ -229,5 +229,92 @@ namespace UtilisateursGUI
 
             this.Close();
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (rowId != 0)
+            {
+                ModificationCredit modifierCredit = new ModificationCredit();
+
+                modifierCredit.id.Text = rowId.ToString();
+
+                modifierCredit.Show();
+
+                this.Close();
+            }
+
+            else
+            {
+                erreurCredit.Visible = true;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // si une ligne a été selectionnée
+            if (rowId != 0)
+            {
+                string message = "Vouslez-vous vraiment supprimer ce débit ?";
+                string caption = "Suppression du débit";
+
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                // Affichage de la boîte de dialogue
+                result = MessageBox.Show(message, caption, buttons);
+
+                if (result == DialogResult.Yes)
+                {
+                    Gestion.SupprimeFlux(rowId);
+
+                    Comptabilite comptabilite = new Comptabilite();
+                    comptabilite.successDebit.Visible = true;
+                    comptabilite.Show();
+
+                    rowId = 0;
+
+                    this.Close();
+                }
+            }
+
+            else
+            {
+                erreurDebit.Visible = true;
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            // si une ligne a été selectionnée
+            if (rowId != 0)
+            {
+                string message = "Vouslez-vous vraiment supprimer ce crédit ?";
+                string caption = "Suppression du crédit";
+
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                // Affichage de la boîte de dialogue
+                result = MessageBox.Show(message, caption, buttons);
+
+                if (result == DialogResult.Yes)
+                {
+                    Gestion.SupprimeFlux(rowId);
+
+                    Comptabilite comptabilite = new Comptabilite();
+                    comptabilite.successDebit.Visible = true;
+                    comptabilite.Show();
+
+                    rowId = 0;
+
+                    this.Close();
+                }
+            }
+
+            else
+            {
+                erreurDebit.Visible = true;
+            }
+        }
     }
 }

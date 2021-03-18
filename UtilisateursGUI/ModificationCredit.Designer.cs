@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.id = new System.Windows.Forms.Label();
             this.modificationBudgetChamp = new System.Windows.Forms.ComboBox();
             this.modificationIdEvenementChamp = new System.Windows.Forms.ComboBox();
@@ -49,7 +50,18 @@
             this.montantDebit = new System.Windows.Forms.Label();
             this.dateDebit = new System.Windows.Forms.Label();
             this.libelleDebit = new System.Windows.Forms.Label();
+            this.gestionAssociationSportiveDataSet = new UtilisateursGUI.GestionAssociationSportiveDataSet();
+            this.aDHERENTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aDHERENTTableAdapter = new UtilisateursGUI.GestionAssociationSportiveDataSetTableAdapters.ADHERENTTableAdapter();
+            this.eVENEMENTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eVENEMENTTableAdapter = new UtilisateursGUI.GestionAssociationSportiveDataSetTableAdapters.EVENEMENTTableAdapter();
+            this.bUDGETBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bUDGETTableAdapter = new UtilisateursGUI.GestionAssociationSportiveDataSetTableAdapters.BUDGETTableAdapter();
             this.modificationPrelevementEffectueChamp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionAssociationSportiveDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aDHERENTBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eVENEMENTBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bUDGETBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // id
@@ -64,6 +76,7 @@
             // 
             // modificationBudgetChamp
             // 
+            this.modificationBudgetChamp.DataSource = this.bUDGETBindingSource;
             this.modificationBudgetChamp.DisplayMember = "Libelle_budget";
             this.modificationBudgetChamp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.modificationBudgetChamp.Font = new System.Drawing.Font("Calibri Light", 12F);
@@ -76,6 +89,7 @@
             // 
             // modificationIdEvenementChamp
             // 
+            this.modificationIdEvenementChamp.DataSource = this.eVENEMENTBindingSource;
             this.modificationIdEvenementChamp.DisplayMember = "Libelle_evenement";
             this.modificationIdEvenementChamp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.modificationIdEvenementChamp.Font = new System.Drawing.Font("Calibri Light", 12F);
@@ -88,6 +102,7 @@
             // 
             // modificationIdAdherentChamp
             // 
+            this.modificationIdAdherentChamp.DataSource = this.aDHERENTBindingSource;
             this.modificationIdAdherentChamp.DisplayMember = "Nom_adherent";
             this.modificationIdAdherentChamp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.modificationIdAdherentChamp.Font = new System.Drawing.Font("Calibri Light", 12F);
@@ -160,9 +175,9 @@
             this.success.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.success.Location = new System.Drawing.Point(451, 248);
             this.success.Name = "success";
-            this.success.Size = new System.Drawing.Size(224, 24);
+            this.success.Size = new System.Drawing.Size(230, 24);
             this.success.TabIndex = 89;
-            this.success.Text = "Le débit a bien été modifié";
+            this.success.Text = "Le crédit a bien été modifié";
             this.success.Visible = false;
             // 
             // modifier
@@ -275,6 +290,38 @@
             this.libelleDebit.TabIndex = 78;
             this.libelleDebit.Text = "Nom du crédit :";
             // 
+            // gestionAssociationSportiveDataSet
+            // 
+            this.gestionAssociationSportiveDataSet.DataSetName = "GestionAssociationSportiveDataSet";
+            this.gestionAssociationSportiveDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // aDHERENTBindingSource
+            // 
+            this.aDHERENTBindingSource.DataMember = "ADHERENT";
+            this.aDHERENTBindingSource.DataSource = this.gestionAssociationSportiveDataSet;
+            // 
+            // aDHERENTTableAdapter
+            // 
+            this.aDHERENTTableAdapter.ClearBeforeFill = true;
+            // 
+            // eVENEMENTBindingSource
+            // 
+            this.eVENEMENTBindingSource.DataMember = "EVENEMENT";
+            this.eVENEMENTBindingSource.DataSource = this.gestionAssociationSportiveDataSet;
+            // 
+            // eVENEMENTTableAdapter
+            // 
+            this.eVENEMENTTableAdapter.ClearBeforeFill = true;
+            // 
+            // bUDGETBindingSource
+            // 
+            this.bUDGETBindingSource.DataMember = "BUDGET";
+            this.bUDGETBindingSource.DataSource = this.gestionAssociationSportiveDataSet;
+            // 
+            // bUDGETTableAdapter
+            // 
+            this.bUDGETTableAdapter.ClearBeforeFill = true;
+            // 
             // ModificationCredit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -301,8 +348,13 @@
             this.Controls.Add(this.libelleDebit);
             this.Name = "ModificationCredit";
             this.Text = "ModificationCredit";
+            this.Load += new System.EventHandler(this.ModificationCredit_Load);
             this.modificationPrelevementEffectueChamp.ResumeLayout(false);
             this.modificationPrelevementEffectueChamp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionAssociationSportiveDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aDHERENTBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eVENEMENTBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bUDGETBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,5 +383,12 @@
         private System.Windows.Forms.Label montantDebit;
         private System.Windows.Forms.Label dateDebit;
         private System.Windows.Forms.Label libelleDebit;
+        private GestionAssociationSportiveDataSet gestionAssociationSportiveDataSet;
+        private System.Windows.Forms.BindingSource aDHERENTBindingSource;
+        private GestionAssociationSportiveDataSetTableAdapters.ADHERENTTableAdapter aDHERENTTableAdapter;
+        private System.Windows.Forms.BindingSource eVENEMENTBindingSource;
+        private GestionAssociationSportiveDataSetTableAdapters.EVENEMENTTableAdapter eVENEMENTTableAdapter;
+        private System.Windows.Forms.BindingSource bUDGETBindingSource;
+        private GestionAssociationSportiveDataSetTableAdapters.BUDGETTableAdapter bUDGETTableAdapter;
     }
 }

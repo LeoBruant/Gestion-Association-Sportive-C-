@@ -135,5 +135,9 @@ namespace UtilisateursBLL
         {
             GestionDAO.ModifFlux(flux);
         }
+        public static void SupprimeFlux(int id)
+        {
+            GestionDAO.SupprimeFlux(id);
+        }
     }
 }

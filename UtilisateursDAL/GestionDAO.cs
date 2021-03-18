@@ -513,5 +513,24 @@ namespace UtilisateursDAL
 
             maConnexion.Close();
         }
+        // méthode qui supprime un adhérent de la base de données
+        public static void SupprimeFlux(int id)
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "DELETE FROM FLUX WHERE Id_flux = @id";
+
+            // Ajout des paramètres
+            cmd.Parameters.AddWithValue("@id", id);
+
+            // Execution de la requete
+            cmd.ExecuteNonQuery();
+
+            maConnexion.Close();
+        }
     }
 }

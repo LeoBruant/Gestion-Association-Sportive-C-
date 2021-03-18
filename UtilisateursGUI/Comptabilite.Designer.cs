@@ -92,6 +92,8 @@
             this.label30 = new System.Windows.Forms.Label();
             this.erreurDebit = new System.Windows.Forms.Label();
             this.successDebit = new System.Windows.Forms.Label();
+            this.erreurCredit = new System.Windows.Forms.Label();
+            this.succesCredit = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.debits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -231,6 +233,7 @@
             this.button5.TabIndex = 25;
             this.button5.Text = "Supprimer";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // ajoutDebit
             // 
@@ -296,6 +299,7 @@
             this.button11.TabIndex = 35;
             this.button11.Text = "Modifier";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button12
             // 
@@ -319,6 +323,7 @@
             this.button13.TabIndex = 33;
             this.button13.Text = "Supprimer";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // dataGridView3
             // 
@@ -776,11 +781,37 @@
             this.successDebit.Text = "le débit a bien été supprimé";
             this.successDebit.Visible = false;
             // 
+            // erreurCredit
+            // 
+            this.erreurCredit.AutoSize = true;
+            this.erreurCredit.Font = new System.Drawing.Font("Calibri Light", 12F);
+            this.erreurCredit.ForeColor = System.Drawing.Color.Red;
+            this.erreurCredit.Location = new System.Drawing.Point(1467, 691);
+            this.erreurCredit.Name = "erreurCredit";
+            this.erreurCredit.Size = new System.Drawing.Size(253, 24);
+            this.erreurCredit.TabIndex = 76;
+            this.erreurCredit.Text = "Aucun crédit n\'est séléctionné";
+            this.erreurCredit.Visible = false;
+            // 
+            // succesCredit
+            // 
+            this.succesCredit.AutoSize = true;
+            this.succesCredit.Font = new System.Drawing.Font("Calibri Light", 12F);
+            this.succesCredit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.succesCredit.Location = new System.Drawing.Point(1013, 691);
+            this.succesCredit.Name = "succesCredit";
+            this.succesCredit.Size = new System.Drawing.Size(241, 24);
+            this.succesCredit.TabIndex = 77;
+            this.succesCredit.Text = "le crédit a bien été supprimé";
+            this.succesCredit.Visible = false;
+            // 
             // Comptabilite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1920, 711);
+            this.Controls.Add(this.succesCredit);
+            this.Controls.Add(this.erreurCredit);
             this.Controls.Add(this.successDebit);
             this.Controls.Add(this.erreurDebit);
             this.Controls.Add(this.label30);
@@ -920,5 +951,7 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label erreurDebit;
         public System.Windows.Forms.Label successDebit;
+        private System.Windows.Forms.Label erreurCredit;
+        public System.Windows.Forms.Label succesCredit;
     }
 }
