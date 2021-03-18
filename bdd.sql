@@ -65,7 +65,7 @@ CREATE TABLE TYPE_FLUX (
 
 -- Table EVENEMENT
 CREATE TABLE EVENEMENT (
-	Id_evenement int NOT NULL,
+	Id_evenement int NOT NULL IDENTITY (1, 1),
 	Libelle_evenement varchar(255) NOT NULL,
 	Date_evenement date NOT NULL,
 	Lieu_evenement varchar(255) NOT NULL,

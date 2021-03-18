@@ -121,5 +121,9 @@ namespace UtilisateursBLL
         {
             GestionDAO.AddFlux(flux);
         }
+        public static List<Flux> GetDebits()
+        {
+            return(GestionDAO.GetDebits());
+        }
     }
 }

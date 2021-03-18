@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UtilisateursBLL;
+using UtilisateursBO;
 
 namespace UtilisateursGUI
 {
@@ -16,6 +17,54 @@ namespace UtilisateursGUI
         public Comptabilite()
         {
             InitializeComponent();
+
+            // Blocage de la génération automatique des colonnes
+            debits.AutoGenerateColumns = false;
+
+            // Création d'une en-tête de colonne pour la colonne 1
+            DataGridViewTextBoxColumn IdColumn = new DataGridViewTextBoxColumn();
+            IdColumn.DataPropertyName = "Id";
+            IdColumn.HeaderText = "id";
+
+            // Création d'une en-tête de colonne pour la colonne 2
+            DataGridViewTextBoxColumn DateColumn = new DataGridViewTextBoxColumn();
+            DateColumn.DataPropertyName = "DateFlux";
+            DateColumn.HeaderText = "dateFlux";
+
+            // Création d'une en-tête de colonne pour la colonne 3
+            DataGridViewTextBoxColumn LibelleColumn = new DataGridViewTextBoxColumn();
+            LibelleColumn.DataPropertyName = "Libelle";
+            LibelleColumn.HeaderText = "libele";
+
+            // Création d'une en-tête de colonne pour la colonne 4
+            DataGridViewTextBoxColumn MontantColumn = new DataGridViewTextBoxColumn();
+            MontantColumn.DataPropertyName = "MontantFlux";
+            MontantColumn.HeaderText = "montantFlux";
+
+            // Création d'une en-tête de colonne pour la colonne 5
+            DataGridViewTextBoxColumn BudgetColumn = new DataGridViewTextBoxColumn();
+            BudgetColumn.DataPropertyName = "LibelleBudget";
+            BudgetColumn.HeaderText = "libelleBudget";
+
+            // Ajout des 2 en-têtes de colonne au datagridview
+            debits.Columns.Add(IdColumn);
+            debits.Columns.Add(DateColumn);
+            debits.Columns.Add(LibelleColumn);
+            debits.Columns.Add(MontantColumn);
+            debits.Columns.Add(BudgetColumn);
+
+            // Définition du style apporté au datagridview
+            debits.ColumnHeadersVisible = false;
+            IdColumn.Width = 50;
+            DateColumn.Width = 110;
+            LibelleColumn.Width = 110;
+            MontantColumn.Width = 110;
+            BudgetColumn.Width = 110;
+
+            var lesdebits = new List<Flux>();
+            lesdebits = Gestion.GetDebits();
+            debits.DataSource = lesdebits;
+
             float budgetEPS = Gestion.GetBudgetEPS();
             float budgetAS = Gestion.GetBudgetAS();
 
@@ -138,6 +187,11 @@ namespace UtilisateursGUI
             ajoutDebit.Show();
 
             this.Close();
+        }
+
+        private void label25_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

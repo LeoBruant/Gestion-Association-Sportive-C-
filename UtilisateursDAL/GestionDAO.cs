@@ -431,5 +431,32 @@ namespace UtilisateursDAL
 
             maConnexion.Close();
         }
+
+        public static List<Flux> GetDebits()
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Libelle_typeflux FROM FLUX, TYPE_FLUX WHERE Id_typeflux = #Id_typeflux";
+
+            // Lecture des données
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            var lesDebits = new List<Flux>();
+
+            while (monReader.Read())
+            {
+                Flux debit = new Flux(Convert.ToInt32(monReader["Id_flux"]), Convert.ToDateTime(monReader["Date_flux"]), monReader["Libelle_flux"].ToString(), Convert.ToInt32(monReader["Montant_flux"]), monReader["Libelle_typeflux"].ToString());
+
+                lesDebits.Add(debit);
+            }
+            monReader.Close();
+            maConnexion.Close();
+
+            return lesDebits;
+        }
     }
 }
