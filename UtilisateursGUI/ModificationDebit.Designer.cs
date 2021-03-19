@@ -57,6 +57,7 @@
             this.eVENEMENTTableAdapter = new UtilisateursGUI.GestionAssociationSportiveDataSetTableAdapters.EVENEMENTTableAdapter();
             this.aDHERENTTableAdapter = new UtilisateursGUI.GestionAssociationSportiveDataSetTableAdapters.ADHERENTTableAdapter();
             this.id = new System.Windows.Forms.Label();
+            this.erreurType = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bUDGETBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionAssociationSportiveDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eVENEMENTBindingSource)).BeginInit();
@@ -340,11 +341,25 @@
             this.id.Text = "label8";
             this.id.Visible = false;
             // 
+            // erreurType
+            // 
+            this.erreurType.AutoSize = true;
+            this.erreurType.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.erreurType.ForeColor = System.Drawing.Color.Red;
+            this.erreurType.Location = new System.Drawing.Point(557, 197);
+            this.erreurType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.erreurType.Name = "erreurType";
+            this.erreurType.Size = new System.Drawing.Size(209, 19);
+            this.erreurType.TabIndex = 98;
+            this.erreurType.Text = "Le montant doit être un chiffre";
+            this.erreurType.Visible = false;
+            // 
             // ModificationDebit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 366);
+            this.Controls.Add(this.erreurType);
             this.Controls.Add(this.modificationBudgetChamp);
             this.Controls.Add(this.modificationIdEvenementChamp);
             this.Controls.Add(this.modificationIdAdherentChamp);
@@ -409,5 +424,6 @@
         private System.Windows.Forms.BindingSource aDHERENTBindingSource;
         private GestionAssociationSportiveDataSetTableAdapters.ADHERENTTableAdapter aDHERENTTableAdapter;
         public System.Windows.Forms.Label id;
+        private System.Windows.Forms.Label erreurType;
     }
 }

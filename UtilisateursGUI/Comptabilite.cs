@@ -14,7 +14,8 @@ namespace UtilisateursGUI
 {
     public partial class Comptabilite : Form
     {
-        private static int rowId;
+        private static int rowIdDebit;
+        private static int rowIdCredit;
         public Comptabilite()
         {
             InitializeComponent();
@@ -137,56 +138,6 @@ namespace UtilisateursGUI
             this.Close();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label19_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void modifEPS_Click(object sender, EventArgs e)
         {
             if (Int32.TryParse(EPSChamp.Text, out int number))
@@ -243,18 +194,13 @@ namespace UtilisateursGUI
             this.Close();
         }
 
-        private void label25_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void boutonModifierDebit_Click(object sender, EventArgs e)
         {
-            if (rowId != 0)
+            if (rowIdDebit != 0)
             {
                 ModificationDebit modifierDebit = new ModificationDebit();
 
-                modifierDebit.id.Text = rowId.ToString();
+                modifierDebit.id.Text = rowIdDebit.ToString();
 
                 modifierDebit.Show();
 
@@ -274,7 +220,7 @@ namespace UtilisateursGUI
 
             int id = Convert.ToInt32(debits.Rows[e.RowIndex].Cells[0].Value);
 
-            rowId = id;
+            rowIdDebit = id;
 
             Flux flux = Gestion.GetUnFlux(id);
 
@@ -287,10 +233,9 @@ namespace UtilisateursGUI
 
             int id = Convert.ToInt32(credits.Rows[e.RowIndex].Cells[0].Value);
 
-            rowId = id;
+            rowIdCredit = id;
 
             Flux flux = Gestion.GetUnFlux(id);
-
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -303,11 +248,11 @@ namespace UtilisateursGUI
 
         private void button11_Click(object sender, EventArgs e)
         {
-            if (rowId != 0)
+            if (rowIdCredit != 0)
             {
                 ModificationCredit modifierCredit = new ModificationCredit();
 
-                modifierCredit.id.Text = rowId.ToString();
+                modifierCredit.id.Text = rowIdCredit.ToString();
 
                 modifierCredit.Show();
 
@@ -323,7 +268,7 @@ namespace UtilisateursGUI
         private void button5_Click(object sender, EventArgs e)
         {
             // si une ligne a été selectionnée
-            if (rowId != 0)
+            if (rowIdDebit != 0)
             {
                 string message = "Vouslez-vous vraiment supprimer ce débit ?";
                 string caption = "Suppression du débit";
@@ -336,13 +281,13 @@ namespace UtilisateursGUI
 
                 if (result == DialogResult.Yes)
                 {
-                    Gestion.SupprimeFlux(rowId);
+                    Gestion.SupprimeFlux(rowIdDebit);
 
                     Comptabilite comptabilite = new Comptabilite();
                     comptabilite.successDebit.Visible = true;
                     comptabilite.Show();
 
-                    rowId = 0;
+                    rowIdDebit = 0;
 
                     this.Close();
                 }
@@ -357,9 +302,9 @@ namespace UtilisateursGUI
         private void button13_Click(object sender, EventArgs e)
         {
             // si une ligne a été selectionnée
-            if (rowId != 0)
+            if (rowIdCredit != 0)
             {
-                string message = "Vouslez-vous vraiment supprimer ce crédit ?";
+                string message = "Voulez-vous vraiment supprimer ce crédit ?";
                 string caption = "Suppression du crédit";
 
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -370,13 +315,13 @@ namespace UtilisateursGUI
 
                 if (result == DialogResult.Yes)
                 {
-                    Gestion.SupprimeFlux(rowId);
+                    Gestion.SupprimeFlux(rowIdCredit);
 
                     Comptabilite comptabilite = new Comptabilite();
-                    comptabilite.successDebit.Visible = true;
+                    comptabilite.successCredit.Visible = true;
                     comptabilite.Show();
 
-                    rowId = 0;
+                    rowIdCredit = 0;
 
                     this.Close();
                 }
@@ -384,7 +329,7 @@ namespace UtilisateursGUI
 
             else
             {
-                erreurDebit.Visible = true;
+                erreurCredit.Visible = true;
             }
         }
     }

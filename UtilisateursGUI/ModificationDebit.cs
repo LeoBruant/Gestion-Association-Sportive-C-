@@ -48,7 +48,6 @@ namespace UtilisateursGUI
         private void modifier_Click(object sender, EventArgs e)
         {
             Flux flux = Gestion.GetUnFlux(Convert.ToInt32(id.Text));
-            var error = false;
 
             if (modificationNomDebitChamp.Text != "")
             {
@@ -60,13 +59,14 @@ namespace UtilisateursGUI
                 flux.DateFlux = Convert.ToDateTime(modificationDateDebitChamp.Text);
             }
 
-            if (modificationMontantDebitChamp.Text != "" && Int32.TryParse(modificationMontantDebitChamp.Text, out int number))
+            if (modificationMontantDebitChamp.Text != "" && float.TryParse(modificationMontantDebitChamp.Text, out float number))
             {
-                flux.MontantFlux = Convert.ToInt32(modificationMontantDebitChamp.Text);
+                flux.MontantFlux = float.Parse(modificationMontantDebitChamp.Text);
+                erreurType.Visible = false;
             }
             else
             {
-                error = true;
+                erreurType.Visible = true;
             }
 
             if (prelevementEffectueOuiNon !="null")
@@ -89,7 +89,7 @@ namespace UtilisateursGUI
                 flux.IdBudget = Convert.ToInt32(modificationBudgetChamp.SelectedValue.ToString());
             }
 
-            if (!error)
+            if (!erreurType.Visible)
             {
                 Gestion.ModifFlux(flux);
                 success.Visible = true;

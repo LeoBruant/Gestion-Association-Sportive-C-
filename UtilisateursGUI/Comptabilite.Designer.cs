@@ -103,7 +103,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(694, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 51);
             this.button1.TabIndex = 1;
@@ -115,7 +115,7 @@
             // 
             this.EPSChamp.Font = new System.Drawing.Font("Calibri Light", 10.2F);
             this.EPSChamp.Location = new System.Drawing.Point(160, 41);
-            this.EPSChamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EPSChamp.Margin = new System.Windows.Forms.Padding(2);
             this.EPSChamp.Name = "EPSChamp";
             this.EPSChamp.Size = new System.Drawing.Size(119, 24);
             this.EPSChamp.TabIndex = 14;
@@ -131,13 +131,12 @@
             this.label1.Size = new System.Drawing.Size(139, 19);
             this.label1.TabIndex = 15;
             this.label1.Text = "Budjet Annuel EPS : ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // modifEPS
             // 
             this.modifEPS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modifEPS.Location = new System.Drawing.Point(295, 41);
-            this.modifEPS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.modifEPS.Margin = new System.Windows.Forms.Padding(2);
             this.modifEPS.Name = "modifEPS";
             this.modifEPS.Size = new System.Drawing.Size(98, 25);
             this.modifEPS.TabIndex = 16;
@@ -180,13 +179,12 @@
             this.label4.Size = new System.Drawing.Size(132, 19);
             this.label4.TabIndex = 19;
             this.label4.Text = "Budjet Annuel AS : ";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // ASChamp
             // 
             this.ASChamp.Font = new System.Drawing.Font("Calibri Light", 10.2F);
             this.ASChamp.Location = new System.Drawing.Point(160, 94);
-            this.ASChamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ASChamp.Margin = new System.Windows.Forms.Padding(2);
             this.ASChamp.Name = "ASChamp";
             this.ASChamp.Size = new System.Drawing.Size(119, 24);
             this.ASChamp.TabIndex = 20;
@@ -195,7 +193,7 @@
             // 
             this.modifAS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modifAS.Location = new System.Drawing.Point(295, 94);
-            this.modifAS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.modifAS.Margin = new System.Windows.Forms.Padding(2);
             this.modifAS.Name = "modifAS";
             this.modifAS.Size = new System.Drawing.Size(98, 25);
             this.modifAS.TabIndex = 21;
@@ -226,13 +224,12 @@
             this.ASLabel.Size = new System.Drawing.Size(49, 19);
             this.ASLabel.TabIndex = 23;
             this.ASLabel.Text = "XXXX€";
-            this.ASLabel.Click += new System.EventHandler(this.label6_Click);
             // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(793, 227);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(98, 25);
             this.button5.TabIndex = 25;
@@ -244,7 +241,7 @@
             // 
             this.ajoutDebit.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ajoutDebit.Location = new System.Drawing.Point(793, 185);
-            this.ajoutDebit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ajoutDebit.Margin = new System.Windows.Forms.Padding(2);
             this.ajoutDebit.Name = "ajoutDebit";
             this.ajoutDebit.Size = new System.Drawing.Size(98, 25);
             this.ajoutDebit.TabIndex = 26;
@@ -256,7 +253,7 @@
             // 
             this.boutonModifierDebit.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boutonModifierDebit.Location = new System.Drawing.Point(793, 142);
-            this.boutonModifierDebit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.boutonModifierDebit.Margin = new System.Windows.Forms.Padding(2);
             this.boutonModifierDebit.Name = "boutonModifierDebit";
             this.boutonModifierDebit.Size = new System.Drawing.Size(98, 25);
             this.boutonModifierDebit.TabIndex = 27;
@@ -275,7 +272,7 @@
             this.debits.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.debits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.debits.Location = new System.Drawing.Point(928, 97);
-            this.debits.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.debits.Margin = new System.Windows.Forms.Padding(2);
             this.debits.Name = "debits";
             this.debits.ReadOnly = true;
             this.debits.RowHeadersWidth = 51;
@@ -296,20 +293,21 @@
             this.credits.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.credits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.credits.Location = new System.Drawing.Point(929, 333);
-            this.credits.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.credits.Margin = new System.Windows.Forms.Padding(2);
             this.credits.Name = "credits";
             this.credits.ReadOnly = true;
             this.credits.RowHeadersWidth = 51;
+            this.credits.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.credits.RowTemplate.Height = 24;
             this.credits.Size = new System.Drawing.Size(554, 227);
             this.credits.TabIndex = 32;
-            this.credits.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.credits_CellClick);
+            this.credits.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.credits_CellClick);
             // 
             // button11
             // 
             this.button11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.Location = new System.Drawing.Point(793, 450);
-            this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button11.Margin = new System.Windows.Forms.Padding(2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(98, 25);
             this.button11.TabIndex = 35;
@@ -321,7 +319,7 @@
             // 
             this.button12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.Location = new System.Drawing.Point(793, 493);
-            this.button12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button12.Margin = new System.Windows.Forms.Padding(2);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(98, 25);
             this.button12.TabIndex = 34;
@@ -333,7 +331,7 @@
             // 
             this.button13.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.Location = new System.Drawing.Point(793, 535);
-            this.button13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button13.Margin = new System.Windows.Forms.Padding(2);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(98, 25);
             this.button13.TabIndex = 33;
@@ -345,7 +343,7 @@
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(390, 185);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.RowTemplate.Height = 24;
@@ -363,7 +361,6 @@
             this.label7.Size = new System.Drawing.Size(71, 19);
             this.label7.TabIndex = 37;
             this.label7.Text = "Résultats";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -381,7 +378,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Calibri Light", 10.2F);
             this.textBox2.Location = new System.Drawing.Point(12, 191);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(277, 24);
             this.textBox2.TabIndex = 39;
@@ -401,7 +398,7 @@
             // domainUpDown1
             // 
             this.domainUpDown1.Location = new System.Drawing.Point(83, 232);
-            this.domainUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.domainUpDown1.Margin = new System.Windows.Forms.Padding(2);
             this.domainUpDown1.Name = "domainUpDown1";
             this.domainUpDown1.Size = new System.Drawing.Size(110, 20);
             this.domainUpDown1.TabIndex = 41;
@@ -442,13 +439,12 @@
             this.label12.Size = new System.Drawing.Size(84, 19);
             this.label12.TabIndex = 44;
             this.label12.Text = "Sweet pris :";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(113, 301);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(40, 17);
             this.checkBox1.TabIndex = 45;
@@ -459,19 +455,18 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(160, 301);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(44, 17);
             this.checkBox2.TabIndex = 46;
             this.checkBox2.Text = "non";
             this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
             this.checkBox4.Location = new System.Drawing.Point(113, 336);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox4.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(40, 17);
             this.checkBox4.TabIndex = 48;
@@ -482,7 +477,7 @@
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(160, 337);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(44, 17);
             this.checkBox3.TabIndex = 49;
@@ -522,7 +517,6 @@
             this.label14.Size = new System.Drawing.Size(68, 19);
             this.label14.TabIndex = 52;
             this.label14.Text = "Prénom :";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // label15
             // 
@@ -578,7 +572,7 @@
             this.Type,
             this.dataGridViewTextBoxColumn10});
             this.dataGridView4.Location = new System.Drawing.Point(261, 408);
-            this.dataGridView4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersWidth = 51;
             this.dataGridView4.RowTemplate.Height = 24;
@@ -631,7 +625,6 @@
             this.label19.Size = new System.Drawing.Size(76, 19);
             this.label19.TabIndex = 58;
             this.label19.Text = "Flux élève";
-            this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
             // EPSError
             // 
@@ -736,7 +729,6 @@
             this.label25.Size = new System.Drawing.Size(81, 13);
             this.label25.TabIndex = 68;
             this.label25.Text = "Budget impacté";
-            this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
             // label26
             // 
@@ -908,7 +900,7 @@
             this.Controls.Add(this.EPSChamp);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Comptabilite";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
