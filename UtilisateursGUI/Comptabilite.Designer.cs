@@ -235,7 +235,7 @@
             this.button5.TabIndex = 25;
             this.button5.Text = "Supprimer";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.SupprimerDebit_Click);
             // 
             // ajoutDebit
             // 
@@ -271,6 +271,7 @@
             this.debits.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.debits.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.debits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.debits.ColumnHeadersVisible = false;
             this.debits.Location = new System.Drawing.Point(928, 97);
             this.debits.Margin = new System.Windows.Forms.Padding(2);
             this.debits.Name = "debits";
@@ -278,6 +279,7 @@
             this.debits.RowHeadersWidth = 51;
             this.debits.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.debits.RowTemplate.Height = 24;
+            this.debits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.debits.Size = new System.Drawing.Size(555, 158);
             this.debits.TabIndex = 31;
             this.debits.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.debits_CellClick);
@@ -299,6 +301,7 @@
             this.credits.RowHeadersWidth = 51;
             this.credits.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.credits.RowTemplate.Height = 24;
+            this.credits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.credits.Size = new System.Drawing.Size(554, 227);
             this.credits.TabIndex = 32;
             this.credits.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.credits_CellClick);
@@ -313,7 +316,7 @@
             this.button11.TabIndex = 35;
             this.button11.Text = "Modifier";
             this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.button11.Click += new System.EventHandler(this.ModifCredit_Click);
             // 
             // button12
             // 
@@ -325,7 +328,7 @@
             this.button12.TabIndex = 34;
             this.button12.Text = "Ajouter";
             this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.button12.Click += new System.EventHandler(this.AjoutCredit_Click);
             // 
             // button13
             // 
@@ -337,7 +340,7 @@
             this.button13.TabIndex = 33;
             this.button13.Text = "Supprimer";
             this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.button13.Click += new System.EventHandler(this.SupprimerCredit_Click);
             // 
             // dataGridView3
             // 

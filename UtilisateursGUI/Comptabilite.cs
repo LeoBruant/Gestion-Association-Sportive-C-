@@ -238,34 +238,7 @@ namespace UtilisateursGUI
             Flux flux = Gestion.GetUnFlux(id);
         }
 
-        private void button12_Click(object sender, EventArgs e)
-        {
-            AjoutCredit ajoutCredit = new AjoutCredit();
-            ajoutCredit.Show();
-
-            this.Close();
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            if (rowIdCredit != 0)
-            {
-                ModificationCredit modifierCredit = new ModificationCredit();
-
-                modifierCredit.id.Text = rowIdCredit.ToString();
-
-                modifierCredit.Show();
-
-                this.Close();
-            }
-
-            else
-            {
-                erreurCredit.Visible = true;
-            }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
+        private void SupprimerDebit_Click(object sender, EventArgs e)
         {
             // si une ligne a été selectionnée
             if (rowIdDebit != 0)
@@ -299,7 +272,31 @@ namespace UtilisateursGUI
             }
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        private void ModifCredit_Click(object sender, EventArgs e)
+        {
+            if (rowIdCredit != 0)
+            {
+                ModificationCredit modifierCredit = new ModificationCredit();
+                modifierCredit.id.Text = rowIdCredit.ToString();
+                modifierCredit.Show();
+                this.Close();
+            }
+
+            else
+            {
+                erreurCredit.Visible = true;
+            }
+        }
+
+        private void AjoutCredit_Click(object sender, EventArgs e)
+        {
+            AjoutCredit ajoutCredit = new AjoutCredit();
+            ajoutCredit.Show();
+
+            this.Close();
+        }
+
+        private void SupprimerCredit_Click(object sender, EventArgs e)
         {
             // si une ligne a été selectionnée
             if (rowIdCredit != 0)
