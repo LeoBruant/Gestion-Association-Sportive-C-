@@ -59,14 +59,17 @@ namespace UtilisateursGUI
                 flux.DateFlux = Convert.ToDateTime(modificationDateDebitChamp.Text);
             }
 
-            if (modificationMontantDebitChamp.Text != "" && float.TryParse(modificationMontantDebitChamp.Text, out float number))
+            if (modificationMontantDebitChamp.Text != "")
             {
-                flux.MontantFlux = float.Parse(modificationMontantDebitChamp.Text);
-                erreurType.Visible = false;
-            }
-            else
-            {
-                erreurType.Visible = true;
+                if (float.TryParse(modificationMontantDebitChamp.Text, out float number))
+                {
+                    flux.MontantFlux = float.Parse(modificationMontantDebitChamp.Text);
+                    erreurType.Visible = false;
+                }
+                else
+                {
+                    erreurType.Visible = true;
+                }
             }
 
             if (prelevementEffectueOuiNon !="null")
