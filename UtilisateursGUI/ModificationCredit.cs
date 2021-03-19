@@ -38,20 +38,25 @@ namespace UtilisateursGUI
         private void modifier_Click(object sender, EventArgs e)
         {
             Flux flux = Gestion.GetUnFlux(Convert.ToInt32(id.Text));
+            var error = false;
 
-            if (modificationNomDebitChamp.Text != "")
+            if (modificationNomCreditChamp.Text != "")
             {
-                flux.Libelle = modificationNomDebitChamp.Text;
+                flux.Libelle = modificationNomCreditChamp.Text;
             }
 
-            if (modificationDateDebitChamp.Text != "")
+            if (modificationDateCreditChamp.Text != "")
             {
-                flux.DateFlux = Convert.ToDateTime(modificationDateDebitChamp.Text);
+                flux.DateFlux = Convert.ToDateTime(modificationDateCreditChamp.Text);
             }
 
-            if (modificationMontantDebitChamp.Text != "")
+            if (modificationMontantCreditChamp.Text != "" && Int32.TryParse(modificationMontantCreditChamp.Text, out int number))
             {
-                flux.MontantFlux = Convert.ToInt32(modificationMontantDebitChamp.Text);
+                flux.MontantFlux = Convert.ToInt32(modificationMontantCreditChamp.Text);
+            }
+            else
+            {
+                error = true;
             }
 
             if (prelevementEffectueOuiNon != "null")
@@ -74,10 +79,11 @@ namespace UtilisateursGUI
                 flux.IdBudget = Convert.ToInt32(modificationBudgetChamp.SelectedValue.ToString());
             }
 
-
-            Gestion.ModifFlux(flux);
-
-            success.Visible = true;
+            if (!error)
+            {
+                Gestion.ModifFlux(flux);
+                success.Visible = true;
+            }
         }
 
         private void ModificationCredit_Load(object sender, EventArgs e)
@@ -88,6 +94,10 @@ namespace UtilisateursGUI
             this.eVENEMENTTableAdapter.Fill(this.gestionAssociationSportiveDataSet.EVENEMENT);
             // TODO: cette ligne de code charge les données dans la table 'gestionAssociationSportiveDataSet.ADHERENT'. Vous pouvez la déplacer ou la supprimer selon les besoins.
             this.aDHERENTTableAdapter.Fill(this.gestionAssociationSportiveDataSet.ADHERENT);
+        }
+
+        private void id_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -71,9 +71,10 @@
             this.modificationBudgetChamp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.modificationBudgetChamp.Font = new System.Drawing.Font("Calibri Light", 12F);
             this.modificationBudgetChamp.FormattingEnabled = true;
-            this.modificationBudgetChamp.Location = new System.Drawing.Point(614, 192);
+            this.modificationBudgetChamp.Location = new System.Drawing.Point(460, 156);
+            this.modificationBudgetChamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modificationBudgetChamp.Name = "modificationBudgetChamp";
-            this.modificationBudgetChamp.Size = new System.Drawing.Size(173, 32);
+            this.modificationBudgetChamp.Size = new System.Drawing.Size(131, 27);
             this.modificationBudgetChamp.TabIndex = 65;
             this.modificationBudgetChamp.ValueMember = "Id_budget";
             // 
@@ -94,9 +95,10 @@
             this.modificationIdEvenementChamp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.modificationIdEvenementChamp.Font = new System.Drawing.Font("Calibri Light", 12F);
             this.modificationIdEvenementChamp.FormattingEnabled = true;
-            this.modificationIdEvenementChamp.Location = new System.Drawing.Point(649, 134);
+            this.modificationIdEvenementChamp.Location = new System.Drawing.Point(487, 109);
+            this.modificationIdEvenementChamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modificationIdEvenementChamp.Name = "modificationIdEvenementChamp";
-            this.modificationIdEvenementChamp.Size = new System.Drawing.Size(173, 32);
+            this.modificationIdEvenementChamp.Size = new System.Drawing.Size(131, 27);
             this.modificationIdEvenementChamp.TabIndex = 64;
             this.modificationIdEvenementChamp.ValueMember = "Id_evenement";
             // 
@@ -112,9 +114,10 @@
             this.modificationIdAdherentChamp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.modificationIdAdherentChamp.Font = new System.Drawing.Font("Calibri Light", 12F);
             this.modificationIdAdherentChamp.FormattingEnabled = true;
-            this.modificationIdAdherentChamp.Location = new System.Drawing.Point(632, 86);
+            this.modificationIdAdherentChamp.Location = new System.Drawing.Point(474, 70);
+            this.modificationIdAdherentChamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modificationIdAdherentChamp.Name = "modificationIdAdherentChamp";
-            this.modificationIdAdherentChamp.Size = new System.Drawing.Size(173, 32);
+            this.modificationIdAdherentChamp.Size = new System.Drawing.Size(131, 27);
             this.modificationIdAdherentChamp.TabIndex = 63;
             this.modificationIdAdherentChamp.ValueMember = "Id_adherent";
             // 
@@ -127,11 +130,11 @@
             // 
             this.modificationPrelevementEffectueChamp.Controls.Add(this.non);
             this.modificationPrelevementEffectueChamp.Controls.Add(this.oui);
-            this.modificationPrelevementEffectueChamp.Location = new System.Drawing.Point(255, 244);
-            this.modificationPrelevementEffectueChamp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.modificationPrelevementEffectueChamp.Location = new System.Drawing.Point(191, 198);
+            this.modificationPrelevementEffectueChamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modificationPrelevementEffectueChamp.Name = "modificationPrelevementEffectueChamp";
-            this.modificationPrelevementEffectueChamp.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.modificationPrelevementEffectueChamp.Size = new System.Drawing.Size(135, 26);
+            this.modificationPrelevementEffectueChamp.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.modificationPrelevementEffectueChamp.Size = new System.Drawing.Size(101, 21);
             this.modificationPrelevementEffectueChamp.TabIndex = 62;
             this.modificationPrelevementEffectueChamp.TabStop = false;
             // 
@@ -139,10 +142,10 @@
             // 
             this.non.AutoSize = true;
             this.non.Font = new System.Drawing.Font("Calibri Light", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.non.Location = new System.Drawing.Point(67, 2);
-            this.non.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.non.Location = new System.Drawing.Point(50, 2);
+            this.non.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.non.Name = "non";
-            this.non.Size = new System.Drawing.Size(58, 25);
+            this.non.Size = new System.Drawing.Size(47, 21);
             this.non.TabIndex = 31;
             this.non.TabStop = true;
             this.non.Text = "non";
@@ -153,10 +156,10 @@
             // 
             this.oui.AutoSize = true;
             this.oui.Font = new System.Drawing.Font("Calibri Light", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.oui.Location = new System.Drawing.Point(7, 0);
-            this.oui.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.oui.Location = new System.Drawing.Point(5, 0);
+            this.oui.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.oui.Name = "oui";
-            this.oui.Size = new System.Drawing.Size(53, 25);
+            this.oui.Size = new System.Drawing.Size(43, 21);
             this.oui.TabIndex = 0;
             this.oui.TabStop = true;
             this.oui.Text = "oui";
@@ -166,18 +169,20 @@
             // modificationDateDebitChamp
             // 
             this.modificationDateDebitChamp.Font = new System.Drawing.Font("Calibri Light", 12F);
-            this.modificationDateDebitChamp.Location = new System.Drawing.Point(152, 137);
+            this.modificationDateDebitChamp.Location = new System.Drawing.Point(114, 111);
+            this.modificationDateDebitChamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modificationDateDebitChamp.Name = "modificationDateDebitChamp";
-            this.modificationDateDebitChamp.Size = new System.Drawing.Size(288, 32);
+            this.modificationDateDebitChamp.Size = new System.Drawing.Size(217, 27);
             this.modificationDateDebitChamp.TabIndex = 61;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri Light", 22F);
-            this.label1.Location = new System.Drawing.Point(12, 36);
+            this.label1.Location = new System.Drawing.Point(9, 29);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(298, 45);
+            this.label1.Size = new System.Drawing.Size(248, 37);
             this.label1.TabIndex = 60;
             this.label1.Text = "Modifier un Débit :";
             // 
@@ -185,9 +190,10 @@
             // 
             this.success.AutoSize = true;
             this.success.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.success.Location = new System.Drawing.Point(451, 243);
+            this.success.Location = new System.Drawing.Point(338, 197);
+            this.success.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.success.Name = "success";
-            this.success.Size = new System.Drawing.Size(224, 24);
+            this.success.Size = new System.Drawing.Size(183, 19);
             this.success.TabIndex = 59;
             this.success.Text = "Le débit a bien été modifié";
             this.success.Visible = false;
@@ -195,10 +201,10 @@
             // modifier
             // 
             this.modifier.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifier.Location = new System.Drawing.Point(850, 106);
-            this.modifier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.modifier.Location = new System.Drawing.Point(638, 86);
+            this.modifier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modifier.Name = "modifier";
-            this.modifier.Size = new System.Drawing.Size(171, 63);
+            this.modifier.Size = new System.Drawing.Size(128, 51);
             this.modifier.TabIndex = 57;
             this.modifier.Text = "Modifier";
             this.modifier.UseVisualStyleBackColor = true;
@@ -207,10 +213,10 @@
             // annuler
             // 
             this.annuler.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.annuler.Location = new System.Drawing.Point(850, 33);
-            this.annuler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.annuler.Location = new System.Drawing.Point(638, 27);
+            this.annuler.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.annuler.Name = "annuler";
-            this.annuler.Size = new System.Drawing.Size(171, 63);
+            this.annuler.Size = new System.Drawing.Size(128, 51);
             this.annuler.TabIndex = 56;
             this.annuler.Text = "Retour";
             this.annuler.UseVisualStyleBackColor = true;
@@ -219,26 +225,29 @@
             // modificationMontantDebitChamp
             // 
             this.modificationMontantDebitChamp.Font = new System.Drawing.Font("Calibri Light", 12F);
-            this.modificationMontantDebitChamp.Location = new System.Drawing.Point(183, 187);
+            this.modificationMontantDebitChamp.Location = new System.Drawing.Point(137, 152);
+            this.modificationMontantDebitChamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modificationMontantDebitChamp.Name = "modificationMontantDebitChamp";
-            this.modificationMontantDebitChamp.Size = new System.Drawing.Size(174, 32);
+            this.modificationMontantDebitChamp.Size = new System.Drawing.Size(132, 27);
             this.modificationMontantDebitChamp.TabIndex = 55;
             // 
             // modificationNomDebitChamp
             // 
             this.modificationNomDebitChamp.Font = new System.Drawing.Font("Calibri Light", 12F);
-            this.modificationNomDebitChamp.Location = new System.Drawing.Point(152, 89);
+            this.modificationNomDebitChamp.Location = new System.Drawing.Point(114, 72);
+            this.modificationNomDebitChamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modificationNomDebitChamp.Name = "modificationNomDebitChamp";
-            this.modificationNomDebitChamp.Size = new System.Drawing.Size(179, 32);
+            this.modificationNomDebitChamp.Size = new System.Drawing.Size(135, 27);
             this.modificationNomDebitChamp.TabIndex = 54;
             // 
             // idBudget
             // 
             this.idBudget.AutoSize = true;
             this.idBudget.Font = new System.Drawing.Font("Calibri Light", 12F);
-            this.idBudget.Location = new System.Drawing.Point(451, 195);
+            this.idBudget.Location = new System.Drawing.Point(338, 158);
+            this.idBudget.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.idBudget.Name = "idBudget";
-            this.idBudget.Size = new System.Drawing.Size(157, 24);
+            this.idBudget.Size = new System.Drawing.Size(127, 19);
             this.idBudget.TabIndex = 53;
             this.idBudget.Text = "Budget concerné :";
             // 
@@ -246,9 +255,10 @@
             // 
             this.idEvenement.AutoSize = true;
             this.idEvenement.Font = new System.Drawing.Font("Calibri Light", 12F);
-            this.idEvenement.Location = new System.Drawing.Point(451, 137);
+            this.idEvenement.Location = new System.Drawing.Point(338, 111);
+            this.idEvenement.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.idEvenement.Name = "idEvenement";
-            this.idEvenement.Size = new System.Drawing.Size(192, 24);
+            this.idEvenement.Size = new System.Drawing.Size(154, 19);
             this.idEvenement.TabIndex = 52;
             this.idEvenement.Text = "Evenement concerné :";
             // 
@@ -256,9 +266,10 @@
             // 
             this.idAdherent.AutoSize = true;
             this.idAdherent.Font = new System.Drawing.Font("Calibri Light", 12F);
-            this.idAdherent.Location = new System.Drawing.Point(451, 89);
+            this.idAdherent.Location = new System.Drawing.Point(338, 72);
+            this.idAdherent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.idAdherent.Name = "idAdherent";
-            this.idAdherent.Size = new System.Drawing.Size(175, 24);
+            this.idAdherent.Size = new System.Drawing.Size(141, 19);
             this.idAdherent.TabIndex = 51;
             this.idAdherent.Text = "Adhérent concerné :";
             // 
@@ -266,9 +277,10 @@
             // 
             this.prelevementEffectue.AutoSize = true;
             this.prelevementEffectue.Font = new System.Drawing.Font("Calibri Light", 12F);
-            this.prelevementEffectue.Location = new System.Drawing.Point(16, 244);
+            this.prelevementEffectue.Location = new System.Drawing.Point(12, 198);
+            this.prelevementEffectue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.prelevementEffectue.Name = "prelevementEffectue";
-            this.prelevementEffectue.Size = new System.Drawing.Size(233, 24);
+            this.prelevementEffectue.Size = new System.Drawing.Size(189, 19);
             this.prelevementEffectue.TabIndex = 50;
             this.prelevementEffectue.Text = "Prélèvement déja effectué :";
             // 
@@ -276,9 +288,10 @@
             // 
             this.montantDebit.AutoSize = true;
             this.montantDebit.Font = new System.Drawing.Font("Calibri Light", 12F);
-            this.montantDebit.Location = new System.Drawing.Point(16, 190);
+            this.montantDebit.Location = new System.Drawing.Point(12, 154);
+            this.montantDebit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.montantDebit.Name = "montantDebit";
-            this.montantDebit.Size = new System.Drawing.Size(161, 24);
+            this.montantDebit.Size = new System.Drawing.Size(130, 19);
             this.montantDebit.TabIndex = 49;
             this.montantDebit.Text = "Montant du débit :";
             // 
@@ -286,9 +299,10 @@
             // 
             this.dateDebit.AutoSize = true;
             this.dateDebit.Font = new System.Drawing.Font("Calibri Light", 12F);
-            this.dateDebit.Location = new System.Drawing.Point(16, 143);
+            this.dateDebit.Location = new System.Drawing.Point(12, 116);
+            this.dateDebit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dateDebit.Name = "dateDebit";
-            this.dateDebit.Size = new System.Drawing.Size(129, 24);
+            this.dateDebit.Size = new System.Drawing.Size(105, 19);
             this.dateDebit.TabIndex = 48;
             this.dateDebit.Text = "Date du débit :";
             // 
@@ -296,9 +310,10 @@
             // 
             this.libelleDebit.AutoSize = true;
             this.libelleDebit.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.libelleDebit.Location = new System.Drawing.Point(16, 92);
+            this.libelleDebit.Location = new System.Drawing.Point(12, 75);
+            this.libelleDebit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.libelleDebit.Name = "libelleDebit";
-            this.libelleDebit.Size = new System.Drawing.Size(130, 24);
+            this.libelleDebit.Size = new System.Drawing.Size(105, 19);
             this.libelleDebit.TabIndex = 47;
             this.libelleDebit.Text = "Nom du débit :";
             // 
@@ -317,19 +332,19 @@
             // id
             // 
             this.id.AutoSize = true;
-            this.id.Location = new System.Drawing.Point(418, 36);
+            this.id.Location = new System.Drawing.Point(670, 47);
+            this.id.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(46, 17);
+            this.id.Size = new System.Drawing.Size(35, 13);
             this.id.TabIndex = 77;
             this.id.Text = "label8";
             this.id.Visible = false;
             // 
             // ModificationDebit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1033, 450);
-            this.Controls.Add(this.id);
+            this.ClientSize = new System.Drawing.Size(775, 366);
             this.Controls.Add(this.modificationBudgetChamp);
             this.Controls.Add(this.modificationIdEvenementChamp);
             this.Controls.Add(this.modificationIdAdherentChamp);
@@ -348,6 +363,8 @@
             this.Controls.Add(this.montantDebit);
             this.Controls.Add(this.dateDebit);
             this.Controls.Add(this.libelleDebit);
+            this.Controls.Add(this.id);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ModificationDebit";
             this.Text = "ModificationDebit";
             this.Load += new System.EventHandler(this.ModificationDebit_Load);

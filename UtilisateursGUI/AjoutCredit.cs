@@ -44,7 +44,7 @@ namespace UtilisateursGUI
         private void ajouter_Click(object sender, EventArgs e)
         {
             // vérification que les champs ne sont pas vides
-            if (ajoutNomCreditChamp.Text == string.Empty || ajoutDateCreditChamp.Text == string.Empty || ajoutMontantCreditChamp.Text == string.Empty || prelevementEffectueOuiNon == "null" || ajoutIdAdherentChamp.Text == string.Empty || ajoutIdEvenementChamp.Text == string.Empty || ajoutBudgetChamp.Text == string.Empty)
+            if (ajoutNomCreditChamp.Text == string.Empty || ajoutDateCreditChamp.Text == string.Empty || ajoutMontantCreditChamp.Text == string.Empty || prelevementEffectueOuiNon == "null" || ajoutIdAdherentChamp.Text == string.Empty || ajoutIdEvenementChamp.Text == string.Empty || ajoutBudgetChamp.Text == string.Empty || !Int32.TryParse(ajoutMontantCreditChamp.Text, out int number))
             {
                 erreurChampsVides.Visible = true;
             }
