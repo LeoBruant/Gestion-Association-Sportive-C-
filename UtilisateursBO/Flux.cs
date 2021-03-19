@@ -8,16 +8,16 @@ namespace UtilisateursBO
 {
     public class Flux
     {
-        int id;
-        string libelle;
-        DateTime dateFlux;
-        float montantFlux;
-        int prelevementEff;
-        int idAdherent;
-        int idTypeFlux;
-        int idEvenement;
-        int idBudget;
-        string libelleBudget;
+        private int id;
+        private string libelle;
+        private DateTime dateFlux;
+        private float montantFlux;
+        private int prelevementEff;
+        private int idAdherent;
+        private int idTypeFlux;
+        private int idEvenement;
+        private int idBudget;
+        private string libelleBudget;
 
         // constructeur utilisé pour afficher les données des flux
         public Flux(int id, string libelle, DateTime dateFlux, float montantFlux, int prelevementEff, int idAdherent, int idTypeFlux, int idEvenement, int idBudget)
@@ -34,13 +34,14 @@ namespace UtilisateursBO
         }
 
         // constructeur utilisé pour afficher la liste des flux
-        public Flux(int id, DateTime dateFlux, string libelle, float montantFlux, string libelleBudget)
+        public Flux(int id, DateTime dateFlux, string libelle, float montantFlux, string libelleBudget, int idBudget)
         {
             this.id = id;
             this.dateFlux = dateFlux;
             this.libelle = libelle;
             this.montantFlux = montantFlux;
             this.libelleBudget = libelleBudget;
+            this.idBudget = idBudget;
         }
 
         // constructeur utilisé pour ajouter un flux dans la base de données

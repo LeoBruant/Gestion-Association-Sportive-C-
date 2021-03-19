@@ -101,3 +101,6 @@ C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\Utilisateur
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.ModificationDebit.resources
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.AjoutCredit.resources
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.ModificationCredit.resources
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.AjoutCredit.resources
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.ModificationCredit.resources
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.ModificationDebit.resources

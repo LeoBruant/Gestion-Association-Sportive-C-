@@ -53,6 +53,7 @@ CREATE TABLE BUDGET (
 	Id_budget int NOT NULL IDENTITY (1, 1),
 	Libelle_budget varchar(255) NOT NULL,
 	Montantinitial_budget float NOT NULL,
+	Montantactuel_budget float NOT NULL,
 	CONSTRAINT Id_budget PRIMARY KEY NONCLUSTERED (Id_budget),
 );
 

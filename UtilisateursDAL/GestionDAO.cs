@@ -440,7 +440,7 @@ namespace UtilisateursDAL
             // Requette sql
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Libelle_typeflux FROM FLUX, TYPE_FLUX WHERE Id_typeflux = #Id_typeflux";
+            cmd.CommandText = "SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Libelle_budget, #Id_budget FROM FLUX, TYPE_FLUX, BUDGET WHERE Id_typeflux = #Id_typeflux AND Id_typeflux = 1 AND #Id_budget = Id_budget";
 
             // Lecture des données
             SqlDataReader monReader = cmd.ExecuteReader();
@@ -449,7 +449,7 @@ namespace UtilisateursDAL
 
             while (monReader.Read())
             {
-                Flux debit = new Flux(Convert.ToInt32(monReader["Id_flux"]), Convert.ToDateTime(monReader["Date_flux"]), monReader["Libelle_flux"].ToString(), Convert.ToInt32(monReader["Montant_flux"]), monReader["Libelle_typeflux"].ToString());
+                Flux debit = new Flux(Convert.ToInt32(monReader["Id_flux"]), Convert.ToDateTime(monReader["Date_flux"]), monReader["Libelle_flux"].ToString(), Convert.ToInt32(monReader["Montant_flux"]), monReader["Libelle_budget"].ToString(), Convert.ToInt32(monReader["#Id_budget"]));
 
                 lesDebits.Add(debit);
             }
@@ -458,6 +458,34 @@ namespace UtilisateursDAL
 
             return lesDebits;
         }
+
+        public static List<Flux> GetCredits()
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Libelle_budget, #Id_budget FROM FLUX, TYPE_FLUX, BUDGET WHERE Id_typeflux = #Id_typeflux AND Id_typeflux = 2 AND #Id_budget = Id_budget";
+
+            // Lecture des données
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            var lesCredits = new List<Flux>();
+
+            while (monReader.Read())
+            {
+                Flux credit = new Flux(Convert.ToInt32(monReader["Id_flux"]), Convert.ToDateTime(monReader["Date_flux"]), monReader["Libelle_flux"].ToString(), Convert.ToInt32(monReader["Montant_flux"]), monReader["Libelle_budget"].ToString(), Convert.ToInt32(monReader["#Id_budget"]));
+
+                lesCredits.Add(credit);
+            }
+            monReader.Close();
+            maConnexion.Close();
+
+            return lesCredits;
+        }
+
         //Methode qui retourne un Flux
         public static Flux GetUnFlux(int id)
         {
@@ -531,6 +559,140 @@ namespace UtilisateursDAL
             cmd.ExecuteNonQuery();
 
             maConnexion.Close();
+        }
+
+        // Méthode qui calcule le budget AS actuel
+        public static void CalculerBudgetAS()
+        {
+            float budgetInitial = GetBudgetAS();
+            float nouveauBudget = budgetInitial;
+
+            List<Flux> debits = GetDebits();
+            List<Flux> credits = GetCredits();
+
+            foreach (Flux debit in debits)
+            {
+                if(debit.IdBudget == 1)
+                {
+                    nouveauBudget -= debit.MontantFlux;
+                }
+            }
+
+            foreach (Flux credit in credits)
+            {
+                if (credit.IdBudget == 1)
+                {
+                    nouveauBudget += credit.MontantFlux;
+                }
+            }
+
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "UPDATE BUDGET SET Montantactuel_budget = @valeur WHERE Libelle_budget = 'AS'";
+
+            // Ajout des paramètres
+            cmd.Parameters.AddWithValue("@valeur", nouveauBudget);
+
+            // Execution de la requete
+            cmd.ExecuteNonQuery();
+
+            maConnexion.Close();
+        }
+
+        // Méthode qui calcule le budget EPS actuel
+        public static void CalculerBudgetEPS()
+        {
+            float budgetInitial = GetBudgetEPS();
+            float nouveauBudget = budgetInitial;
+
+            List<Flux> debits = GetDebits();
+            List<Flux> credits = GetCredits();
+
+            foreach (Flux debit in debits)
+            {
+                if (debit.IdBudget == 2)
+                {
+                    nouveauBudget -= debit.MontantFlux;
+                }
+            }
+
+            foreach (Flux credit in credits)
+            {
+                if (credit.IdBudget == 2)
+                {
+                    nouveauBudget += credit.MontantFlux;
+                }
+            }
+
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "UPDATE BUDGET SET Montantactuel_budget = @valeur WHERE Libelle_budget = 'EPS'";
+
+            // Ajout des paramètres
+            cmd.Parameters.AddWithValue("@valeur", nouveauBudget);
+
+            // Execution de la requete
+            cmd.ExecuteNonQuery();
+
+            maConnexion.Close();
+        }
+
+        // Méthode qui retourne le montant du budget EPS actuel
+        public static float GetBudgetEPSActuel()
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT Montantactuel_budget FROM BUDGET WHERE Libelle_budget = 'EPS'";
+
+            // Lecture des données
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                return float.Parse(monReader["Montantactuel_budget"].ToString());
+            }
+
+            monReader.Close();
+            maConnexion.Close();
+
+            return 0;
+        }
+
+        // Méthode qui retourne le montant du budget EPS actuel
+        public static float GetBudgetASActuel()
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT Montantactuel_budget FROM BUDGET WHERE Libelle_budget = 'AS'";
+
+            // Lecture des données
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                return Convert.ToInt32(monReader["Montantactuel_budget"]);
+            }
+
+            monReader.Close();
+            maConnexion.Close();
+
+            return 0;
         }
     }
 }

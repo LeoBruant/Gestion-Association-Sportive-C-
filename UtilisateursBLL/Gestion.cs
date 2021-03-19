@@ -121,9 +121,15 @@ namespace UtilisateursBLL
         {
             GestionDAO.AddFlux(flux);
         }
+        // Méthode qui retourne une liste de debits
         public static List<Flux> GetDebits()
         {
             return(GestionDAO.GetDebits());
+        }
+        // Méthode qui retourne une liste de credits
+        public static List<Flux> GetCredits()
+        {
+            return (GestionDAO.GetCredits());
         }
         // Méthode qui retourne une liste contenant un flux
         public static Flux GetUnFlux(int id)
@@ -138,6 +144,22 @@ namespace UtilisateursBLL
         public static void SupprimeFlux(int id)
         {
             GestionDAO.SupprimeFlux(id);
+        }
+        public static float GetBudgetASActuel()
+        {
+            return GestionDAO.GetBudgetASActuel();
+        }
+        public static float GetBudgetEPSActuel()
+        {
+            return GestionDAO.GetBudgetEPSActuel();
+        }
+        public static void CalculerBudgetAS()
+        {
+            GestionDAO.CalculerBudgetAS();
+        }
+        public static void CalculerBudgetEPS()
+        {
+            GestionDAO.CalculerBudgetEPS();
         }
     }
 }

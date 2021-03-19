@@ -19,55 +19,111 @@ namespace UtilisateursGUI
         {
             InitializeComponent();
 
-            // Blocage de la génération automatique des colonnes
-            debits.AutoGenerateColumns = false;
+            // Tableau des debits //
 
-            // Création d'une en-tête de colonne pour la colonne 1
-            DataGridViewTextBoxColumn IdColumn = new DataGridViewTextBoxColumn();
-            IdColumn.DataPropertyName = "Id";
-            IdColumn.HeaderText = "id";
+                // Blocage de la génération automatique des colonnes
+                debits.AutoGenerateColumns = false;
 
-            // Création d'une en-tête de colonne pour la colonne 2
-            DataGridViewTextBoxColumn DateColumn = new DataGridViewTextBoxColumn();
-            DateColumn.DataPropertyName = "DateFlux";
-            DateColumn.HeaderText = "dateFlux";
+                // Création d'une en-tête de colonne pour la colonne 1
+                DataGridViewTextBoxColumn IdColumnDebit = new DataGridViewTextBoxColumn();
+                IdColumnDebit.DataPropertyName = "Id";
+                IdColumnDebit.HeaderText = "id";
 
-            // Création d'une en-tête de colonne pour la colonne 3
-            DataGridViewTextBoxColumn LibelleColumn = new DataGridViewTextBoxColumn();
-            LibelleColumn.DataPropertyName = "Libelle";
-            LibelleColumn.HeaderText = "libele";
+                // Création d'une en-tête de colonne pour la colonne 2
+                DataGridViewTextBoxColumn DateColumnDebit = new DataGridViewTextBoxColumn();
+                DateColumnDebit.DataPropertyName = "DateFlux";
+                DateColumnDebit.HeaderText = "dateFlux";
 
-            // Création d'une en-tête de colonne pour la colonne 4
-            DataGridViewTextBoxColumn MontantColumn = new DataGridViewTextBoxColumn();
-            MontantColumn.DataPropertyName = "MontantFlux";
-            MontantColumn.HeaderText = "montantFlux";
+                // Création d'une en-tête de colonne pour la colonne 3
+                DataGridViewTextBoxColumn LibelleColumnDebit = new DataGridViewTextBoxColumn();
+                LibelleColumnDebit.DataPropertyName = "Libelle";
+                LibelleColumnDebit.HeaderText = "libele";
 
-            // Création d'une en-tête de colonne pour la colonne 5
-            DataGridViewTextBoxColumn BudgetColumn = new DataGridViewTextBoxColumn();
-            BudgetColumn.DataPropertyName = "LibelleBudget";
-            BudgetColumn.HeaderText = "libelleBudget";
+                // Création d'une en-tête de colonne pour la colonne 4
+                DataGridViewTextBoxColumn MontantColumnDebit = new DataGridViewTextBoxColumn();
+                MontantColumnDebit.DataPropertyName = "MontantFlux";
+                MontantColumnDebit.HeaderText = "montantFlux";
 
-            // Ajout des 2 en-têtes de colonne au datagridview
-            debits.Columns.Add(IdColumn);
-            debits.Columns.Add(DateColumn);
-            debits.Columns.Add(LibelleColumn);
-            debits.Columns.Add(MontantColumn);
-            debits.Columns.Add(BudgetColumn);
+                // Création d'une en-tête de colonne pour la colonne 5
+                DataGridViewTextBoxColumn BudgetColumnDebit = new DataGridViewTextBoxColumn();
+                BudgetColumnDebit.DataPropertyName = "LibelleBudget";
+                BudgetColumnDebit.HeaderText = "libelleBudget";
 
-            // Définition du style apporté au datagridview
+            // Tableau des credits //
+
+                // Blocage de la génération automatique des colonnes
+                credits.AutoGenerateColumns = false;
+
+                // Création d'une en-tête de colonne pour la colonne 1
+                DataGridViewTextBoxColumn IdColumnCredit = new DataGridViewTextBoxColumn();
+                IdColumnCredit.DataPropertyName = "Id";
+                IdColumnCredit.HeaderText = "id";
+
+                // Création d'une en-tête de colonne pour la colonne 2
+                DataGridViewTextBoxColumn DateColumnCredit = new DataGridViewTextBoxColumn();
+                DateColumnCredit.DataPropertyName = "DateFlux";
+                DateColumnCredit.HeaderText = "dateFlux";
+
+                // Création d'une en-tête de colonne pour la colonne 3
+                DataGridViewTextBoxColumn LibelleColumnCredit = new DataGridViewTextBoxColumn();
+                LibelleColumnCredit.DataPropertyName = "Libelle";
+                LibelleColumnCredit.HeaderText = "libele";
+
+                // Création d'une en-tête de colonne pour la colonne 4
+                DataGridViewTextBoxColumn MontantColumnCredit = new DataGridViewTextBoxColumn();
+                MontantColumnCredit.DataPropertyName = "MontantFlux";
+                MontantColumnCredit.HeaderText = "montantFlux";
+
+                // Création d'une en-tête de colonne pour la colonne 5
+                DataGridViewTextBoxColumn BudgetColumnCredit = new DataGridViewTextBoxColumn();
+                BudgetColumnCredit.DataPropertyName = "LibelleBudget";
+                BudgetColumnCredit.HeaderText = "libelleBudget";
+
+            // Ajout des en-têtes de colonne pour les débits
+            debits.Columns.Add(IdColumnDebit);
+            debits.Columns.Add(DateColumnDebit);
+            debits.Columns.Add(LibelleColumnDebit);
+            debits.Columns.Add(MontantColumnDebit);
+            debits.Columns.Add(BudgetColumnDebit);
+
+            // Ajout des en-têtes de colonne pour les crédits
+            credits.Columns.Add(IdColumnCredit);
+            credits.Columns.Add(DateColumnCredit);
+            credits.Columns.Add(LibelleColumnCredit);
+            credits.Columns.Add(MontantColumnCredit);
+            credits.Columns.Add(BudgetColumnCredit);
+
+            // Définition du style apporté au datagridview des debits
             debits.ColumnHeadersVisible = false;
-            IdColumn.Width = 50;
-            DateColumn.Width = 110;
-            LibelleColumn.Width = 110;
-            MontantColumn.Width = 110;
-            BudgetColumn.Width = 110;
+            IdColumnDebit.Width = 50;
+            DateColumnDebit.Width = 110;
+            LibelleColumnDebit.Width = 110;
+            MontantColumnDebit.Width = 110;
+            BudgetColumnDebit.Width = 110;
 
-            var lesdebits = new List<Flux>();
-            lesdebits = Gestion.GetDebits();
-            debits.DataSource = lesdebits;
+            // Définition du style apporté au datagridview des credits
+            credits.ColumnHeadersVisible = false;
+            IdColumnCredit.Width = 50;
+            DateColumnCredit.Width = 110;
+            LibelleColumnCredit.Width = 110;
+            MontantColumnCredit.Width = 110;
+            BudgetColumnCredit.Width = 110;
 
-            float budgetEPS = Gestion.GetBudgetEPS();
-            float budgetAS = Gestion.GetBudgetAS();
+            // Récupération des débits
+            var lesDebits = new List<Flux>();
+            lesDebits = Gestion.GetDebits();
+            debits.DataSource = lesDebits;
+
+            // Récupération des crédits
+            var lesCredits = new List<Flux>();
+            lesCredits = Gestion.GetCredits();
+            credits.DataSource = lesCredits;
+
+            // Récupération des budgets
+            Gestion.CalculerBudgetAS();
+            Gestion.CalculerBudgetEPS();
+            float budgetEPS = Gestion.GetBudgetEPSActuel();
+            float budgetAS = Gestion.GetBudgetASActuel();
 
             EPSLabel.Text = budgetEPS.ToString() + '€';
             ASLabel.Text = budgetAS.ToString() + '€';
@@ -136,7 +192,8 @@ namespace UtilisateursGUI
             if (Int32.TryParse(EPSChamp.Text, out int number))
             {
                 Gestion.ModifBudgetEPS(float.Parse(EPSChamp.Text));
-                float budgetEPS = Gestion.GetBudgetEPS();
+                Gestion.CalculerBudgetEPS();
+                float budgetEPS = Gestion.GetBudgetEPSActuel();
                 EPSLabel.Text = budgetEPS.ToString() + '€';
 
                 EPSError.Visible = false;
@@ -155,7 +212,8 @@ namespace UtilisateursGUI
             if (Int32.TryParse(ASChamp.Text, out int number))
             {
                 Gestion.ModifBudgetAS(float.Parse(ASChamp.Text));
-                float budgetEPS = Gestion.GetBudgetAS();
+                Gestion.CalculerBudgetAS();
+                float budgetEPS = Gestion.GetBudgetASActuel();
                 ASLabel.Text = budgetEPS.ToString() + '€';
 
                 ASError.Visible = false;
@@ -215,6 +273,19 @@ namespace UtilisateursGUI
             successDebit.Visible = false;
 
             int id = Convert.ToInt32(debits.Rows[e.RowIndex].Cells[0].Value);
+
+            rowId = id;
+
+            Flux flux = Gestion.GetUnFlux(id);
+
+        }
+
+        private void credits_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            erreurCredit.Visible = false;
+            successCredit.Visible = false;
+
+            int id = Convert.ToInt32(credits.Rows[e.RowIndex].Cells[0].Value);
 
             rowId = id;
 
