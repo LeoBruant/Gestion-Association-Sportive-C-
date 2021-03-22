@@ -48,22 +48,18 @@
             this.non = new System.Windows.Forms.RadioButton();
             this.oui = new System.Windows.Forms.RadioButton();
             this.ajoutIdAdherentChamp = new System.Windows.Forms.ComboBox();
-            this.gestionAssociationSportiveDataSet = new UtilisateursGUI.GestionAssociationSportiveDataSet();
-            this.gestionAssociationSportiveDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aDHERENTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.aDHERENTTableAdapter = new UtilisateursGUI.GestionAssociationSportiveDataSetTableAdapters.ADHERENTTableAdapter();
-            this.aDHERENTBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.gestionAssociationSportiveDataSet = new UtilisateursGUI.GestionAssociationSportiveDataSet();
             this.ajoutIdEvenementChamp = new System.Windows.Forms.ComboBox();
             this.eVENEMENTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eVENEMENTTableAdapter = new UtilisateursGUI.GestionAssociationSportiveDataSetTableAdapters.EVENEMENTTableAdapter();
             this.ajoutBudgetChamp = new System.Windows.Forms.ComboBox();
             this.bUDGETBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aDHERENTTableAdapter = new UtilisateursGUI.GestionAssociationSportiveDataSetTableAdapters.ADHERENTTableAdapter();
+            this.eVENEMENTTableAdapter = new UtilisateursGUI.GestionAssociationSportiveDataSetTableAdapters.EVENEMENTTableAdapter();
             this.bUDGETTableAdapter = new UtilisateursGUI.GestionAssociationSportiveDataSetTableAdapters.BUDGETTableAdapter();
             this.ajoutPrelevementEfectueChamp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionAssociationSportiveDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionAssociationSportiveDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aDHERENTBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aDHERENTBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionAssociationSportiveDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eVENEMENTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bUDGETBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -199,6 +195,7 @@
             this.annuler.TabIndex = 37;
             this.annuler.Text = "Retour";
             this.annuler.UseVisualStyleBackColor = true;
+            this.annuler.Click += new System.EventHandler(this.annuler_Click);
             // 
             // label1
             // 
@@ -260,7 +257,7 @@
             // 
             // ajoutIdAdherentChamp
             // 
-            this.ajoutIdAdherentChamp.DataSource = this.aDHERENTBindingSource1;
+            this.ajoutIdAdherentChamp.DataSource = this.aDHERENTBindingSource;
             this.ajoutIdAdherentChamp.DisplayMember = "Nom_adherent";
             this.ajoutIdAdherentChamp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ajoutIdAdherentChamp.Font = new System.Drawing.Font("Calibri Light", 12F);
@@ -271,29 +268,15 @@
             this.ajoutIdAdherentChamp.TabIndex = 44;
             this.ajoutIdAdherentChamp.ValueMember = "Id_adherent";
             // 
-            // gestionAssociationSportiveDataSet
-            // 
-            this.gestionAssociationSportiveDataSet.DataSetName = "GestionAssociationSportiveDataSet";
-            this.gestionAssociationSportiveDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // gestionAssociationSportiveDataSetBindingSource
-            // 
-            this.gestionAssociationSportiveDataSetBindingSource.DataSource = this.gestionAssociationSportiveDataSet;
-            this.gestionAssociationSportiveDataSetBindingSource.Position = 0;
-            // 
             // aDHERENTBindingSource
             // 
             this.aDHERENTBindingSource.DataMember = "ADHERENT";
             this.aDHERENTBindingSource.DataSource = this.gestionAssociationSportiveDataSet;
             // 
-            // aDHERENTTableAdapter
+            // gestionAssociationSportiveDataSet
             // 
-            this.aDHERENTTableAdapter.ClearBeforeFill = true;
-            // 
-            // aDHERENTBindingSource1
-            // 
-            this.aDHERENTBindingSource1.DataMember = "ADHERENT";
-            this.aDHERENTBindingSource1.DataSource = this.gestionAssociationSportiveDataSetBindingSource;
+            this.gestionAssociationSportiveDataSet.DataSetName = "GestionAssociationSportiveDataSet";
+            this.gestionAssociationSportiveDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ajoutIdEvenementChamp
             // 
@@ -311,11 +294,7 @@
             // eVENEMENTBindingSource
             // 
             this.eVENEMENTBindingSource.DataMember = "EVENEMENT";
-            this.eVENEMENTBindingSource.DataSource = this.gestionAssociationSportiveDataSetBindingSource;
-            // 
-            // eVENEMENTTableAdapter
-            // 
-            this.eVENEMENTTableAdapter.ClearBeforeFill = true;
+            this.eVENEMENTBindingSource.DataSource = this.gestionAssociationSportiveDataSet;
             // 
             // ajoutBudgetChamp
             // 
@@ -333,13 +312,21 @@
             // bUDGETBindingSource
             // 
             this.bUDGETBindingSource.DataMember = "BUDGET";
-            this.bUDGETBindingSource.DataSource = this.gestionAssociationSportiveDataSetBindingSource;
+            this.bUDGETBindingSource.DataSource = this.gestionAssociationSportiveDataSet;
+            // 
+            // aDHERENTTableAdapter
+            // 
+            this.aDHERENTTableAdapter.ClearBeforeFill = true;
+            // 
+            // eVENEMENTTableAdapter
+            // 
+            this.eVENEMENTTableAdapter.ClearBeforeFill = true;
             // 
             // bUDGETTableAdapter
             // 
             this.bUDGETTableAdapter.ClearBeforeFill = true;
             // 
-            // ajoutDebit
+            // AjoutDebit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -363,15 +350,13 @@
             this.Controls.Add(this.montantDebit);
             this.Controls.Add(this.dateDebit);
             this.Controls.Add(this.libelleDebit);
-            this.Name = "ajoutDebit";
-            this.Text = "ajoutDebit";
+            this.Name = "AjoutDebit";
+            this.Text = "s";
             this.Load += new System.EventHandler(this.ajoutDebit_Load);
             this.ajoutPrelevementEfectueChamp.ResumeLayout(false);
             this.ajoutPrelevementEfectueChamp.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionAssociationSportiveDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionAssociationSportiveDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aDHERENTBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aDHERENTBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionAssociationSportiveDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eVENEMENTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bUDGETBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -400,15 +385,13 @@
         private System.Windows.Forms.RadioButton non;
         private System.Windows.Forms.RadioButton oui;
         private System.Windows.Forms.ComboBox ajoutIdAdherentChamp;
-        private System.Windows.Forms.BindingSource gestionAssociationSportiveDataSetBindingSource;
+        private System.Windows.Forms.ComboBox ajoutIdEvenementChamp;
+        private System.Windows.Forms.ComboBox ajoutBudgetChamp;
         private GestionAssociationSportiveDataSet gestionAssociationSportiveDataSet;
         private System.Windows.Forms.BindingSource aDHERENTBindingSource;
         private GestionAssociationSportiveDataSetTableAdapters.ADHERENTTableAdapter aDHERENTTableAdapter;
-        private System.Windows.Forms.BindingSource aDHERENTBindingSource1;
-        private System.Windows.Forms.ComboBox ajoutIdEvenementChamp;
         private System.Windows.Forms.BindingSource eVENEMENTBindingSource;
         private GestionAssociationSportiveDataSetTableAdapters.EVENEMENTTableAdapter eVENEMENTTableAdapter;
-        private System.Windows.Forms.ComboBox ajoutBudgetChamp;
         private System.Windows.Forms.BindingSource bUDGETBindingSource;
         private GestionAssociationSportiveDataSetTableAdapters.BUDGETTableAdapter bUDGETTableAdapter;
     }

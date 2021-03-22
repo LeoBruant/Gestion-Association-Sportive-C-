@@ -55,15 +55,15 @@
             this.ajoutAutoPrelevement = new System.Windows.Forms.GroupBox();
             this.classe = new System.Windows.Forms.Label();
             this.classeChamp = new System.Windows.Forms.ComboBox();
-            this.cLASSEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gestionAssociationSportiveDataSet = new UtilisateursGUI.GestionAssociationSportiveDataSet();
-            this.cLASSETableAdapter = new UtilisateursGUI.GestionAssociationSportiveDataSetTableAdapters.CLASSETableAdapter();
             this.success = new System.Windows.Forms.Label();
             this.ajoutSexeChamp = new System.Windows.Forms.ComboBox();
             this.existe = new System.Windows.Forms.Label();
+            this.gestionAssociationSportiveDataSet = new UtilisateursGUI.GestionAssociationSportiveDataSet();
+            this.cLASSEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cLASSETableAdapter = new UtilisateursGUI.GestionAssociationSportiveDataSetTableAdapters.CLASSETableAdapter();
             this.ajoutAutoPrelevement.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cLASSEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionAssociationSportiveDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLASSEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // login
@@ -336,21 +336,7 @@
             this.classeChamp.Name = "classeChamp";
             this.classeChamp.Size = new System.Drawing.Size(160, 24);
             this.classeChamp.TabIndex = 33;
-            this.classeChamp.ValueMember = "Libelle_classe";
-            // 
-            // cLASSEBindingSource
-            // 
-            this.cLASSEBindingSource.DataMember = "CLASSE";
-            this.cLASSEBindingSource.DataSource = this.gestionAssociationSportiveDataSet;
-            // 
-            // gestionAssociationSportiveDataSet
-            // 
-            this.gestionAssociationSportiveDataSet.DataSetName = "GestionAssociationSportiveDataSet";
-            this.gestionAssociationSportiveDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cLASSETableAdapter
-            // 
-            this.cLASSETableAdapter.ClearBeforeFill = true;
+            this.classeChamp.ValueMember = "Id_classe";
             // 
             // success
             // 
@@ -386,6 +372,20 @@
             this.existe.TabIndex = 36;
             this.existe.Text = "Un adhérent avec ce login existe déjà";
             this.existe.Visible = false;
+            // 
+            // gestionAssociationSportiveDataSet
+            // 
+            this.gestionAssociationSportiveDataSet.DataSetName = "GestionAssociationSportiveDataSet";
+            this.gestionAssociationSportiveDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cLASSEBindingSource
+            // 
+            this.cLASSEBindingSource.DataMember = "CLASSE";
+            this.cLASSEBindingSource.DataSource = this.gestionAssociationSportiveDataSet;
+            // 
+            // cLASSETableAdapter
+            // 
+            this.cLASSETableAdapter.ClearBeforeFill = true;
             // 
             // AjoutEleve
             // 
@@ -428,8 +428,8 @@
             this.Load += new System.EventHandler(this.AjoutEleve_Load);
             this.ajoutAutoPrelevement.ResumeLayout(false);
             this.ajoutAutoPrelevement.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cLASSEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionAssociationSportiveDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLASSEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,11 +463,13 @@
         private System.Windows.Forms.GroupBox ajoutAutoPrelevement;
         private System.Windows.Forms.Label classe;
         private System.Windows.Forms.ComboBox classeChamp;
-        private GestionAssociationSportiveDataSet gestionAssociationSportiveDataSet;
-        private System.Windows.Forms.BindingSource cLASSEBindingSource;
-        private GestionAssociationSportiveDataSetTableAdapters.CLASSETableAdapter cLASSETableAdapter;
         private System.Windows.Forms.Label success;
         private System.Windows.Forms.ComboBox ajoutSexeChamp;
         private System.Windows.Forms.Label existe;
+        private GestionAssociationSportiveDataSet gestionAssociationSportiveDataSet1;
+        private GestionAssociationSportiveDataSetTableAdapters.CLASSETableAdapter cLASSETableAdapter1;
+        private GestionAssociationSportiveDataSet gestionAssociationSportiveDataSet;
+        private System.Windows.Forms.BindingSource cLASSEBindingSource;
+        private GestionAssociationSportiveDataSetTableAdapters.CLASSETableAdapter cLASSETableAdapter;
     }
 }

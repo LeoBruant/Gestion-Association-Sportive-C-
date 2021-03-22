@@ -8,16 +8,123 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UtilisateursBLL;
+using UtilisateursBO;
 
 namespace UtilisateursGUI
 {
     public partial class Comptabilite : Form
     {
+        private static int rowIdDebit;
+        private static int rowIdCredit;
         public Comptabilite()
         {
             InitializeComponent();
-            float budgetEPS = GestionUtilisateurs.GetBudgetEPS();
-            float budgetAS = GestionUtilisateurs.GetBudgetAS();
+
+            // Tableau des debits //
+
+                // Blocage de la génération automatique des colonnes
+                debits.AutoGenerateColumns = false;
+
+                // Création d'une en-tête de colonne pour la colonne 1
+                DataGridViewTextBoxColumn IdColumnDebit = new DataGridViewTextBoxColumn();
+                IdColumnDebit.DataPropertyName = "Id";
+                IdColumnDebit.HeaderText = "id";
+
+                // Création d'une en-tête de colonne pour la colonne 2
+                DataGridViewTextBoxColumn DateColumnDebit = new DataGridViewTextBoxColumn();
+                DateColumnDebit.DataPropertyName = "DateFlux";
+                DateColumnDebit.HeaderText = "dateFlux";
+
+                // Création d'une en-tête de colonne pour la colonne 3
+                DataGridViewTextBoxColumn LibelleColumnDebit = new DataGridViewTextBoxColumn();
+                LibelleColumnDebit.DataPropertyName = "Libelle";
+                LibelleColumnDebit.HeaderText = "libele";
+
+                // Création d'une en-tête de colonne pour la colonne 4
+                DataGridViewTextBoxColumn MontantColumnDebit = new DataGridViewTextBoxColumn();
+                MontantColumnDebit.DataPropertyName = "MontantFlux";
+                MontantColumnDebit.HeaderText = "montantFlux";
+
+                // Création d'une en-tête de colonne pour la colonne 5
+                DataGridViewTextBoxColumn BudgetColumnDebit = new DataGridViewTextBoxColumn();
+                BudgetColumnDebit.DataPropertyName = "LibelleBudget";
+                BudgetColumnDebit.HeaderText = "libelleBudget";
+
+            // Tableau des credits //
+
+                // Blocage de la génération automatique des colonnes
+                credits.AutoGenerateColumns = false;
+
+                // Création d'une en-tête de colonne pour la colonne 1
+                DataGridViewTextBoxColumn IdColumnCredit = new DataGridViewTextBoxColumn();
+                IdColumnCredit.DataPropertyName = "Id";
+                IdColumnCredit.HeaderText = "id";
+
+                // Création d'une en-tête de colonne pour la colonne 2
+                DataGridViewTextBoxColumn DateColumnCredit = new DataGridViewTextBoxColumn();
+                DateColumnCredit.DataPropertyName = "DateFlux";
+                DateColumnCredit.HeaderText = "dateFlux";
+
+                // Création d'une en-tête de colonne pour la colonne 3
+                DataGridViewTextBoxColumn LibelleColumnCredit = new DataGridViewTextBoxColumn();
+                LibelleColumnCredit.DataPropertyName = "Libelle";
+                LibelleColumnCredit.HeaderText = "libele";
+
+                // Création d'une en-tête de colonne pour la colonne 4
+                DataGridViewTextBoxColumn MontantColumnCredit = new DataGridViewTextBoxColumn();
+                MontantColumnCredit.DataPropertyName = "MontantFlux";
+                MontantColumnCredit.HeaderText = "montantFlux";
+
+                // Création d'une en-tête de colonne pour la colonne 5
+                DataGridViewTextBoxColumn BudgetColumnCredit = new DataGridViewTextBoxColumn();
+                BudgetColumnCredit.DataPropertyName = "LibelleBudget";
+                BudgetColumnCredit.HeaderText = "libelleBudget";
+
+            // Ajout des en-têtes de colonne pour les débits
+            debits.Columns.Add(IdColumnDebit);
+            debits.Columns.Add(DateColumnDebit);
+            debits.Columns.Add(LibelleColumnDebit);
+            debits.Columns.Add(MontantColumnDebit);
+            debits.Columns.Add(BudgetColumnDebit);
+
+            // Ajout des en-têtes de colonne pour les crédits
+            credits.Columns.Add(IdColumnCredit);
+            credits.Columns.Add(DateColumnCredit);
+            credits.Columns.Add(LibelleColumnCredit);
+            credits.Columns.Add(MontantColumnCredit);
+            credits.Columns.Add(BudgetColumnCredit);
+
+            // Définition du style apporté au datagridview des debits
+            debits.ColumnHeadersVisible = false;
+            IdColumnDebit.Width = 50;
+            DateColumnDebit.Width = 110;
+            LibelleColumnDebit.Width = 110;
+            MontantColumnDebit.Width = 110;
+            BudgetColumnDebit.Width = 110;
+
+            // Définition du style apporté au datagridview des credits
+            credits.ColumnHeadersVisible = false;
+            IdColumnCredit.Width = 50;
+            DateColumnCredit.Width = 110;
+            LibelleColumnCredit.Width = 110;
+            MontantColumnCredit.Width = 110;
+            BudgetColumnCredit.Width = 110;
+
+            // Récupération des débits
+            var lesDebits = new List<Flux>();
+            lesDebits = Gestion.GetDebits();
+            debits.DataSource = lesDebits;
+
+            // Récupération des crédits
+            var lesCredits = new List<Flux>();
+            lesCredits = Gestion.GetCredits();
+            credits.DataSource = lesCredits;
+
+            // Récupération des budgets
+            Gestion.CalculerBudgetAS();
+            Gestion.CalculerBudgetEPS();
+            float budgetEPS = Gestion.GetBudgetEPSActuel();
+            float budgetAS = Gestion.GetBudgetASActuel();
 
             EPSLabel.Text = budgetEPS.ToString() + '€';
             ASLabel.Text = budgetAS.ToString() + '€';
@@ -31,62 +138,13 @@ namespace UtilisateursGUI
             this.Close();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label19_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void modifEPS_Click(object sender, EventArgs e)
         {
             if (Int32.TryParse(EPSChamp.Text, out int number))
             {
-                GestionUtilisateurs.ModifBudgetEPS(float.Parse(EPSChamp.Text));
-                float budgetEPS = GestionUtilisateurs.GetBudgetEPS();
+                Gestion.ModifBudgetEPS(float.Parse(EPSChamp.Text));
+                Gestion.CalculerBudgetEPS();
+                float budgetEPS = Gestion.GetBudgetEPSActuel();
                 EPSLabel.Text = budgetEPS.ToString() + '€';
 
                 EPSError.Visible = false;
@@ -104,8 +162,9 @@ namespace UtilisateursGUI
         {
             if (Int32.TryParse(ASChamp.Text, out int number))
             {
-                GestionUtilisateurs.ModifBudgetAS(float.Parse(ASChamp.Text));
-                float budgetEPS = GestionUtilisateurs.GetBudgetAS();
+                Gestion.ModifBudgetAS(float.Parse(ASChamp.Text));
+                Gestion.CalculerBudgetAS();
+                float budgetEPS = Gestion.GetBudgetASActuel();
                 ASLabel.Text = budgetEPS.ToString() + '€';
 
                 ASError.Visible = false;
@@ -127,17 +186,148 @@ namespace UtilisateursGUI
             this.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void ajoutDebit_Click(object sender, EventArgs e)
         {
             AjoutDebit ajoutDebit = new AjoutDebit();
             ajoutDebit.Show();
 
             this.Close();
+        }
+
+        private void boutonModifierDebit_Click(object sender, EventArgs e)
+        {
+            if (rowIdDebit != 0)
+            {
+                ModificationDebit modifierDebit = new ModificationDebit();
+
+                modifierDebit.id.Text = rowIdDebit.ToString();
+
+                modifierDebit.Show();
+
+                this.Close();
+            }
+
+            else
+            {
+                erreurDebit.Visible = true;
+            }
+        }
+
+        private void debits_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            erreurDebit.Visible = false;
+            successDebit.Visible = false;
+
+            int id = Convert.ToInt32(debits.Rows[e.RowIndex].Cells[0].Value);
+
+            rowIdDebit = id;
+
+            Flux flux = Gestion.GetUnFlux(id);
+
+        }
+
+        private void credits_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            erreurCredit.Visible = false;
+            successCredit.Visible = false;
+
+            int id = Convert.ToInt32(credits.Rows[e.RowIndex].Cells[0].Value);
+
+            rowIdCredit = id;
+
+            Flux flux = Gestion.GetUnFlux(id);
+        }
+
+        private void SupprimerDebit_Click(object sender, EventArgs e)
+        {
+            // si une ligne a été selectionnée
+            if (rowIdDebit != 0)
+            {
+                string message = "Vouslez-vous vraiment supprimer ce débit ?";
+                string caption = "Suppression du débit";
+
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                // Affichage de la boîte de dialogue
+                result = MessageBox.Show(message, caption, buttons);
+
+                if (result == DialogResult.Yes)
+                {
+                    Gestion.SupprimeFlux(rowIdDebit);
+
+                    Comptabilite comptabilite = new Comptabilite();
+                    comptabilite.successDebit.Visible = true;
+                    comptabilite.Show();
+
+                    rowIdDebit = 0;
+
+                    this.Close();
+                }
+            }
+
+            else
+            {
+                erreurDebit.Visible = true;
+            }
+        }
+
+        private void ModifCredit_Click(object sender, EventArgs e)
+        {
+            if (rowIdCredit != 0)
+            {
+                ModificationCredit modifierCredit = new ModificationCredit();
+                modifierCredit.id.Text = rowIdCredit.ToString();
+                modifierCredit.Show();
+                this.Close();
+            }
+
+            else
+            {
+                erreurCredit.Visible = true;
+            }
+        }
+
+        private void AjoutCredit_Click(object sender, EventArgs e)
+        {
+            AjoutCredit ajoutCredit = new AjoutCredit();
+            ajoutCredit.Show();
+
+            this.Close();
+        }
+
+        private void SupprimerCredit_Click(object sender, EventArgs e)
+        {
+            // si une ligne a été selectionnée
+            if (rowIdCredit != 0)
+            {
+                string message = "Voulez-vous vraiment supprimer ce crédit ?";
+                string caption = "Suppression du crédit";
+
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                // Affichage de la boîte de dialogue
+                result = MessageBox.Show(message, caption, buttons);
+
+                if (result == DialogResult.Yes)
+                {
+                    Gestion.SupprimeFlux(rowIdCredit);
+
+                    Comptabilite comptabilite = new Comptabilite();
+                    comptabilite.successCredit.Visible = true;
+                    comptabilite.Show();
+
+                    rowIdCredit = 0;
+
+                    this.Close();
+                }
+            }
+
+            else
+            {
+                erreurCredit.Visible = true;
+            }
         }
     }
 }

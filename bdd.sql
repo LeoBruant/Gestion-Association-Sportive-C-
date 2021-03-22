@@ -53,6 +53,7 @@ CREATE TABLE BUDGET (
 	Id_budget int NOT NULL IDENTITY (1, 1),
 	Libelle_budget varchar(255) NOT NULL,
 	Montantinitial_budget float NOT NULL,
+	Montantactuel_budget float NOT NULL,
 	CONSTRAINT Id_budget PRIMARY KEY NONCLUSTERED (Id_budget),
 );
 
@@ -65,7 +66,7 @@ CREATE TABLE TYPE_FLUX (
 
 -- Table EVENEMENT
 CREATE TABLE EVENEMENT (
-	Id_evenement int NOT NULL,
+	Id_evenement int NOT NULL IDENTITY (1, 1),
 	Libelle_evenement varchar(255) NOT NULL,
 	Date_evenement date NOT NULL,
 	Lieu_evenement varchar(255) NOT NULL,

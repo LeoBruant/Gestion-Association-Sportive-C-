@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adherent.cs" />
+    <Compile Include="Budget.cs" />
     <Compile Include="Flux.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -56,16 +56,16 @@ namespace UtilisateursGUI
                 erreurChampsVides.Visible = false;
 
                 // vérification de l'existence du login
-                if (!GestionUtilisateurs.ExisteAdherent(ajoutLoginChamp.Text))
+                if (!Gestion.ExisteAdherent(ajoutLoginChamp.Text))
                 {
                     // Ajout de l'élève
                     if (erreurChampsVides.Visible == false)
                     {
-                        int idClasse = GestionUtilisateurs.GetIdClasseAdherent(classeChamp.Text);
+                        int idClasse = Gestion.GetIdClasseAdherent(classeChamp.Text);
 
                         Adherent adherent = new Adherent(ajoutNomChamp.Text, ajoutPrenomChamp.Text, Convert.ToDateTime(ajoutDateDeNaissanceChamp.Text), ajoutTelephoneChamp.Text, ajoutEmailChamp.Text, ajoutTelephoneTuteurChamp.Text, Convert.ToInt32(prelevementEleveAutorise), ajoutSexeChamp.Text, ajoutLoginChamp.Text, ajoutMotDePasseChamp.Text, idClasse);
 
-                        GestionUtilisateurs.AddAdherent(adherent);
+                        Gestion.AddAdherent(adherent);
 
                         existe.Visible = false;
                         success.Visible = true;
