@@ -44,6 +44,8 @@ namespace UtilisateursGUI {
         
         private global::System.Data.DataRelation relationId_adherent_flux;
         
+        private global::System.Data.DataRelation relationId_budget_flux;
+        
         private global::System.Data.DataRelation relationId_evenement_flux;
         
         private global::System.Data.DataRelation relationId_typeflux_flux;
@@ -351,6 +353,7 @@ namespace UtilisateursGUI {
             this.relationId_classe_adherent = this.Relations["Id_classe_adherent"];
             this.relationId_utilisateur_adherent = this.Relations["Id_utilisateur_adherent"];
             this.relationId_adherent_flux = this.Relations["Id_adherent_flux"];
+            this.relationId_budget_flux = this.Relations["Id_budget_flux"];
             this.relationId_evenement_flux = this.Relations["Id_evenement_flux"];
             this.relationId_typeflux_flux = this.Relations["Id_typeflux_flux"];
         }
@@ -389,6 +392,10 @@ namespace UtilisateursGUI {
                         this.tableADHERENT.Id_adherentColumn}, new global::System.Data.DataColumn[] {
                         this.tableFLUX.@__Id_adherentColumn}, false);
             this.Relations.Add(this.relationId_adherent_flux);
+            this.relationId_budget_flux = new global::System.Data.DataRelation("Id_budget_flux", new global::System.Data.DataColumn[] {
+                        this.tableBUDGET.Id_budgetColumn}, new global::System.Data.DataColumn[] {
+                        this.tableFLUX.@__Id_budgetColumn}, false);
+            this.Relations.Add(this.relationId_budget_flux);
             this.relationId_evenement_flux = new global::System.Data.DataRelation("Id_evenement_flux", new global::System.Data.DataColumn[] {
                         this.tableEVENEMENT.Id_evenementColumn}, new global::System.Data.DataColumn[] {
                         this.tableFLUX.@__Id_evenementColumn}, false);
@@ -1920,6 +1927,8 @@ namespace UtilisateursGUI {
             
             private global::System.Data.DataColumn _column_Id_evenement;
             
+            private global::System.Data.DataColumn _column_Id_budget;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public FLUXDataTable() {
@@ -2019,6 +2028,14 @@ namespace UtilisateursGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn @__Id_budgetColumn {
+                get {
+                    return this._column_Id_budget;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2054,7 +2071,7 @@ namespace UtilisateursGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public FLUXRow AddFLUXRow(string Libelle_flux, System.DateTime Date_flux, double Montant_flux, byte Prelevementeff_flux, ADHERENTRow parentADHERENTRowById_adherent_flux, TYPE_FLUXRow parentTYPE_FLUXRowById_typeflux_flux, EVENEMENTRow parentEVENEMENTRowById_evenement_flux) {
+            public FLUXRow AddFLUXRow(string Libelle_flux, System.DateTime Date_flux, double Montant_flux, byte Prelevementeff_flux, ADHERENTRow parentADHERENTRowById_adherent_flux, TYPE_FLUXRow parentTYPE_FLUXRowById_typeflux_flux, EVENEMENTRow parentEVENEMENTRowById_evenement_flux, BUDGETRow parentBUDGETRowById_budget_flux) {
                 FLUXRow rowFLUXRow = ((FLUXRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2062,6 +2079,7 @@ namespace UtilisateursGUI {
                         Date_flux,
                         Montant_flux,
                         Prelevementeff_flux,
+                        null,
                         null,
                         null,
                         null};
@@ -2073,6 +2091,9 @@ namespace UtilisateursGUI {
                 }
                 if ((parentEVENEMENTRowById_evenement_flux != null)) {
                     columnValuesArray[7] = parentEVENEMENTRowById_evenement_flux[0];
+                }
+                if ((parentBUDGETRowById_budget_flux != null)) {
+                    columnValuesArray[8] = parentBUDGETRowById_budget_flux[0];
                 }
                 rowFLUXRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFLUXRow);
@@ -2111,6 +2132,7 @@ namespace UtilisateursGUI {
                 this._column_Id_adherent = base.Columns["#Id_adherent"];
                 this._column_Id_typeflux = base.Columns["#Id_typeflux"];
                 this._column_Id_evenement = base.Columns["#Id_evenement"];
+                this._column_Id_budget = base.Columns["#Id_budget"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2138,6 +2160,10 @@ namespace UtilisateursGUI {
                 this._column_Id_evenement.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column_Id_evenement");
                 this._column_Id_evenement.ExtendedProperties.Add("Generator_UserColumnName", "#Id_evenement");
                 base.Columns.Add(this._column_Id_evenement);
+                this._column_Id_budget = new global::System.Data.DataColumn("#Id_budget", typeof(int), null, global::System.Data.MappingType.Element);
+                this._column_Id_budget.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column_Id_budget");
+                this._column_Id_budget.ExtendedProperties.Add("Generator_UserColumnName", "#Id_budget");
+                base.Columns.Add(this._column_Id_budget);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId_flux}, true));
                 this.columnId_flux.AutoIncrement = true;
@@ -2153,6 +2179,7 @@ namespace UtilisateursGUI {
                 this._column_Id_adherent.AllowDBNull = false;
                 this._column_Id_typeflux.AllowDBNull = false;
                 this._column_Id_evenement.AllowDBNull = false;
+                this._column_Id_budget.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3143,6 +3170,17 @@ namespace UtilisateursGUI {
                     this[this.tableBUDGET.Montantinitial_budgetColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public FLUXRow[] GetFLUXRows() {
+                if ((this.Table.ChildRelations["Id_budget_flux"] == null)) {
+                    return new FLUXRow[0];
+                }
+                else {
+                    return ((FLUXRow[])(base.GetChildRows(this.Table.ChildRelations["Id_budget_flux"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3383,12 +3421,34 @@ namespace UtilisateursGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int @__Id_budget {
+                get {
+                    return ((int)(this[this.tableFLUX.@__Id_budgetColumn]));
+                }
+                set {
+                    this[this.tableFLUX.@__Id_budgetColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ADHERENTRow ADHERENTRow {
                 get {
                     return ((ADHERENTRow)(this.GetParentRow(this.Table.ParentRelations["Id_adherent_flux"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["Id_adherent_flux"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BUDGETRow BUDGETRow {
+                get {
+                    return ((BUDGETRow)(this.GetParentRow(this.Table.ParentRelations["Id_budget_flux"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Id_budget_flux"]);
                 }
             }
             
@@ -4024,7 +4084,7 @@ SELECT Id_adherent, Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString1;
+            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4603,7 +4663,7 @@ SELECT Id_budget, Libelle_budget, Montantinitial_budget FROM BUDGET WHERE (Id_bu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString1;
+            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4925,7 +4985,7 @@ SELECT Id_budget, Libelle_budget, Montantinitial_budget FROM BUDGET WHERE (Id_bu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString1;
+            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5257,7 +5317,7 @@ SELECT Id_evenement, Libelle_evenement, Date_evenement, Lieu_evenement, Cout_eve
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString1;
+            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5585,10 +5645,11 @@ SELECT Id_evenement, Libelle_evenement, Date_evenement, Lieu_evenement, Cout_eve
             tableMapping.ColumnMappings.Add("#Id_adherent", "#Id_adherent");
             tableMapping.ColumnMappings.Add("#Id_typeflux", "#Id_typeflux");
             tableMapping.ColumnMappings.Add("#Id_evenement", "#Id_evenement");
+            tableMapping.ColumnMappings.Add("#Id_budget", "#Id_budget");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[FLUX] WHERE (([Id_flux] = @Original_Id_flux) AND ([Libelle_flux] = @Original_Libelle_flux) AND ([Date_flux] = @Original_Date_flux) AND ([Montant_flux] = @Original_Montant_flux) AND ((@IsNull_Prelevementeff_flux = 1 AND [Prelevementeff_flux] IS NULL) OR ([Prelevementeff_flux] = @Original_Prelevementeff_flux)) AND ([#Id_adherent] = @Original_#Id_adherent) AND ([#Id_typeflux] = @Original_#Id_typeflux) AND ([#Id_evenement] = @Original_#Id_evenement))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[FLUX] WHERE (([Id_flux] = @Original_Id_flux) AND ([Libelle_flux] = @Original_Libelle_flux) AND ([Date_flux] = @Original_Date_flux) AND ([Montant_flux] = @Original_Montant_flux) AND ((@IsNull_Prelevementeff_flux = 1 AND [Prelevementeff_flux] IS NULL) OR ([Prelevementeff_flux] = @Original_Prelevementeff_flux)) AND ([#Id_adherent] = @Original_#Id_adherent) AND ([#Id_typeflux] = @Original_#Id_typeflux) AND ([#Id_evenement] = @Original_#Id_evenement) AND ([#Id_budget] = @Original_#Id_budget))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id_flux", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id_flux", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Libelle_flux", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Libelle_flux", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5599,10 +5660,11 @@ SELECT Id_evenement, Libelle_evenement, Date_evenement, Lieu_evenement, Cout_eve
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Id_adherent", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Id_typeflux", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_typeflux", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Id_evenement", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_evenement", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Id_budget", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_budget", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[FLUX] ([Libelle_flux], [Date_flux], [Montant_flux], [Prelevementeff_flux], [#Id_adherent], [#Id_typeflux], [#Id_evenement]) VALUES (@Libelle_flux, @Date_flux, @Montant_flux, @Prelevementeff_flux, @#Id_adherent, @#Id_typeflux, @#Id_evenement);
-SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id_adherent], [#Id_typeflux], [#Id_evenement] FROM FLUX WHERE (Id_flux = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[FLUX] ([Libelle_flux], [Date_flux], [Montant_flux], [Prelevementeff_flux], [#Id_adherent], [#Id_typeflux], [#Id_evenement], [#Id_budget]) VALUES (@Libelle_flux, @Date_flux, @Montant_flux, @Prelevementeff_flux, @#Id_adherent, @#Id_typeflux, @#Id_evenement, @#Id_budget);
+SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id_adherent], [#Id_typeflux], [#Id_evenement], [#Id_budget] FROM FLUX WHERE (Id_flux = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Libelle_flux", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Libelle_flux", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_flux", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_flux", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5611,10 +5673,11 @@ SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Id_adherent", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Id_typeflux", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_typeflux", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Id_evenement", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_evenement", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Id_budget", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_budget", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[FLUX] SET [Libelle_flux] = @Libelle_flux, [Date_flux] = @Date_flux, [Montant_flux] = @Montant_flux, [Prelevementeff_flux] = @Prelevementeff_flux, [#Id_adherent] = @#Id_adherent, [#Id_typeflux] = @#Id_typeflux, [#Id_evenement] = @#Id_evenement WHERE (([Id_flux] = @Original_Id_flux) AND ([Libelle_flux] = @Original_Libelle_flux) AND ([Date_flux] = @Original_Date_flux) AND ([Montant_flux] = @Original_Montant_flux) AND ((@IsNull_Prelevementeff_flux = 1 AND [Prelevementeff_flux] IS NULL) OR ([Prelevementeff_flux] = @Original_Prelevementeff_flux)) AND ([#Id_adherent] = @Original_#Id_adherent) AND ([#Id_typeflux] = @Original_#Id_typeflux) AND ([#Id_evenement] = @Original_#Id_evenement));
-SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id_adherent], [#Id_typeflux], [#Id_evenement] FROM FLUX WHERE (Id_flux = @Id_flux)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[FLUX] SET [Libelle_flux] = @Libelle_flux, [Date_flux] = @Date_flux, [Montant_flux] = @Montant_flux, [Prelevementeff_flux] = @Prelevementeff_flux, [#Id_adherent] = @#Id_adherent, [#Id_typeflux] = @#Id_typeflux, [#Id_evenement] = @#Id_evenement, [#Id_budget] = @#Id_budget WHERE (([Id_flux] = @Original_Id_flux) AND ([Libelle_flux] = @Original_Libelle_flux) AND ([Date_flux] = @Original_Date_flux) AND ([Montant_flux] = @Original_Montant_flux) AND ((@IsNull_Prelevementeff_flux = 1 AND [Prelevementeff_flux] IS NULL) OR ([Prelevementeff_flux] = @Original_Prelevementeff_flux)) AND ([#Id_adherent] = @Original_#Id_adherent) AND ([#Id_typeflux] = @Original_#Id_typeflux) AND ([#Id_evenement] = @Original_#Id_evenement) AND ([#Id_budget] = @Original_#Id_budget));
+SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id_adherent], [#Id_typeflux], [#Id_evenement], [#Id_budget] FROM FLUX WHERE (Id_flux = @Id_flux)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Libelle_flux", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Libelle_flux", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_flux", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_flux", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5623,6 +5686,7 @@ SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Id_adherent", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_adherent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Id_typeflux", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_typeflux", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Id_evenement", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_evenement", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Id_budget", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_budget", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id_flux", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id_flux", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Libelle_flux", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Libelle_flux", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date_flux", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_flux", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5632,6 +5696,7 @@ SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Id_adherent", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_adherent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Id_typeflux", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_typeflux", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Id_evenement", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_evenement", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Id_budget", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Id_budget", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_flux", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id_flux", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -5639,7 +5704,7 @@ SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString1;
+            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5649,7 +5714,7 @@ SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id_" +
-                "adherent], [#Id_typeflux], [#Id_evenement] FROM dbo.FLUX";
+                "adherent], [#Id_typeflux], [#Id_evenement], [#Id_budget] FROM dbo.FLUX";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5710,7 +5775,7 @@ SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id_flux, string Original_Libelle_flux, System.DateTime Original_Date_flux, double Original_Montant_flux, global::System.Nullable<byte> Original_Prelevementeff_flux, int _Original__Id_adherent, int _Original__Id_typeflux, int _Original__Id_evenement) {
+        public virtual int Delete(int Original_Id_flux, string Original_Libelle_flux, System.DateTime Original_Date_flux, double Original_Montant_flux, global::System.Nullable<byte> Original_Prelevementeff_flux, int _Original__Id_adherent, int _Original__Id_typeflux, int _Original__Id_evenement, int _Original__Id_budget) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id_flux));
             if ((Original_Libelle_flux == null)) {
                 throw new global::System.ArgumentNullException("Original_Libelle_flux");
@@ -5731,6 +5796,7 @@ SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id
             this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(_Original__Id_adherent));
             this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(_Original__Id_typeflux));
             this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(_Original__Id_evenement));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(_Original__Id_budget));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5751,7 +5817,7 @@ SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Libelle_flux, System.DateTime Date_flux, double Montant_flux, global::System.Nullable<byte> Prelevementeff_flux, int @__Id_adherent, int @__Id_typeflux, int @__Id_evenement) {
+        public virtual int Insert(string Libelle_flux, System.DateTime Date_flux, double Montant_flux, global::System.Nullable<byte> Prelevementeff_flux, int @__Id_adherent, int @__Id_typeflux, int @__Id_evenement, int @__Id_budget) {
             if ((Libelle_flux == null)) {
                 throw new global::System.ArgumentNullException("Libelle_flux");
             }
@@ -5769,6 +5835,7 @@ SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id
             this.Adapter.InsertCommand.Parameters[4].Value = ((int)(@__Id_adherent));
             this.Adapter.InsertCommand.Parameters[5].Value = ((int)(@__Id_typeflux));
             this.Adapter.InsertCommand.Parameters[6].Value = ((int)(@__Id_evenement));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(@__Id_budget));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5797,6 +5864,7 @@ SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id
                     int @__Id_adherent, 
                     int @__Id_typeflux, 
                     int @__Id_evenement, 
+                    int @__Id_budget, 
                     int Original_Id_flux, 
                     string Original_Libelle_flux, 
                     System.DateTime Original_Date_flux, 
@@ -5805,6 +5873,7 @@ SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id
                     int _Original__Id_adherent, 
                     int _Original__Id_typeflux, 
                     int _Original__Id_evenement, 
+                    int _Original__Id_budget, 
                     int Id_flux) {
             if ((Libelle_flux == null)) {
                 throw new global::System.ArgumentNullException("Libelle_flux");
@@ -5823,27 +5892,29 @@ SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(@__Id_adherent));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(@__Id_typeflux));
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(@__Id_evenement));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Id_flux));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(@__Id_budget));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Id_flux));
             if ((Original_Libelle_flux == null)) {
                 throw new global::System.ArgumentNullException("Original_Libelle_flux");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Libelle_flux));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Libelle_flux));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_Date_flux));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((double)(Original_Montant_flux));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_Date_flux));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((double)(Original_Montant_flux));
             if ((Original_Prelevementeff_flux.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((byte)(Original_Prelevementeff_flux.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((byte)(Original_Prelevementeff_flux.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(_Original__Id_adherent));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(_Original__Id_typeflux));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(_Original__Id_evenement));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Id_flux));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(_Original__Id_adherent));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(_Original__Id_typeflux));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(_Original__Id_evenement));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(_Original__Id_budget));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Id_flux));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5864,8 +5935,25 @@ SELECT Id_flux, Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, [#Id
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Libelle_flux, System.DateTime Date_flux, double Montant_flux, global::System.Nullable<byte> Prelevementeff_flux, int @__Id_adherent, int @__Id_typeflux, int @__Id_evenement, int Original_Id_flux, string Original_Libelle_flux, System.DateTime Original_Date_flux, double Original_Montant_flux, global::System.Nullable<byte> Original_Prelevementeff_flux, int _Original__Id_adherent, int _Original__Id_typeflux, int _Original__Id_evenement) {
-            return this.Update(Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, @__Id_adherent, @__Id_typeflux, @__Id_evenement, Original_Id_flux, Original_Libelle_flux, Original_Date_flux, Original_Montant_flux, Original_Prelevementeff_flux, _Original__Id_adherent, _Original__Id_typeflux, _Original__Id_evenement, Original_Id_flux);
+        public virtual int Update(
+                    string Libelle_flux, 
+                    System.DateTime Date_flux, 
+                    double Montant_flux, 
+                    global::System.Nullable<byte> Prelevementeff_flux, 
+                    int @__Id_adherent, 
+                    int @__Id_typeflux, 
+                    int @__Id_evenement, 
+                    int @__Id_budget, 
+                    int Original_Id_flux, 
+                    string Original_Libelle_flux, 
+                    System.DateTime Original_Date_flux, 
+                    double Original_Montant_flux, 
+                    global::System.Nullable<byte> Original_Prelevementeff_flux, 
+                    int _Original__Id_adherent, 
+                    int _Original__Id_typeflux, 
+                    int _Original__Id_evenement, 
+                    int _Original__Id_budget) {
+            return this.Update(Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, @__Id_adherent, @__Id_typeflux, @__Id_evenement, @__Id_budget, Original_Id_flux, Original_Libelle_flux, Original_Date_flux, Original_Montant_flux, Original_Prelevementeff_flux, _Original__Id_adherent, _Original__Id_typeflux, _Original__Id_evenement, _Original__Id_budget, Original_Id_flux);
         }
     }
     
@@ -6022,7 +6110,7 @@ SELECT Id_typeflux, Libelle_typeflux FROM TYPE_FLUX WHERE (Id_typeflux = @Id_typ
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString1;
+            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6351,7 +6439,7 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString1;
+            this._connection.ConnectionString = global::UtilisateursGUI.Properties.Settings.Default.GestionAssociationSportiveConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6803,6 +6891,15 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._bUDGETTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.BUDGET.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._bUDGETTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._eVENEMENTTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.EVENEMENT.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -6818,15 +6915,6 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._tYPE_FLUXTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._bUDGETTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.BUDGET.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._bUDGETTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6873,6 +6961,14 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._bUDGETTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.BUDGET.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._bUDGETTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._eVENEMENTTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.EVENEMENT.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -6886,14 +6982,6 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._tYPE_FLUXTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._bUDGETTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.BUDGET.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._bUDGETTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6923,14 +7011,6 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._bUDGETTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.BUDGET.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._bUDGETTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._tYPE_FLUXTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.TYPE_FLUX.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -6944,6 +7024,14 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._eVENEMENTTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._bUDGETTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.BUDGET.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._bUDGETTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

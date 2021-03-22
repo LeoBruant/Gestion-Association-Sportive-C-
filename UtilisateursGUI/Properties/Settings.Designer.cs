@@ -55,5 +55,16 @@ namespace UtilisateursGUI.Properties {
                 return ((string)(this["GestionAssociationSportiveConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=GestionAssociationSportive;Integrated Secur" +
+            "ity=True")]
+        public string GestionAssociationSportiveConnectionString2 {
+            get {
+                return ((string)(this["GestionAssociationSportiveConnectionString2"]));
+            }
+        }
     }
 }
