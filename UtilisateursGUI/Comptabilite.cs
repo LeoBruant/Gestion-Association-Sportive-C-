@@ -16,6 +16,9 @@ namespace UtilisateursGUI
     {
         private static int rowIdDebit;
         private static int rowIdCredit;
+        int autorise = 2;
+        int sweat = 2;
+
         public Comptabilite()
         {
             InitializeComponent();
@@ -80,6 +83,21 @@ namespace UtilisateursGUI
                 BudgetColumnCredit.DataPropertyName = "LibelleBudget";
                 BudgetColumnCredit.HeaderText = "libelleBudget";
 
+            // Tableau des resultats
+
+                // Blocage de la génération automatique des colonnes
+                resultats.AutoGenerateColumns = false;
+
+                // Création d'une en-tête de colonne pour la colonne 1
+                DataGridViewTextBoxColumn NomEleve = new DataGridViewTextBoxColumn();
+                IdColumnCredit.DataPropertyName = "Nom";
+                IdColumnCredit.HeaderText = "nom";
+
+                // Création d'une en-tête de colonne pour la colonne 2
+                DataGridViewTextBoxColumn PrenomEleve = new DataGridViewTextBoxColumn();
+                DateColumnCredit.DataPropertyName = "Prenom";
+                DateColumnCredit.HeaderText = "prenom";
+
             // Ajout des en-têtes de colonne pour les débits
             debits.Columns.Add(IdColumnDebit);
             debits.Columns.Add(DateColumnDebit);
@@ -93,6 +111,10 @@ namespace UtilisateursGUI
             credits.Columns.Add(LibelleColumnCredit);
             credits.Columns.Add(MontantColumnCredit);
             credits.Columns.Add(BudgetColumnCredit);
+
+            // Ajout des en-têtes de colonne pour les resultats
+            resultats.Columns.Add(NomEleve);
+            resultats.Columns.Add(PrenomEleve);
 
             // Définition du style apporté au datagridview des debits
             debits.ColumnHeadersVisible = false;
@@ -110,6 +132,11 @@ namespace UtilisateursGUI
             MontantColumnCredit.Width = 110;
             BudgetColumnCredit.Width = 110;
 
+            // Définition du style apporté au datagridview des resultats
+            resultats.ColumnHeadersVisible = false;
+            NomEleve.Width = 190;
+            PrenomEleve.Width = 190;
+
             // Récupération des débits
             var lesDebits = new List<Flux>();
             lesDebits = Gestion.GetDebits();
@@ -123,8 +150,8 @@ namespace UtilisateursGUI
             // Récupération des budgets
             Gestion.CalculerBudgetAS();
             Gestion.CalculerBudgetEPS();
-            float budgetEPS = Gestion.GetBudgetEPSActuel();
-            float budgetAS = Gestion.GetBudgetASActuel();
+            float budgetEPS = Gestion.CalculerBudgetEPS();
+            float budgetAS = Gestion.CalculerBudgetAS();
 
             EPSLabel.Text = budgetEPS.ToString() + '€';
             ASLabel.Text = budgetAS.ToString() + '€';
@@ -144,7 +171,7 @@ namespace UtilisateursGUI
             {
                 Gestion.ModifBudgetEPS(float.Parse(EPSChamp.Text));
                 Gestion.CalculerBudgetEPS();
-                float budgetEPS = Gestion.GetBudgetEPSActuel();
+                float budgetEPS = Gestion.CalculerBudgetEPS();
                 EPSLabel.Text = budgetEPS.ToString() + '€';
 
                 EPSError.Visible = false;
@@ -164,7 +191,7 @@ namespace UtilisateursGUI
             {
                 Gestion.ModifBudgetAS(float.Parse(ASChamp.Text));
                 Gestion.CalculerBudgetAS();
-                float budgetEPS = Gestion.GetBudgetASActuel();
+                float budgetEPS = Gestion.CalculerBudgetAS();
                 ASLabel.Text = budgetEPS.ToString() + '€';
 
                 ASError.Visible = false;
@@ -328,6 +355,54 @@ namespace UtilisateursGUI
             {
                 erreurCredit.Visible = true;
             }
+        }
+
+        private void Comptabilite_Load(object sender, EventArgs e)
+        {
+            // TODO: cette ligne de code charge les données dans la table 'gestionAssociationSportiveDataSet.CLASSE'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.cLASSETableAdapter.Fill(this.gestionAssociationSportiveDataSet.CLASSE);
+
+        }
+
+        private void nonAutorise_CheckedChanged(object sender, EventArgs e)
+        {
+            autorise = 0;
+        }
+
+        private void ouiAutorise_CheckedChanged(object sender, EventArgs e)
+        {
+            autorise = 1;
+        }
+
+        private void nonSweat_CheckedChanged(object sender, EventArgs e)
+        {
+            sweat = 0;
+        }
+
+        private void ouiSweat_CheckedChanged(object sender, EventArgs e)
+        {
+            sweat = 1;
+        }
+
+        private void validerFiltre_Click(object sender, EventArgs e)
+        {
+            int classeId = -1;
+
+            if (classe.SelectedValue.ToString() != "")
+            {
+                classeId = Convert.ToInt32(classe.SelectedValue.ToString());
+            }
+            
+            string eleveTexte = eleve.Text;
+
+            List<Adherent> adherents = Gestion.getAdherentsFiltres(classeId, eleveTexte, autorise, sweat);
+
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

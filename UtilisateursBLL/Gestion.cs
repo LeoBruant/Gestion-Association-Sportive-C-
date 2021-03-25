@@ -145,21 +145,17 @@ namespace UtilisateursBLL
         {
             GestionDAO.SupprimeFlux(id);
         }
-        public static float GetBudgetASActuel()
+        public static float CalculerBudgetAS()
         {
-            return GestionDAO.GetBudgetASActuel();
+            return GestionDAO.CalculerBudgetAS();
         }
-        public static float GetBudgetEPSActuel()
+        public static float CalculerBudgetEPS()
         {
-            return GestionDAO.GetBudgetEPSActuel();
+            return GestionDAO.CalculerBudgetEPS();
         }
-        public static void CalculerBudgetAS()
+        public static List<Adherent> getAdherentsFiltres(int? idClasse, string? eleveText, int? autorisePrelevement, int? prendSweat)
         {
-            GestionDAO.CalculerBudgetAS();
-        }
-        public static void CalculerBudgetEPS()
-        {
-            GestionDAO.CalculerBudgetEPS();
+            return GestionDAO.getAdherentsFiltres(idClasse, eleveText, autorisePrelevement, prendSweat);
         }
     }
 }

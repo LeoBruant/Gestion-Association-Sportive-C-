@@ -22,6 +22,8 @@ namespace UtilisateursBO
         int estArchive;
         string mdp;
         int classe;
+        int prendSweat;
+        string libelleClasse;
 
         // constructeur utilisé pour afficher les données des adhérents
         public Adherent(int id, string nom, string prenom, DateTime dateNaissance, string numTel, string email, string numParent, int autorisePrelev, string sexe, string login, DateTime dateMaj, int estArchive, int classe)
@@ -81,6 +83,16 @@ namespace UtilisateursBO
             this.classe = classe;
         }
 
+        // constructeur utilisé pour le filtre d'élèves
+        public Adherent(string nom, string prenom, string classe, int autorisePrelev, int prendSweat)
+        {
+            this.nom = nom;
+            this.prenom = prenom;
+            this.libelleClasse = classe;
+            this.autorisePrelev = autorisePrelev;
+            this.prendSweat = prendSweat;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
@@ -95,5 +107,7 @@ namespace UtilisateursBO
         public int EstArchive { get => estArchive; set => estArchive = value; }
         public string Mdp { get => mdp; set => mdp = value; }
         public int Classe { get => classe; set => classe = value; }
+        public int PrendSweat { get => prendSweat; set => prendSweat = value; }
+        public string LibelleClasse { get => libelleClasse; set => libelleClasse = value; }
     }
 }

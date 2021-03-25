@@ -562,7 +562,7 @@ namespace UtilisateursDAL
         }
 
         // Méthode qui calcule le budget AS actuel
-        public static void CalculerBudgetAS()
+        public static float CalculerBudgetAS()
         {
             float budgetInitial = GetBudgetAS();
             float nouveauBudget = budgetInitial;
@@ -586,25 +586,11 @@ namespace UtilisateursDAL
                 }
             }
 
-            // Connexion à la BD
-            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-
-            // Requette sql
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE BUDGET SET Montantactuel_budget = @valeur WHERE Libelle_budget = 'AS'";
-
-            // Ajout des paramètres
-            cmd.Parameters.AddWithValue("@valeur", nouveauBudget);
-
-            // Execution de la requete
-            cmd.ExecuteNonQuery();
-
-            maConnexion.Close();
+            return nouveauBudget;
         }
 
         // Méthode qui calcule le budget EPS actuel
-        public static void CalculerBudgetEPS()
+        public static float CalculerBudgetEPS()
         {
             float budgetInitial = GetBudgetEPS();
             float nouveauBudget = budgetInitial;
@@ -628,71 +614,71 @@ namespace UtilisateursDAL
                 }
             }
 
+            return nouveauBudget;
+        }
+
+        public static List<Adherent> getAdherentsFiltres(int? idClasse, string? eleveText, int? autorisePrelevement, int? prendSweat)
+        {
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
 
             // Requette sql
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE BUDGET SET Montantactuel_budget = @valeur WHERE Libelle_budget = 'EPS'";
+            cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%') AND Id_classe LIKE '%'+@classe+'%'";
 
             // Ajout des paramètres
-            cmd.Parameters.AddWithValue("@valeur", nouveauBudget);
+            if (eleveText == "")
+            {
+                cmd.Parameters.AddWithValue("@eleve", "");
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@eleve", eleveText);
+            }
 
-            // Execution de la requete
-            cmd.ExecuteNonQuery();
+            if (idClasse == -1)
+            {
+                cmd.Parameters.AddWithValue("@classe", "");
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@classe", idClasse);
+            }
 
-            maConnexion.Close();
-        }
+            if (autorisePrelevement == 2)
+            {
+                cmd.Parameters.AddWithValue("@autorise", "");
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@autorise", autorisePrelevement);
+            }
 
-        // Méthode qui retourne le montant du budget EPS actuel
-        public static float GetBudgetEPSActuel()
-        {
-            // Connexion à la BD
-            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-
-            // Requette sql
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT Montantactuel_budget FROM BUDGET WHERE Libelle_budget = 'EPS'";
+            if (prendSweat == 2)
+            {
+                cmd.Parameters.AddWithValue("@sweat", "");
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@sweat", prendSweat);
+            }
 
             // Lecture des données
             SqlDataReader monReader = cmd.ExecuteReader();
 
-            while (monReader.Read())
-            {
-                return float.Parse(monReader["Montantactuel_budget"].ToString());
-            }
-
-            monReader.Close();
-            maConnexion.Close();
-
-            return 0;
-        }
-
-        // Méthode qui retourne le montant du budget EPS actuel
-        public static float GetBudgetASActuel()
-        {
-            // Connexion à la BD
-            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-
-            // Requette sql
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT Montantactuel_budget FROM BUDGET WHERE Libelle_budget = 'AS'";
-
-            // Lecture des données
-            SqlDataReader monReader = cmd.ExecuteReader();
+            var lesAdherents = new List<Adherent>();
 
             while (monReader.Read())
             {
-                return Convert.ToInt32(monReader["Montantactuel_budget"]);
-            }
+                Adherent adherent = new Adherent(monReader["Nom_adherent"].ToString(), monReader["Prenom_adherent"].ToString(), monReader["Libelle_classe"].ToString(), Convert.ToInt32(monReader["Autprelev_adherent"]), Convert.ToInt32(monReader["Prend_sweat"]));
 
+                lesAdherents.Add(adherent);
+            }
             monReader.Close();
             maConnexion.Close();
 
-            return 0;
+            return lesAdherents;
         }
     }
 }
