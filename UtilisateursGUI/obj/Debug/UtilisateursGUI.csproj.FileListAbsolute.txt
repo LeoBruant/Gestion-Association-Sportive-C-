@@ -22,27 +22,6 @@ D:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\Utilisateur
 D:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursBO.pdb
 D:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.Connexion.resources
 D:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.csproj.CopyComplete
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.Administration.resources
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.ChoixAdmin.resources
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.Comptabilite.resources
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.Connexion.resources
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.Properties.Resources.resources
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.csproj.GenerateResource.cache
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.csproj.CoreCompileInputs.cache
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursGUI.exe.config
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursGUI.exe
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursGUI.pdb
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursBLL.dll
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursBLL.pdb
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.csprojAssemblyReference.cache
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.csproj.CopyComplete
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.exe
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.pdb
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursBO.dll
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursBO.pdb
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursDAL.dll
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursDAL.pdb
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.AjoutEleve.resources
 D:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.Administration.resources
 D:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.AjoutEleve.resources
 D:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.ChoixAdmin.resources
@@ -50,7 +29,6 @@ D:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\Utilisateur
 D:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.SupprimerEleve.resources
 D:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursDAL.dll
 D:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursDAL.pdb
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.ModificationEleve.resources
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\bin\Debug\UtilisateursGUI.exe.config
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\bin\Debug\UtilisateursGUI.exe
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\bin\Debug\UtilisateursGUI.pdb
@@ -74,7 +52,6 @@ C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\Utili
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.exe
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.pdb
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.ajoutDebit.resources
-C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.ajoutDebit.resources
 C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\bin\Debug\UtilisateursGUI.exe.config
 C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\bin\Debug\UtilisateursGUI.exe
 C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\UtilisateursGUI\bin\Debug\UtilisateursGUI.pdb
@@ -101,6 +78,29 @@ C:\Users\maxou\Desktop\BTS\projet_AS\Gestion-Association-Sportive-C#\Utilisateur
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.ModificationDebit.resources
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.AjoutCredit.resources
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.ModificationCredit.resources
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.csprojAssemblyReference.cache
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.Administration.resources
 C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.AjoutCredit.resources
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.AjoutDebit.resources
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.AjoutEleve.resources
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.ChoixAdmin.resources
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.Comptabilite.resources
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.Connexion.resources
 C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.ModificationCredit.resources
 C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.ModificationDebit.resources
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.ModificationEleve.resources
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.Properties.Resources.resources
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.csproj.GenerateResource.cache
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.csproj.CoreCompileInputs.cache
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursGUI.exe.config
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursGUI.exe
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursGUI.pdb
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursBLL.dll
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursBO.dll
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursDAL.dll
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursBLL.pdb
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursBO.pdb
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\bin\Debug\UtilisateursDAL.pdb
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.csproj.CopyComplete
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.exe
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursGUI\obj\Debug\UtilisateursGUI.pdb
