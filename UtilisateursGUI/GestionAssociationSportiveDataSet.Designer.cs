@@ -6820,6 +6820,15 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._bUDGETTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.BUDGET.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._bUDGETTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._eVENEMENTTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.EVENEMENT.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -6829,21 +6838,21 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+<<<<<<< HEAD
             if ((this._tYPE_FLUXTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.TYPE_FLUX.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._tYPE_FLUXTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
+=======
             if ((this._fLUXTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.FLUX.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._fLUXTableAdapter.Update(updatedRows));
+>>>>>>> d8370c317715358ccb9dc2fc820fe1d0302205c3
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6890,6 +6899,14 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._bUDGETTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.BUDGET.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._bUDGETTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._eVENEMENTTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.EVENEMENT.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -6908,6 +6925,8 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
             }
             if ((this._fLUXTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.FLUX.Select(null, null, global::System.Data.DataViewRowState.Added);
+<<<<<<< HEAD
+=======
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._fLUXTableAdapter.Update(addedRows));
@@ -6916,6 +6935,7 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
             }
             if ((this._uTILISATEURTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.UTILISATEUR.Select(null, null, global::System.Data.DataViewRowState.Added);
+>>>>>>> d8370c317715358ccb9dc2fc820fe1d0302205c3
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._uTILISATEURTableAdapter.Update(addedRows));
@@ -6940,6 +6960,8 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+<<<<<<< HEAD
+=======
             if ((this._fLUXTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.FLUX.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -6948,6 +6970,7 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+>>>>>>> d8370c317715358ccb9dc2fc820fe1d0302205c3
             if ((this._tYPE_FLUXTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.TYPE_FLUX.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -6966,6 +6989,17 @@ SELECT Id_utilisateur, Login_utilisateur, Mdp_utilisateur, Droit_utilisateur FRO
             }
             if ((this._bUDGETTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.BUDGET.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+<<<<<<< HEAD
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._bUDGETTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._aDHERENTTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ADHERENT.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+=======
+>>>>>>> d8370c317715358ccb9dc2fc820fe1d0302205c3
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._bUDGETTableAdapter.Update(deletedRows));
