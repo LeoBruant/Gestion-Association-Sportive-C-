@@ -625,7 +625,14 @@ namespace UtilisateursDAL
             // Requette sql
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%') AND Id_classe LIKE '%'+@classe+'%'";
+            if (idClasse == -1)
+            {
+                cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%')";
+            }
+            else
+            {
+                cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%') AND Id_classe = @classe";
+            }
 
             // Ajout des paramètres
             if (eleveText == "")

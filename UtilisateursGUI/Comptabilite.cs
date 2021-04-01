@@ -397,7 +397,7 @@ namespace UtilisateursGUI
 
             List<Adherent> adherents = Gestion.getAdherentsFiltres(classeId, eleveTexte, autorise, sweat);
 
-
+            resultats.DataSource = adherents;
         }
 
         private void label10_Click(object sender, EventArgs e)

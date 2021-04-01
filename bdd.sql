@@ -10,6 +10,7 @@ CREATE TABLE UTILISATEUR (
 	Login_utilisateur varchar(255) NOT NULL,
 	Mdp_utilisateur varchar(255) NOT NULL,
 	Droit_utilisateur tinyint NOT NULL,
+
 	CONSTRAINT Id_utilisateur PRIMARY KEY NONCLUSTERED (Id_utilisateur),
 );
 
@@ -17,6 +18,7 @@ CREATE TABLE UTILISATEUR (
 CREATE TABLE CLASSE (
 	Id_classe int NOT NULL IDENTITY (1, 1),
 	Libelle_classe varchar(255) NOT NULL,
+
 	CONSTRAINT Id_classe PRIMARY KEY NONCLUSTERED (Id_classe),
 );
 
@@ -29,19 +31,17 @@ CREATE TABLE ADHERENT (
 	Numtel_adherent varchar(255) NOT NULL,
 	Email_adherent varchar(255) NOT NULL,
 	Numparent_adherent varchar(255) NULL,
-	Autprelev_adherent date NOT NULL,
+	Autprelev_adherent tinyinyt NOT NULL,
 	Sexe_adherent varchar(255) NOT NULL,
 	Login_adherent varchar(255) NOT NULL,
 	Mdp_adherent varchar(255) NOT NULL,
 	Datemaj_adherent date NOT NULL,
-	archive_adherent tinyint NOT NULL,
-	#Id_utilisateur int NOT NULL,
+	Archive_adherent tinyint NOT NULL,
+	Prend_sweat tinyint NOT NULL
 	#Id_classe int NOT NULL,
+
 	CONSTRAINT Id_adherent PRIMARY KEY NONCLUSTERED (Id_adherent),
-	CONSTRAINT Id_utilisateur_adherent FOREIGN KEY (#Id_utilisateur)
-	REFERENCES UTILISATEUR (Id_utilisateur)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
+
 	CONSTRAINT Id_classe_adherent FOREIGN KEY (#Id_classe)
         REFERENCES CLASSE (Id_classe)
         ON DELETE CASCADE
@@ -53,7 +53,7 @@ CREATE TABLE BUDGET (
 	Id_budget int NOT NULL IDENTITY (1, 1),
 	Libelle_budget varchar(255) NOT NULL,
 	Montantinitial_budget float NOT NULL,
-	Montantactuel_budget float NOT NULL,
+
 	CONSTRAINT Id_budget PRIMARY KEY NONCLUSTERED (Id_budget),
 );
 
@@ -61,6 +61,7 @@ CREATE TABLE BUDGET (
 CREATE TABLE TYPE_FLUX (
 	Id_typeflux int NOT NULL IDENTITY (1, 1),
 	Libelle_typeflux varchar(255) NOT NULL,
+
 	CONSTRAINT Id_typeflux PRIMARY KEY NONCLUSTERED (Id_typeflux),
 );
 
@@ -71,6 +72,7 @@ CREATE TABLE EVENEMENT (
 	Date_evenement date NOT NULL,
 	Lieu_evenement varchar(255) NOT NULL,
 	Cout_evenement float NOT NULL,
+
 	CONSTRAINT Id_evenement PRIMARY KEY NONCLUSTERED (Id_evenement),
 );
 
@@ -87,6 +89,7 @@ CREATE TABLE FLUX (
 	#Id_budget int NOT NULL,
 
 	CONSTRAINT Id_flux PRIMARY KEY NONCLUSTERED (Id_flux),
+
 	CONSTRAINT Id_adherent_flux FOREIGN KEY (#Id_adherent)
         REFERENCES ADHERENT (Id_adherent)
         ON DELETE CASCADE
