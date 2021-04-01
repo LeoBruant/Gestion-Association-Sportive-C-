@@ -31,13 +31,13 @@ CREATE TABLE ADHERENT (
 	Numtel_adherent varchar(255) NOT NULL,
 	Email_adherent varchar(255) NOT NULL,
 	Numparent_adherent varchar(255) NULL,
-	Autprelev_adherent tinyinyt NOT NULL,
+	Autprelev_adherent tinyint NOT NULL,
 	Sexe_adherent varchar(255) NOT NULL,
 	Login_adherent varchar(255) NOT NULL,
 	Mdp_adherent varchar(255) NOT NULL,
 	Datemaj_adherent date NOT NULL,
 	Archive_adherent tinyint NOT NULL,
-	Prend_sweat tinyint NOT NULL
+	Prend_sweat tinyint NOT NULL,
 	#Id_classe int NOT NULL,
 
 	CONSTRAINT Id_adherent PRIMARY KEY NONCLUSTERED (Id_adherent),

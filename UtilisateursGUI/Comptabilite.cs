@@ -399,10 +399,5 @@ namespace UtilisateursGUI
 
             resultats.DataSource = adherents;
         }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
