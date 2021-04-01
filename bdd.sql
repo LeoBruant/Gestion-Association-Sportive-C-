@@ -85,7 +85,7 @@ CREATE TABLE FLUX (
 	Prelevementeff_flux tinyint,
 	#Id_adherent int NOT NULL,
 	#Id_typeflux int NOT NULL,
-	#Id_evenement int NOT NULL,
+	#Id_evenement int NULL,
 	#Id_budget int NOT NULL,
 
 	CONSTRAINT Id_flux PRIMARY KEY NONCLUSTERED (Id_flux),
