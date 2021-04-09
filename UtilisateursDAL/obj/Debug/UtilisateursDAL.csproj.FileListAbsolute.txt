@@ -43,3 +43,12 @@ C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\Utilisateur
 C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursDAL\obj\Debug\UtilisateursDAL.csproj.CopyComplete
 C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursDAL\obj\Debug\UtilisateursDAL.dll
 C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursDAL\obj\Debug\UtilisateursDAL.pdb
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursDAL\bin\Debug\UtilisateursDAL.dll
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursDAL\bin\Debug\UtilisateursDAL.pdb
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursDAL\bin\Debug\UtilisateursBO.dll
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursDAL\bin\Debug\UtilisateursBO.pdb
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursDAL\obj\Debug\UtilisateursDAL.csprojAssemblyReference.cache
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursDAL\obj\Debug\UtilisateursDAL.csproj.CoreCompileInputs.cache
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursDAL\obj\Debug\UtilisateursDAL.csproj.CopyComplete
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursDAL\obj\Debug\UtilisateursDAL.dll
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursDAL\obj\Debug\UtilisateursDAL.pdb

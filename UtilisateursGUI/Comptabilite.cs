@@ -90,13 +90,13 @@ namespace UtilisateursGUI
 
                 // Création d'une en-tête de colonne pour la colonne 1
                 DataGridViewTextBoxColumn NomEleve = new DataGridViewTextBoxColumn();
-                IdColumnCredit.DataPropertyName = "Nom";
-                IdColumnCredit.HeaderText = "nom";
+                NomEleve.DataPropertyName = "Nom";
+                NomEleve.HeaderText = "nom";
 
                 // Création d'une en-tête de colonne pour la colonne 2
                 DataGridViewTextBoxColumn PrenomEleve = new DataGridViewTextBoxColumn();
-                DateColumnCredit.DataPropertyName = "Prenom";
-                DateColumnCredit.HeaderText = "prenom";
+                PrenomEleve.DataPropertyName = "Prenom";
+                PrenomEleve.HeaderText = "prenom";
 
             // Ajout des en-têtes de colonne pour les débits
             debits.Columns.Add(IdColumnDebit);
