@@ -89,14 +89,14 @@ namespace UtilisateursGUI
                 resultats.AutoGenerateColumns = false;
 
                 // Création d'une en-tête de colonne pour la colonne 1
-                DataGridViewTextBoxColumn NomColumnAdherent = new DataGridViewTextBoxColumn();
-                IdColumnCredit.DataPropertyName = "NomAdherent";
-                IdColumnCredit.HeaderText = "nomAdherent";
+                DataGridViewTextBoxColumn NomEleve = new DataGridViewTextBoxColumn();
+                NomEleve.DataPropertyName = "Nom";
+                NomEleve.HeaderText = "nom";
 
                 // Création d'une en-tête de colonne pour la colonne 2
-                DataGridViewTextBoxColumn PrenomColumnAdherent = new DataGridViewTextBoxColumn();
-                DateColumnCredit.DataPropertyName = "PrenomAdherent";
-                DateColumnCredit.HeaderText = "prenomAdherent";
+                DataGridViewTextBoxColumn PrenomEleve = new DataGridViewTextBoxColumn();
+                PrenomEleve.DataPropertyName = "Prenom";
+                PrenomEleve.HeaderText = "prenom";
 
             // Ajout des en-têtes de colonne pour les débits
             debits.Columns.Add(IdColumnDebit);
@@ -113,8 +113,8 @@ namespace UtilisateursGUI
             credits.Columns.Add(BudgetColumnCredit);
 
             // Ajout des en-têtes de colonne pour les resultats
-            resultats.Columns.Add(NomColumnAdherent);
-            resultats.Columns.Add(PrenomColumnAdherent);
+            resultats.Columns.Add(NomEleve);
+            resultats.Columns.Add(PrenomEleve);
 
             // Définition du style apporté au datagridview des debits
             debits.ColumnHeadersVisible = false;
@@ -134,8 +134,8 @@ namespace UtilisateursGUI
 
             // Définition du style apporté au datagridview des resultats
             resultats.ColumnHeadersVisible = false;
-            NomColumnAdherent.Width = 190;
-            PrenomColumnAdherent.Width = 190;
+            NomEleve.Width = 190;
+            PrenomEleve.Width = 190;
 
             // Récupération des débits
             var lesDebits = new List<Flux>();

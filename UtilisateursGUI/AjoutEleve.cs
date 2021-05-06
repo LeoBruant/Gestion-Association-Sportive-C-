@@ -15,6 +15,7 @@ namespace UtilisateursGUI
     public partial class AjoutEleve : Form
     {
         private string prelevementEleveAutorise = "null";
+        private string prendSweat = "null";
 
         public AjoutEleve()
         {
@@ -41,11 +42,20 @@ namespace UtilisateursGUI
         {
             prelevementEleveAutorise = "0";
         }
+        private void ouiSweat_CheckedChanged(object sender, EventArgs e)
+        {
+            prendSweat = "1";
+        }
+
+        private void nonSweat_CheckedChanged(object sender, EventArgs e)
+        {
+            prendSweat = "0";
+        }
 
         private void ajouter_Click(object sender, EventArgs e)
         {
             // vérification que les champs ne sont pas vides
-            if(ajoutLoginChamp.Text == string.Empty || ajoutMotDePasseChamp.Text == string.Empty || ajoutNomChamp.Text == string.Empty || ajoutPrenomChamp.Text == string.Empty || ajoutDateDeNaissanceChamp.Text == string.Empty || ajoutSexeChamp.Text == string.Empty || ajoutEmailChamp.Text == string.Empty || ajoutTelephoneChamp.Text == string.Empty || ajoutTelephoneTuteurChamp.Text == string.Empty || prelevementEleveAutorise == "null")
+            if(ajoutLoginChamp.Text == string.Empty || ajoutMotDePasseChamp.Text == string.Empty || ajoutNomChamp.Text == string.Empty || ajoutPrenomChamp.Text == string.Empty || ajoutDateDeNaissanceChamp.Text == string.Empty || ajoutSexeChamp.Text == string.Empty || ajoutEmailChamp.Text == string.Empty || ajoutTelephoneChamp.Text == string.Empty || ajoutTelephoneTuteurChamp.Text == string.Empty || prelevementEleveAutorise == "null" || prendSweat == "null")
             {
                 erreurChampsVides.Visible = true;
             }
@@ -63,20 +73,46 @@ namespace UtilisateursGUI
                     {
                         int idClasse = Gestion.GetIdClasseAdherent(classeChamp.Text);
 
-                        Adherent adherent = new Adherent(ajoutNomChamp.Text, ajoutPrenomChamp.Text, Convert.ToDateTime(ajoutDateDeNaissanceChamp.Text), ajoutTelephoneChamp.Text, ajoutEmailChamp.Text, ajoutTelephoneTuteurChamp.Text, Convert.ToInt32(prelevementEleveAutorise), ajoutSexeChamp.Text, ajoutLoginChamp.Text, ajoutMotDePasseChamp.Text, idClasse);
+                        Adherent adherent = new Adherent(ajoutNomChamp.Text, ajoutPrenomChamp.Text, Convert.ToDateTime(ajoutDateDeNaissanceChamp.Text), ajoutTelephoneChamp.Text, ajoutEmailChamp.Text, ajoutTelephoneTuteurChamp.Text, Convert.ToInt32(prelevementEleveAutorise),Convert.ToInt32(prendSweat), ajoutSexeChamp.Text, ajoutLoginChamp.Text, ajoutMotDePasseChamp.Text, idClasse);
 
                         Gestion.AddAdherent(adherent);
 
                         existe.Visible = false;
                         success.Visible = true;
+
+                        if (prendSweat == "0")
+                        {
+                            if (prelevementEleveAutorise == "0")
+                            {
+                                Flux flux = new Flux("Adhesion", DateTime.Now, 10, 0, Gestion.GetDernierIdAdherent(), 2, 1);
+                                Gestion.AddFluxInscription(flux);
+                            }
+                            if (prelevementEleveAutorise == "1")
+                            {
+                                Flux flux = new Flux("Adhesion", DateTime.Now, 10, 1, Gestion.GetDernierIdAdherent(), 2, 1);
+                                Gestion.AddFluxInscription(flux);
+                            }
+                        }
+                        if (prendSweat == "1")
+                        {
+                            if (prelevementEleveAutorise == "0")
+                            {
+                                Flux flux = new Flux("Adhesion", DateTime.Now, 25, 0, Gestion.GetDernierIdAdherent(), 2, 1);
+                                Gestion.AddFluxInscription(flux);
+                            }
+                            if (prelevementEleveAutorise == "1")
+                            {
+                                Flux flux = new Flux("Adhesion", DateTime.Now, 25, 1, Gestion.GetDernierIdAdherent(), 2, 1);
+                                Gestion.AddFluxInscription(flux);
+                            }
+                        }
                     }
                 }
-
                 else
                 {
                     success.Visible = false;
                     existe.Visible = true;
-                }
+                }       
             }
         }
     }

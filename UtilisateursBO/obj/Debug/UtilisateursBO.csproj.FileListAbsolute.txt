@@ -20,3 +20,9 @@ C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\Utilisateur
 C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursBO\obj\Debug\UtilisateursBO.csproj.CoreCompileInputs.cache
 C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursBO\obj\Debug\UtilisateursBO.dll
 C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursBO\obj\Debug\UtilisateursBO.pdb
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursBO\bin\Debug\UtilisateursBO.dll
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursBO\bin\Debug\UtilisateursBO.pdb
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursBO\obj\Debug\UtilisateursBO.csprojAssemblyReference.cache
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursBO\obj\Debug\UtilisateursBO.csproj.CoreCompileInputs.cache
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursBO\obj\Debug\UtilisateursBO.dll
+D:\projets\Gestion-Association-Sportive-C-\UtilisateursBO\obj\Debug\UtilisateursBO.pdb

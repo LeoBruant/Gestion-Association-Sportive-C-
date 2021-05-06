@@ -63,6 +63,12 @@ namespace UtilisateursBLL
             GestionDAO.AddAdherent(adherent);
         }
 
+        // Méthode qui ajoute un adhérent dans la base de données
+        public static int GetDernierIdAdherent()
+        {
+            return GestionDAO.GetDernierIdAdherent();
+        }
+
         // méthode qui retourne l'id qui correspond au libelle de la classe de l'adhérent
         public static int GetIdClasseAdherent(string libelle)
         {
@@ -120,6 +126,11 @@ namespace UtilisateursBLL
         public static void AddFlux(Flux flux)
         {
             GestionDAO.AddFlux(flux);
+        }
+        //Méthode qui ajoute un flux lors de l'incription
+        public static void AddFluxInscription(Flux flux)
+        {
+            GestionDAO.AddFluxInscription(flux);
         }
         // Méthode qui retourne une liste de debits
         public static List<Flux> GetDebits()

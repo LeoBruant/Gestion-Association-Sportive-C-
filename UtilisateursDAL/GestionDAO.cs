@@ -131,7 +131,7 @@ namespace UtilisateursDAL
 
             while (monReader.Read())
             {
-                Adherent adherent = new Adherent(Convert.ToInt32(monReader["Id_adherent"]), monReader["Nom_adherent"].ToString(), monReader["Prenom_adherent"].ToString(), Convert.ToDateTime(monReader["Ddn_adherent"]), monReader["Numtel_adherent"].ToString(), monReader["Email_adherent"].ToString(), monReader["Numparent_adherent"].ToString(), Convert.ToInt32(monReader["Autprelev_adherent"]), monReader["Sexe_adherent"].ToString(), monReader["Login_adherent"].ToString(), Convert.ToDateTime(monReader["Datemaj_adherent"]), Convert.ToInt32(monReader["Archive_adherent"]), Convert.ToInt32(monReader["#Id_classe"]));
+                Adherent adherent = new Adherent(Convert.ToInt32(monReader["Id_adherent"]), monReader["Nom_adherent"].ToString(), monReader["Prenom_adherent"].ToString(), Convert.ToDateTime(monReader["Ddn_adherent"]), monReader["Numtel_adherent"].ToString(), monReader["Email_adherent"].ToString(), monReader["Numparent_adherent"].ToString(), Convert.ToInt32(monReader["Autprelev_adherent"]), monReader["Sexe_adherent"].ToString(), monReader["Login_adherent"].ToString(), Convert.ToDateTime(monReader["Datemaj_adherent"]), Convert.ToInt32(monReader["Archive_adherent"]), Convert.ToInt32(monReader["#Id_classe"]), Convert.ToInt32(monReader["Prend_sweat"]));
 
                 return adherent;
             }
@@ -151,7 +151,7 @@ namespace UtilisateursDAL
             // Requette sql
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO ADHERENT (Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent, Email_adherent, Numparent_adherent, Autprelev_adherent, Sexe_adherent, Login_adherent, Mdp_adherent, Datemaj_adherent, Archive_adherent, #Id_classe) VALUES (@Nom_adherent, @Prenom_adherent, @Ddn_adherent, @Numtel_adherent, @Email_adherent, @Numparent_adherent, @Autprelev_adherent, @Sexe_adherent, @Login_adherent, @Mdp_adherent, @Datemaj_adherent, @Archive_adherent, @Id_classe)";
+            cmd.CommandText = "INSERT INTO ADHERENT (Nom_adherent, Prenom_adherent, Ddn_adherent, Numtel_adherent, Email_adherent, Numparent_adherent, Autprelev_adherent, Sexe_adherent, Login_adherent, Mdp_adherent, Datemaj_adherent, Archive_adherent, #Id_classe, Prend_sweat) VALUES (@Nom_adherent, @Prenom_adherent, @Ddn_adherent, @Numtel_adherent, @Email_adherent, @Numparent_adherent, @Autprelev_adherent, @Sexe_adherent, @Login_adherent, @Mdp_adherent, @Datemaj_adherent, @Archive_adherent, @Id_classe, @Prend_sweat)";
 
             // Ajout des paramètres
             cmd.Parameters.AddWithValue("@Nom_adherent", adherent.Nom);
@@ -167,11 +167,36 @@ namespace UtilisateursDAL
             cmd.Parameters.AddWithValue("@Datemaj_adherent", DateTime.Now);
             cmd.Parameters.AddWithValue("@Archive_adherent", 0);
             cmd.Parameters.AddWithValue("@Id_classe", adherent.Classe);
+            cmd.Parameters.AddWithValue("@Prend_sweat", adherent.PrendSweat);
 
             // Execution de la requete
             cmd.ExecuteNonQuery();
 
             maConnexion.Close();
+        }
+        // Méthode qui retourne l'id d'un adhérent
+        public static int GetDernierIdAdherent()
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT Id_adherent FROM ADHERENT WHERE Id_adherent = (SELECT max(Id_adherent) FROM ADHERENT)";
+
+            // Lecture des données
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                return Convert.ToInt32(monReader["Id_adherent"]);
+            }
+
+            monReader.Close();
+            maConnexion.Close();
+
+            return 0;
         }
 
         // méthode qui retourne l'id qui correspond au libelle de la classe de l'adhérent
@@ -431,6 +456,31 @@ namespace UtilisateursDAL
 
             maConnexion.Close();
         }
+        //Méthode qui ajoute un flux lors de l'ajout d'un adhérent dans la base de données
+        public static void AddFluxInscription(Flux flux)
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "INSERT INTO FLUX (Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, #Id_adherent, #Id_typeflux, #Id_budget)VALUES ( @Libelle_flux, @Date_flux, @Montant_flux, @Prelevementeff_flux, @Id_adherent, @Id_typeflux, @Id_budget)";
+
+            // Ajout des paramètres
+            cmd.Parameters.AddWithValue("@Libelle_flux", flux.Libelle);
+            cmd.Parameters.AddWithValue("@Date_flux", flux.DateFlux);
+            cmd.Parameters.AddWithValue("@Montant_flux", flux.MontantFlux);
+            cmd.Parameters.AddWithValue("@Prelevementeff_flux", flux.PrelevementEff);
+            cmd.Parameters.AddWithValue("@Id_adherent", flux.IdAdherent);
+            cmd.Parameters.AddWithValue("@Id_typeflux", flux.IdTypeFlux);
+            cmd.Parameters.AddWithValue("@Id_budget", flux.IdBudget);
+
+            // Execution de la requete
+            cmd.ExecuteNonQuery();
+
+            maConnexion.Close();
+        }
 
         public static List<Flux> GetDebits()
         {
@@ -627,11 +677,11 @@ namespace UtilisateursDAL
             cmd.Connection = maConnexion;
             if (idClasse == -1)
             {
-                cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%')";
+                cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%') AND Autprelev_adherent = @autorise AND Prend_sweat = @sweat";
             }
             else
             {
-                cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%') AND Id_classe = @classe";
+                cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%') AND Id_classe = @classe AND Autprelev_adherent = @autorise AND Prend_sweat = @sweat";
             }
 
             // Ajout des paramètres

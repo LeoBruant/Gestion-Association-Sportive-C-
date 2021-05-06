@@ -109,7 +109,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(694, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 51);
             this.button1.TabIndex = 1;
@@ -121,7 +121,7 @@
             // 
             this.EPSChamp.Font = new System.Drawing.Font("Calibri Light", 10.2F);
             this.EPSChamp.Location = new System.Drawing.Point(160, 41);
-            this.EPSChamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EPSChamp.Margin = new System.Windows.Forms.Padding(2);
             this.EPSChamp.Name = "EPSChamp";
             this.EPSChamp.Size = new System.Drawing.Size(119, 24);
             this.EPSChamp.TabIndex = 14;
@@ -142,7 +142,7 @@
             // 
             this.modifEPS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modifEPS.Location = new System.Drawing.Point(295, 41);
-            this.modifEPS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.modifEPS.Margin = new System.Windows.Forms.Padding(2);
             this.modifEPS.Name = "modifEPS";
             this.modifEPS.Size = new System.Drawing.Size(98, 25);
             this.modifEPS.TabIndex = 16;
@@ -190,7 +190,7 @@
             // 
             this.ASChamp.Font = new System.Drawing.Font("Calibri Light", 10.2F);
             this.ASChamp.Location = new System.Drawing.Point(160, 94);
-            this.ASChamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ASChamp.Margin = new System.Windows.Forms.Padding(2);
             this.ASChamp.Name = "ASChamp";
             this.ASChamp.Size = new System.Drawing.Size(119, 24);
             this.ASChamp.TabIndex = 20;
@@ -199,7 +199,7 @@
             // 
             this.modifAS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modifAS.Location = new System.Drawing.Point(295, 94);
-            this.modifAS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.modifAS.Margin = new System.Windows.Forms.Padding(2);
             this.modifAS.Name = "modifAS";
             this.modifAS.Size = new System.Drawing.Size(98, 25);
             this.modifAS.TabIndex = 21;
@@ -235,7 +235,7 @@
             // 
             this.button5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(793, 227);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(98, 25);
             this.button5.TabIndex = 25;
@@ -247,7 +247,7 @@
             // 
             this.ajoutDebit.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ajoutDebit.Location = new System.Drawing.Point(793, 185);
-            this.ajoutDebit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ajoutDebit.Margin = new System.Windows.Forms.Padding(2);
             this.ajoutDebit.Name = "ajoutDebit";
             this.ajoutDebit.Size = new System.Drawing.Size(98, 25);
             this.ajoutDebit.TabIndex = 26;
@@ -259,7 +259,7 @@
             // 
             this.boutonModifierDebit.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boutonModifierDebit.Location = new System.Drawing.Point(793, 142);
-            this.boutonModifierDebit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.boutonModifierDebit.Margin = new System.Windows.Forms.Padding(2);
             this.boutonModifierDebit.Name = "boutonModifierDebit";
             this.boutonModifierDebit.Size = new System.Drawing.Size(98, 25);
             this.boutonModifierDebit.TabIndex = 27;
@@ -279,7 +279,7 @@
             this.debits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.debits.ColumnHeadersVisible = false;
             this.debits.Location = new System.Drawing.Point(928, 97);
-            this.debits.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.debits.Margin = new System.Windows.Forms.Padding(2);
             this.debits.Name = "debits";
             this.debits.ReadOnly = true;
             this.debits.RowHeadersWidth = 51;
@@ -300,8 +300,9 @@
             this.credits.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.credits.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.credits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.credits.ColumnHeadersVisible = false;
             this.credits.Location = new System.Drawing.Point(929, 333);
-            this.credits.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.credits.Margin = new System.Windows.Forms.Padding(2);
             this.credits.Name = "credits";
             this.credits.ReadOnly = true;
             this.credits.RowHeadersWidth = 51;
@@ -316,7 +317,7 @@
             // 
             this.button11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.Location = new System.Drawing.Point(793, 450);
-            this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button11.Margin = new System.Windows.Forms.Padding(2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(98, 25);
             this.button11.TabIndex = 35;
@@ -328,7 +329,7 @@
             // 
             this.button12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.Location = new System.Drawing.Point(793, 493);
-            this.button12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button12.Margin = new System.Windows.Forms.Padding(2);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(98, 25);
             this.button12.TabIndex = 34;
@@ -340,7 +341,7 @@
             // 
             this.button13.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.Location = new System.Drawing.Point(793, 535);
-            this.button13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button13.Margin = new System.Windows.Forms.Padding(2);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(98, 25);
             this.button13.TabIndex = 33;
@@ -356,7 +357,7 @@
             this.resultats.AllowUserToResizeRows = false;
             this.resultats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.resultats.Location = new System.Drawing.Point(295, 191);
-            this.resultats.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.resultats.Margin = new System.Windows.Forms.Padding(2);
             this.resultats.Name = "resultats";
             this.resultats.ReadOnly = true;
             this.resultats.RowHeadersWidth = 51;
@@ -392,7 +393,7 @@
             // 
             this.eleve.Font = new System.Drawing.Font("Calibri Light", 10.2F);
             this.eleve.Location = new System.Drawing.Point(12, 191);
-            this.eleve.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.eleve.Margin = new System.Windows.Forms.Padding(2);
             this.eleve.Name = "eleve";
             this.eleve.Size = new System.Drawing.Size(140, 24);
             this.eleve.TabIndex = 39;
@@ -504,7 +505,7 @@
             // 
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Location = new System.Drawing.Point(295, 408);
-            this.dataGridView4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersWidth = 51;
             this.dataGridView4.RowTemplate.Height = 24;
@@ -737,7 +738,7 @@
             this.classe.DisplayMember = "Libelle_classe";
             this.classe.FormattingEnabled = true;
             this.classe.Location = new System.Drawing.Point(60, 229);
-            this.classe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.classe.Margin = new System.Windows.Forms.Padding(2);
             this.classe.Name = "classe";
             this.classe.Size = new System.Drawing.Size(92, 21);
             this.classe.TabIndex = 78;
@@ -762,7 +763,7 @@
             this.nonSweat.AutoSize = true;
             this.nonSweat.Font = new System.Drawing.Font("Calibri Light", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nonSweat.Location = new System.Drawing.Point(44, 1);
-            this.nonSweat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nonSweat.Margin = new System.Windows.Forms.Padding(2);
             this.nonSweat.Name = "nonSweat";
             this.nonSweat.Size = new System.Drawing.Size(47, 21);
             this.nonSweat.TabIndex = 31;
@@ -775,7 +776,7 @@
             this.ouiSweat.AutoSize = true;
             this.ouiSweat.Font = new System.Drawing.Font("Calibri Light", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ouiSweat.Location = new System.Drawing.Point(0, 1);
-            this.ouiSweat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ouiSweat.Margin = new System.Windows.Forms.Padding(2);
             this.ouiSweat.Name = "ouiSweat";
             this.ouiSweat.Size = new System.Drawing.Size(43, 21);
             this.ouiSweat.TabIndex = 0;
@@ -788,7 +789,7 @@
             this.ouiAutorise.AutoSize = true;
             this.ouiAutorise.Font = new System.Drawing.Font("Calibri Light", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ouiAutorise.Location = new System.Drawing.Point(0, 0);
-            this.ouiAutorise.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ouiAutorise.Margin = new System.Windows.Forms.Padding(2);
             this.ouiAutorise.Name = "ouiAutorise";
             this.ouiAutorise.Size = new System.Drawing.Size(43, 21);
             this.ouiAutorise.TabIndex = 0;
@@ -802,7 +803,7 @@
             this.nonAutorise.AutoSize = true;
             this.nonAutorise.Font = new System.Drawing.Font("Calibri Light", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nonAutorise.Location = new System.Drawing.Point(44, 0);
-            this.nonAutorise.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nonAutorise.Margin = new System.Windows.Forms.Padding(2);
             this.nonAutorise.Name = "nonAutorise";
             this.nonAutorise.Size = new System.Drawing.Size(47, 21);
             this.nonAutorise.TabIndex = 31;
@@ -816,9 +817,9 @@
             this.ajoutPrelevementEfectueChamp.Controls.Add(this.nonAutorise);
             this.ajoutPrelevementEfectueChamp.Controls.Add(this.ouiAutorise);
             this.ajoutPrelevementEfectueChamp.Location = new System.Drawing.Point(162, 268);
-            this.ajoutPrelevementEfectueChamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ajoutPrelevementEfectueChamp.Margin = new System.Windows.Forms.Padding(2);
             this.ajoutPrelevementEfectueChamp.Name = "ajoutPrelevementEfectueChamp";
-            this.ajoutPrelevementEfectueChamp.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ajoutPrelevementEfectueChamp.Padding = new System.Windows.Forms.Padding(2);
             this.ajoutPrelevementEfectueChamp.Size = new System.Drawing.Size(88, 18);
             this.ajoutPrelevementEfectueChamp.TabIndex = 79;
             this.ajoutPrelevementEfectueChamp.TabStop = false;
@@ -828,9 +829,9 @@
             this.groupBox1.Controls.Add(this.ouiSweat);
             this.groupBox1.Controls.Add(this.nonSweat);
             this.groupBox1.Location = new System.Drawing.Point(93, 302);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(88, 22);
             this.groupBox1.TabIndex = 80;
             this.groupBox1.TabStop = false;
@@ -839,7 +840,7 @@
             // 
             this.validerFiltre.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.validerFiltre.Location = new System.Drawing.Point(12, 338);
-            this.validerFiltre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.validerFiltre.Margin = new System.Windows.Forms.Padding(2);
             this.validerFiltre.Name = "validerFiltre";
             this.validerFiltre.Size = new System.Drawing.Size(98, 23);
             this.validerFiltre.TabIndex = 81;
@@ -934,7 +935,7 @@
             this.Controls.Add(this.EPSChamp);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Comptabilite";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

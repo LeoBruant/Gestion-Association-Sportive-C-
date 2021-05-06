@@ -26,7 +26,7 @@ namespace UtilisateursBO
         string libelleClasse;
 
         // constructeur utilisé pour afficher les données des adhérents
-        public Adherent(int id, string nom, string prenom, DateTime dateNaissance, string numTel, string email, string numParent, int autorisePrelev, string sexe, string login, DateTime dateMaj, int estArchive, int classe)
+        public Adherent(int id, string nom, string prenom, DateTime dateNaissance, string numTel, string email, string numParent, int autorisePrelev, string sexe, string login, DateTime dateMaj, int estArchive,int prendSweat, int classe)
         {
             this.id = id;
             this.nom = nom;
@@ -40,6 +40,7 @@ namespace UtilisateursBO
             this.login = login;
             this.dateMaj = dateMaj;
             this.estArchive = estArchive;
+            this.prendSweat = prendSweat;
             this.classe = classe;
         }
 
@@ -52,7 +53,7 @@ namespace UtilisateursBO
         }
 
         // constructeur utilisé pour ajouter un adhérent dans la base de données
-        public Adherent(string nom, string prenom, DateTime dateNaissance, string numTel, string email, string numParent, int autorisePrelev, string sexe, string login, string mdp, int classe)
+        public Adherent(string nom, string prenom, DateTime dateNaissance, string numTel, string email, string numParent, int autorisePrelev,int prendSweat, string sexe, string login, string mdp, int classe)
         {
             this.nom = nom;
             this.prenom = prenom;
@@ -61,6 +62,7 @@ namespace UtilisateursBO
             this.email = email;
             this.numParent = numParent;
             this.autorisePrelev = autorisePrelev;
+            this.prendSweat = prendSweat;
             this.sexe = sexe;
             this.login = login;
             this.mdp = mdp;

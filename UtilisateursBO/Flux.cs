@@ -57,6 +57,18 @@ namespace UtilisateursBO
             this.idBudget = idBudget;
         }
 
+        // constructeur utilisé pour ajouter un flux lors de l'ajout d'un adhérent dans la base de données
+        public Flux(string libelle, DateTime dateFlux, float montantFlux, int prelevementEff, int idAdherent, int idTypeFlux, int idBudget)
+        {
+            this.libelle = libelle;
+            this.dateFlux = dateFlux;
+            this.montantFlux = montantFlux;
+            this.prelevementEff = prelevementEff;
+            this.idAdherent = idAdherent;
+            this.idTypeFlux = idTypeFlux;
+            this.idBudget = idBudget;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Libelle { get => libelle; set => libelle = value; }
         public DateTime DateFlux { get => dateFlux; set => dateFlux = value; }
