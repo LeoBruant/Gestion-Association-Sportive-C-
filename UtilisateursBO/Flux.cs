@@ -44,6 +44,16 @@ namespace UtilisateursBO
             this.idBudget = idBudget;
         }
 
+        // constructeur utilisé pour afficher la liste des flux d'un élève
+        public Flux(DateTime dateFlux, string libelle, float montantFlux, int idTypeFlux, int prelevementEff)
+        {
+            this.dateFlux = dateFlux;
+            this.libelle = libelle;
+            this.montantFlux = montantFlux;
+            this.idTypeFlux = idTypeFlux;
+            this.prelevementEff = prelevementEff;
+        }
+
         // constructeur utilisé pour ajouter un flux dans la base de données
         public Flux(string libelle,DateTime dateFlux, float montantFlux, int prelevementEff, int idAdherent, int idTypeFlux,int idEvenement, int idBudget)
         {

@@ -130,3 +130,29 @@ D:\projets\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\Utilisateur
 D:\projets\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.csproj.CopyComplete
 D:\projets\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.exe
 D:\projets\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.pdb
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\bin\Debug\UtilisateursGUI.exe.config
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\bin\Debug\UtilisateursGUI.exe
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\bin\Debug\UtilisateursGUI.pdb
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\bin\Debug\UtilisateursBLL.dll
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\bin\Debug\UtilisateursBO.dll
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\bin\Debug\UtilisateursDAL.dll
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\bin\Debug\UtilisateursBLL.pdb
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\bin\Debug\UtilisateursBO.pdb
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\bin\Debug\UtilisateursDAL.pdb
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.csprojAssemblyReference.cache
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.Administration.resources
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.AjoutCredit.resources
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.AjoutDebit.resources
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.AjoutEleve.resources
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.ChoixAdmin.resources
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.Comptabilite.resources
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.Connexion.resources
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.ModificationCredit.resources
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.ModificationDebit.resources
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.ModificationEleve.resources
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.Properties.Resources.resources
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.csproj.GenerateResource.cache
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.csproj.CoreCompileInputs.cache
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.csproj.CopyComplete
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.exe
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursGUI\obj\Debug\UtilisateursGUI.pdb

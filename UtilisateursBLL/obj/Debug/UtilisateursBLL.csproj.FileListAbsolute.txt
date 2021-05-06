@@ -64,3 +64,14 @@ D:\projets\Gestion-Association-Sportive-C-\UtilisateursBLL\obj\Debug\Utilisateur
 D:\projets\Gestion-Association-Sportive-C-\UtilisateursBLL\obj\Debug\UtilisateursBLL.csproj.CopyComplete
 D:\projets\Gestion-Association-Sportive-C-\UtilisateursBLL\obj\Debug\UtilisateursBLL.dll
 D:\projets\Gestion-Association-Sportive-C-\UtilisateursBLL\obj\Debug\UtilisateursBLL.pdb
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursBLL\bin\Debug\UtilisateursBLL.dll
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursBLL\bin\Debug\UtilisateursBLL.pdb
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursBLL\bin\Debug\UtilisateursBO.dll
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursBLL\bin\Debug\UtilisateursDAL.dll
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursBLL\bin\Debug\UtilisateursBO.pdb
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursBLL\bin\Debug\UtilisateursDAL.pdb
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursBLL\obj\Debug\UtilisateursBLL.csprojAssemblyReference.cache
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursBLL\obj\Debug\UtilisateursBLL.csproj.CoreCompileInputs.cache
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursBLL\obj\Debug\UtilisateursBLL.csproj.CopyComplete
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursBLL\obj\Debug\UtilisateursBLL.dll
+C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursBLL\obj\Debug\UtilisateursBLL.pdb

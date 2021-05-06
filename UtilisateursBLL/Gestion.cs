@@ -142,6 +142,10 @@ namespace UtilisateursBLL
         {
             return (GestionDAO.GetCredits());
         }
+        public static List<Flux> GetFluxEleve()
+        {
+            return (GestionDAO.GetFluxEleve());
+        }
         // Méthode qui retourne une liste contenant un flux
         public static Flux GetUnFlux(int id)
         {

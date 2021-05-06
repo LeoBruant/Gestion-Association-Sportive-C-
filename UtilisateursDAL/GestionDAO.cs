@@ -565,6 +565,32 @@ namespace UtilisateursDAL
 
             return null;
         }
+        public static List<Flux> GetFluxEleve()
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            // Requette sql
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT Date_flux, Libelle_flux,  Montant_flux, Libelle_typeflux, Prelevementeff_flux, #Id_typeflux FROM FLUX, TYPE_FLUX WHERE Id_typeflux = #Id_typeflux";
+
+            // Lecture des données
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            var lesFluxEleve = new List<Flux>();
+
+            while (monReader.Read())
+            {
+                Flux fluxEleve = new Flux(Convert.ToDateTime(monReader["Date_flux"]), monReader["Libelle_flux"].ToString(), Convert.ToInt32(monReader["Montant_flux"]), Convert.ToInt32(monReader["#Id_typeflux"]), Convert.ToInt32(monReader["Prelevementeff_flux"]));
+
+                lesFluxEleve.Add(fluxEleve);
+            }
+            monReader.Close();
+            maConnexion.Close();
+
+            return lesFluxEleve;
+        }
         public static void ModifFlux(Flux flux)
         {
             // Connexion à la BD
@@ -677,11 +703,11 @@ namespace UtilisateursDAL
             cmd.Connection = maConnexion;
             if (idClasse == -1)
             {
-                cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%')";
+                cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%') AND Autprelev_adherent = @autorise AND Prend_sweat = @sweat";
             }
             else
             {
-                cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%') AND Id_classe = @classe";
+                cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%') AND Id_classe = @classe AND Autprelev_adherent = @autorise AND Prend_sweat = @sweat";
             }
 
             // Ajout des paramètres
