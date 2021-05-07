@@ -565,7 +565,7 @@ namespace UtilisateursDAL
 
             return null;
         }
-        public static List<Flux> GetFluxEleve()
+        public static List<Flux> GetFluxEleve(int id)
         {
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
@@ -573,7 +573,10 @@ namespace UtilisateursDAL
             // Requette sql
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT Date_flux, Libelle_flux,  Montant_flux, Libelle_typeflux, Prelevementeff_flux, #Id_typeflux FROM FLUX, TYPE_FLUX WHERE Id_typeflux = #Id_typeflux";
+            cmd.CommandText = "SELECT Date_flux, Libelle_flux,  Montant_flux, Libelle_typeflux, Prelevementeff_flux, Id_typeflux FROM FLUX, TYPE_FLUX  WHERE Id_typeflux = #Id_typeflux AND #Id_adherent = @id";
+
+            // Ajout des paramètres
+            cmd.Parameters.AddWithValue("@id", id);
 
             // Lecture des données
             SqlDataReader monReader = cmd.ExecuteReader();
@@ -582,7 +585,7 @@ namespace UtilisateursDAL
 
             while (monReader.Read())
             {
-                Flux fluxEleve = new Flux(Convert.ToDateTime(monReader["Date_flux"]), monReader["Libelle_flux"].ToString(), Convert.ToInt32(monReader["Montant_flux"]), Convert.ToInt32(monReader["#Id_typeflux"]), Convert.ToInt32(monReader["Prelevementeff_flux"]));
+                Flux fluxEleve = new Flux(Convert.ToDateTime(monReader["Date_flux"]), monReader["Libelle_flux"].ToString(), Convert.ToInt32(monReader["Montant_flux"]), Convert.ToInt32(monReader["Id_typeflux"]), Convert.ToInt32(monReader["Prelevementeff_flux"]));
 
                 lesFluxEleve.Add(fluxEleve);
             }
@@ -705,6 +708,7 @@ namespace UtilisateursDAL
             {
                 cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%') AND Autprelev_adherent = @autorise AND Prend_sweat = @sweat";
             }
+            
             else
             {
                 cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%') AND Id_classe = @classe AND Autprelev_adherent = @autorise AND Prend_sweat = @sweat";

@@ -112,7 +112,7 @@ namespace UtilisateursGUI
                 // Création d'une en-tête de colonne pour la colonne 2
                 DataGridViewTextBoxColumn LibelleColumnFluxEleve = new DataGridViewTextBoxColumn();
                 LibelleColumnFluxEleve.DataPropertyName = "Libelle";
-                LibelleColumnFluxEleve.HeaderText = "libele";
+                LibelleColumnFluxEleve.HeaderText = "libelle";
 
                 // Création d'une en-tête de colonne pour la colonne 3
                 DataGridViewTextBoxColumn MontantColumnFluxEleve = new DataGridViewTextBoxColumn();
@@ -121,13 +121,13 @@ namespace UtilisateursGUI
             
                 // Création d'une en-tête de colonne pour la colonne 4
                 DataGridViewTextBoxColumn TypeColumnFluxEleve = new DataGridViewTextBoxColumn();
-                TypeColumnFluxEleve.DataPropertyName = "Type";
-                TypeColumnFluxEleve.HeaderText = "Type";
+                TypeColumnFluxEleve.DataPropertyName = "Type_flux";
+                TypeColumnFluxEleve.HeaderText = "type_flux";
 
                 // Création d'une en-tête de colonne pour la colonne 5
                 DataGridViewTextBoxColumn PrelevDejaEffColumnFluxEleve = new DataGridViewTextBoxColumn();
                 PrelevDejaEffColumnFluxEleve.DataPropertyName = "PrelevementDejaEff";
-                PrelevDejaEffColumnFluxEleve.HeaderText = "libelleBudget";
+                PrelevDejaEffColumnFluxEleve.HeaderText = "prelevementEffectué";
 
             // Ajout des en-têtes de colonne pour les débits
             debits.Columns.Add(IdColumnDebit);
@@ -177,11 +177,11 @@ namespace UtilisateursGUI
 
             // Définition du style apporté au datagridview des flux des eleves
             fluxEleve.ColumnHeadersVisible = false;
-            TypeColumnFluxEleve.Width = 50;
-            DateColumnFluxEleve.Width = 110;
-            LibelleColumnFluxEleve.Width = 110;
-            MontantColumnFluxEleve.Width = 110;
-            PrelevDejaEffColumnFluxEleve.Width = 110;
+            TypeColumnFluxEleve.Width = 80;
+            DateColumnFluxEleve.Width = 80;
+            LibelleColumnFluxEleve.Width = 100;
+            MontantColumnFluxEleve.Width = 60;
+            PrelevDejaEffColumnFluxEleve.Width = 60;
 
             // Récupération des débits
             var lesDebits = new List<Flux>();
@@ -312,11 +312,11 @@ namespace UtilisateursGUI
         }
         private void eleve_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = Convert.ToInt32(resultats.Rows[e.RowIndex].Cells[0].Value); ;
+            int idEleveChoisit = Convert.ToInt32(resultats.Rows[e.RowIndex].Cells[0].Value);
 
-            rowIdResultat = id;
+            rowIdResultat = idEleveChoisit;
 
-            Adherent adherent = Gestion.GetUnAdherent(id);
+            Adherent adherent = Gestion.GetUnAdherent(idEleveChoisit);
 
             nomEleve.Text = adherent.Nom;
             prenomEleve.Text = adherent.Prenom;
@@ -343,7 +343,7 @@ namespace UtilisateursGUI
             sweatPrisEleve.Visible = true;
             // Récupération des flux des elèves
             var lesFluxEleves = new List<Flux>();
-            lesFluxEleves = Gestion.GetFluxEleve();
+            lesFluxEleves = Gestion.GetFluxEleve(idEleveChoisit);
             fluxEleve.DataSource = lesFluxEleves;
         }
 
