@@ -705,14 +705,7 @@ namespace UtilisateursDAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
 
-            cmd.CommandText = "SELECT Id_adherent, Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT";
-
-            if (idClasse != -1)
-            {
-                cmd.CommandText += ", CLASSE WHERE #Id_classe = Id_classe";
-            }
-
-            cmd.CommandText += " AND(Nom_adherent LIKE '%' + @eleve + '%' OR Prenom_adherent LIKE '%' + @eleve + '%')";
+            cmd.CommandText = "SELECT Id_adherent, Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND(Nom_adherent LIKE '%' + @eleve + '%' OR Prenom_adherent LIKE '%' + @eleve + '%')";
 
             if (idClasse != -1)
             {
