@@ -17,8 +17,8 @@ namespace UtilisateursGUI
         private static int rowIdDebit;
         private static int rowIdCredit;
         private static int rowIdResultat;
-        int autorise = 2;
-        int sweat = 2;
+        int autorise = -1;
+        int sweat = -1;
 
         public Comptabilite()
         {
@@ -90,11 +90,16 @@ namespace UtilisateursGUI
                 resultats.AutoGenerateColumns = false;
 
                 // Création d'une en-tête de colonne pour la colonne 1
+                DataGridViewTextBoxColumn IdColumnEleve = new DataGridViewTextBoxColumn();
+                IdColumnEleve.DataPropertyName = "Id";
+                IdColumnEleve.HeaderText = "id";
+
+                // Création d'une en-tête de colonne pour la colonne 2
                 DataGridViewTextBoxColumn NomColumnEleve = new DataGridViewTextBoxColumn();
                 NomColumnEleve.DataPropertyName = "Nom";
                 NomColumnEleve.HeaderText = "nom";
 
-                // Création d'une en-tête de colonne pour la colonne 2
+                // Création d'une en-tête de colonne pour la colonne 3
                 DataGridViewTextBoxColumn PrenomColumnEleve = new DataGridViewTextBoxColumn();
                 PrenomColumnEleve.DataPropertyName = "Prenom";
                 PrenomColumnEleve.HeaderText = "prenom";
@@ -144,6 +149,7 @@ namespace UtilisateursGUI
             credits.Columns.Add(BudgetColumnCredit);
 
             // Ajout des en-têtes de colonne pour les resultats
+            resultats.Columns.Add(IdColumnEleve);
             resultats.Columns.Add(NomColumnEleve);
             resultats.Columns.Add(PrenomColumnEleve);
 
@@ -172,8 +178,9 @@ namespace UtilisateursGUI
 
             // Définition du style apporté au datagridview des resultats
             resultats.ColumnHeadersVisible = false;
-            NomColumnEleve.Width = 190;
-            PrenomColumnEleve.Width = 190;
+            IdColumnEleve.Width = 128;
+            NomColumnEleve.Width = 128;
+            PrenomColumnEleve.Width = 128;
 
             // Définition du style apporté au datagridview des flux des eleves
             fluxEleve.ColumnHeadersVisible = false;

@@ -100,6 +100,7 @@
             this.classeEleve = new System.Windows.Forms.Label();
             this.prelevementAutoEleve = new System.Windows.Forms.Label();
             this.sweatPrisEleve = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.debits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.credits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultats)).BeginInit();
@@ -828,7 +829,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(789, 209);
+            this.label17.Location = new System.Drawing.Point(843, 209);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(75, 24);
             this.label17.TabIndex = 83;
@@ -838,7 +839,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(557, 209);
+            this.label31.Location = new System.Drawing.Point(678, 209);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(50, 24);
             this.label31.TabIndex = 84;
@@ -899,11 +900,22 @@
             this.sweatPrisEleve.Text = "Sweat";
             this.sweatPrisEleve.Visible = false;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(519, 209);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(26, 24);
+            this.label10.TabIndex = 90;
+            this.label10.Text = "Id";
+            // 
             // Comptabilite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1920, 711);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.sweatPrisEleve);
             this.Controls.Add(this.prelevementAutoEleve);
             this.Controls.Add(this.classeEleve);
@@ -1062,5 +1074,6 @@
         private System.Windows.Forms.Label classeEleve;
         private System.Windows.Forms.Label prelevementAutoEleve;
         private System.Windows.Forms.Label sweatPrisEleve;
+        private System.Windows.Forms.Label label10;
     }
 }

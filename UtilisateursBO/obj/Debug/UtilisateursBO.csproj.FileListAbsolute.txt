@@ -32,3 +32,4 @@ C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursBO\obj\Debug\UtilisateursBO.csproj.CoreCompileInputs.cache
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursBO\obj\Debug\UtilisateursBO.dll
 C:\Users\eveno\OneDrive\Bureau\VRAI PROJET\test\Gestion-Association-Sportive-C-\UtilisateursBO\obj\Debug\UtilisateursBO.pdb
+C:\projets\Gestion-Association-Sportive\Gestion-Association-Sportive\UtilisateursBO\obj\Debug\UtilisateursBO.csprojAssemblyReference.cache

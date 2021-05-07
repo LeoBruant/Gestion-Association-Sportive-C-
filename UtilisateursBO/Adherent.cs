@@ -86,8 +86,9 @@ namespace UtilisateursBO
         }
 
         // constructeur utilisé pour le filtre d'élèves
-        public Adherent(string nom, string prenom, string classe, int autorisePrelev, int prendSweat)
+        public Adherent(int id, string nom, string prenom, string classe, int autorisePrelev, int prendSweat)
         {
+            this.id = id;
             this.nom = nom;
             this.prenom = prenom;
             this.libelleClasse = classe;

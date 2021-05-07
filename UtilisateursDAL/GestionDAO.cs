@@ -704,17 +704,34 @@ namespace UtilisateursDAL
             // Requette sql
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            if (idClasse == -1)
+
+            cmd.CommandText = "SELECT Id_adherent, Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT";
+
+            if (idClasse != -1)
             {
-                cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%') AND Autprelev_adherent = @autorise AND Prend_sweat = @sweat";
-            }
-            
-            else
-            {
-                cmd.CommandText = "SELECT Nom_adherent, Prenom_adherent, #Id_classe, Id_classe, Libelle_classe, Autprelev_adherent, Prend_sweat FROM ADHERENT, CLASSE WHERE #Id_classe = Id_classe AND (Nom_adherent LIKE '%'+@eleve+'%' OR Prenom_adherent LIKE '%'+@eleve+'%') AND Id_classe = @classe AND Autprelev_adherent = @autorise AND Prend_sweat = @sweat";
+                cmd.CommandText += ", CLASSE WHERE #Id_classe = Id_classe";
             }
 
-            // Ajout des paramètres
+            cmd.CommandText += " AND(Nom_adherent LIKE '%' + @eleve + '%' OR Prenom_adherent LIKE '%' + @eleve + '%')";
+
+            if (idClasse != -1)
+            {
+                cmd.CommandText += " AND Id_classe = @classe";
+                cmd.Parameters.AddWithValue("@classe", idClasse);
+            }
+
+            if (autorisePrelevement != -1)
+            {
+                cmd.CommandText += " AND Autprelev_adherent = @autorise";
+                cmd.Parameters.AddWithValue("@autorise", autorisePrelevement);
+            }
+
+            if (prendSweat != -1)
+            {
+                cmd.CommandText += " AND Prend_sweat = @sweat";
+                cmd.Parameters.AddWithValue("@sweat", prendSweat);
+            }
+
             if (eleveText == "")
             {
                 cmd.Parameters.AddWithValue("@eleve", "");
@@ -724,44 +741,18 @@ namespace UtilisateursDAL
                 cmd.Parameters.AddWithValue("@eleve", eleveText);
             }
 
-            if (idClasse == -1)
-            {
-                cmd.Parameters.AddWithValue("@classe", "");
-            }
-            else
-            {
-                cmd.Parameters.AddWithValue("@classe", idClasse);
-            }
-
-            if (autorisePrelevement == 2)
-            {
-                cmd.Parameters.AddWithValue("@autorise", "");
-            }
-            else
-            {
-                cmd.Parameters.AddWithValue("@autorise", autorisePrelevement);
-            }
-
-            if (prendSweat == 2)
-            {
-                cmd.Parameters.AddWithValue("@sweat", "");
-            }
-            else
-            {
-                cmd.Parameters.AddWithValue("@sweat", prendSweat);
-            }
-
             // Lecture des données
             SqlDataReader monReader = cmd.ExecuteReader();
 
             var lesAdherents = new List<Adherent>();
-
+            
             while (monReader.Read())
             {
-                Adherent adherent = new Adherent(monReader["Nom_adherent"].ToString(), monReader["Prenom_adherent"].ToString(), monReader["Libelle_classe"].ToString(), Convert.ToInt32(monReader["Autprelev_adherent"]), Convert.ToInt32(monReader["Prend_sweat"]));
+                Adherent adherent = new Adherent(Convert.ToInt32(monReader["Id_adherent"]), monReader["Nom_adherent"].ToString(), monReader["Prenom_adherent"].ToString(), monReader["Libelle_classe"].ToString(), Convert.ToInt32(monReader["Autprelev_adherent"]), Convert.ToInt32(monReader["Prend_sweat"]));
 
                 lesAdherents.Add(adherent);
             }
+
             monReader.Close();
             maConnexion.Close();
 
