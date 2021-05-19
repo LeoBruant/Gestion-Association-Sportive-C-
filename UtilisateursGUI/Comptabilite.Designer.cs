@@ -711,8 +711,10 @@
             // 
             // classe
             // 
+            this.classe.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.cLASSEBindingSource, "Libelle_classe", true));
             this.classe.DataSource = this.cLASSEBindingSource;
             this.classe.DisplayMember = "Libelle_classe";
+            this.classe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.classe.FormattingEnabled = true;
             this.classe.Location = new System.Drawing.Point(80, 282);
             this.classe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -839,7 +841,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(678, 209);
+            this.label31.Location = new System.Drawing.Point(677, 209);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(50, 24);
             this.label31.TabIndex = 84;
@@ -882,7 +884,7 @@
             // 
             this.prelevementAutoEleve.AutoSize = true;
             this.prelevementAutoEleve.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prelevementAutoEleve.Location = new System.Drawing.Point(210, 636);
+            this.prelevementAutoEleve.Location = new System.Drawing.Point(211, 636);
             this.prelevementAutoEleve.Name = "prelevementAutoEleve";
             this.prelevementAutoEleve.Size = new System.Drawing.Size(113, 24);
             this.prelevementAutoEleve.TabIndex = 88;
@@ -893,7 +895,7 @@
             // 
             this.sweatPrisEleve.AutoSize = true;
             this.sweatPrisEleve.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sweatPrisEleve.Location = new System.Drawing.Point(118, 678);
+            this.sweatPrisEleve.Location = new System.Drawing.Point(117, 678);
             this.sweatPrisEleve.Name = "sweatPrisEleve";
             this.sweatPrisEleve.Size = new System.Drawing.Size(59, 24);
             this.sweatPrisEleve.TabIndex = 89;
